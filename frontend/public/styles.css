@@ -34,6 +34,18 @@
   flex-direction: column;
 }
 
+@media screen and (max-width: 720px) {
+  .loginDialog{
+    width: 90vw;
+    height: 70vh;
+  }
+}
+@media screen and (min-width: 721px ) and (max-width: 1200px) {
+  .loginDialog{
+    width: 40vw;
+  }
+}
+
 .loginTitle{
     margin: 10%;
 }
@@ -41,6 +53,9 @@
     display: flex;
     flex-direction: column;
     width: 75%;
-
+    margin: 5%;
 }
 
+.authButton{
+  background-color: green;
+}
