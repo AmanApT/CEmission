@@ -7,6 +7,7 @@
 /* <---------------------------Auth---------------------------> */
 
 .loginAuth {
+  font-family: Poppins, sans-serif;
   background: url("./images/auth.jpg");
   background-size: 100% 100%;
   background-repeat: no-repeat;
@@ -19,15 +20,14 @@
 
 .loginDialog {
   /* From https://css.glass */
-  background: rgba(255, 255, 255, 0.24);
+  background: rgba(255, 255, 255, 0.55);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(4.5px);
   -webkit-backdrop-filter: blur(4.5px);
   border: 1px solid rgba(255, 255, 255, 0.36);
-
-  height: 80vh;
-  width: 30vw;
+  height: 68vh;
+  width: 28vw;
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -35,27 +35,107 @@
 }
 
 @media screen and (max-width: 720px) {
-  .loginDialog{
+  .loginDialog {
     width: 90vw;
     height: 70vh;
   }
 }
-@media screen and (min-width: 721px ) and (max-width: 1200px) {
-  .loginDialog{
+@media screen and (min-width: 721px) and (max-width: 1200px) {
+  .loginDialog {
     width: 40vw;
   }
 }
 
-.loginTitle{
-    margin: 10%;
+.loginTitle {
+  /* margin: 12%; */
+  margin-top: 15%;
+  margin-bottom: 5%;
+  font-size: 27px;
+  color: #093a2f;
 }
-.authInput{
-    display: flex;
-    flex-direction: column;
-    width: 75%;
-    margin: 5%;
+.authInput {
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+  margin: 5%;
 }
 
-.authButton{
-  background-color: green;
+.authButton {
+  margin: 5%;
+  padding: 3%;
+  border-radius: 10px;
+  background-color: #165a4a;
+  width: 75%;
+  color: white;
+  border-style: none;
+}
+
+/* <---------------------------------Question Page 1 ---------------------------> */
+
+.questionPage1 {
+  font-family: Poppins, sans-serif;
+  background: url("./images/questionbackground.png");
+  background-size: 100% 100%;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+.questionDiv1 {
+  width: 70%;
+  color: #021410;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.questionElectricity {
+  width: 70%;
+  margin: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.questionGas {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.nextQuestionPage {
+  margin: 2%;
+  padding: 1%;
+  border-radius: 5px;
+  background-color: #165a4a;
+  width: 12%;
+  color: white;
+  border-style: none;
+}
+
+.progressBar {
+  margin-top: -5%;
+  margin-bottom: 3%;
+  display: flex;
+  justify-content: center;
+}
+
+.progess {
+  background-color: #165a4a;
+  width: 160px;
+  height: 4px;
+}
+
+@media only screen and (max-width: 660px) {
+  .progess {
+    width: 120px;
+  }
+}
+
+.progressBar label {
+  color: rgb(83, 75, 75);
 }

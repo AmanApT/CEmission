@@ -1,44 +1,71 @@
-import React from "react";
+import React, { useState } from "react";
 import TextField from "@mui/material/TextField";
 import { styled } from "@mui/material/styles";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import auth from "../firebase";
 
-const Login = () => {
-  const CssTextField = styled(TextField)({
-    "& label.Mui-focused": {
-      color: "black",
-    },
-    "& .MuiInput-underline:after": {
-      borderBottomColor: "black",
-    },
-    "& .MuiOutlinedInput-root": {
-      "& fieldset": {
-        borderColor: "black",
-      },
-      "&.Mui-focused fieldset": {
-        borderColor: "black",
-      },
-    },
-  });
+const Login = ({ setToggleAuth, setLoggedUser }) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleClick = () => {
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        setLoggedUser(user);
+        // ...
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const warning = errorCode.slice(5, errorCode.length);
+        alert(warning);
+        // const errorMessage = error.message;
+        // alert(warning);
+      });
+  };
 
   return (
     <div className="loginAuth">
       <div className="loginDialog">
         <h1 className="loginTitle">WELCOME BACK</h1>
         <div className="authInput">
-          <CssTextField label="Email" id="custom-css-outlined-input" />
+          <TextField
+            // className="authInput"
+            label="Email"
+            id="custom-css-outlined-input"
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
+          />
         </div>
 
         <div className="authInput">
-          <CssTextField
+          <TextField
+            // className="authInput"
             type="password"
             label="Password"
             id="custom-css-outlined-input"
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
           />
         </div>
-        <button className="authButton"> Login</button>
+        <button className="authButton" onClick={handleClick}>
+          Login
+        </button>
         <div>
-          <h4>Don't have an account ? </h4>
-          <h4>Sign Up</h4>
+          <h4 style={{ display: "inline", fontWeight: "500" }}>
+            Don't have an account ?{" "}
+          </h4>
+          <h4
+            onClick={() => {
+              setToggleAuth(true);
+            }}
+            style={{ display: "inline", color: "#165A4A", fontWeight: "700" }}
+          >
+            Sign Up
+          </h4>
         </div>
       </div>
     </div>
