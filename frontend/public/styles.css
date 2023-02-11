@@ -1,5 +1,46 @@
-*{
-    margin:0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
+
+/* <---------------------------Auth---------------------------> */
+
+.loginAuth {
+  background: url("./images/auth.jpg");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loginDialog {
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.24);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4.5px);
+  -webkit-backdrop-filter: blur(4.5px);
+  border: 1px solid rgba(255, 255, 255, 0.36);
+
+  height: 80vh;
+  width: 30vw;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.loginTitle{
+    margin: 10%;
+}
+.authInput{
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+
+}
+
