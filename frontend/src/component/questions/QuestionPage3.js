@@ -8,12 +8,12 @@ const QuestionPage1 = () => {
         <div className="progressBar">
           <div>
             <label>01</label>
-            <div className="progess" style={{backgroundColor:"white"}}></div>
+            <div className="progess" style={{backgroundColor:"#165a4a"}}></div>
           </div>
 
           <div>
             <label>02</label>
-            <div className="progess" style={{backgroundColor:"white"}}></div>
+            <div className="progess" style={{backgroundColor:"#165a4a"}}></div>
           </div>
           <div>
             <label>03</label>
@@ -27,7 +27,7 @@ const QuestionPage1 = () => {
         </div>
 
         <div className="questionElectricity">
-          <h1>How much is your monthly Electricity Bill?</h1>
+          <h1>How many number of flights did you take past year?</h1>
           <TextField
             style={{ width: "60%", margin: "3%" }}
             id="filled-basic"
@@ -37,11 +37,11 @@ const QuestionPage1 = () => {
         </div>
 
         <div className="questionGas">
-          <h1>How much is your monthly Gas Bill?</h1>
+          <h1>How many number of flights did you take past year?</h1>
           <TextField
             style={{ width: "60%", margin: "3%" }}
             id="filled-basic"
-            label="Rs."
+            label="Km"
             variant="filled"
           />
         </div>

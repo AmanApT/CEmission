@@ -91,7 +91,7 @@
 }
 
 .questionElectricity {
-  width: 70%;
+  width: 90%;
   margin: 5%;
   display: flex;
   flex-direction: column;
@@ -100,7 +100,7 @@
 }
 
 .questionGas {
-  width: 70%;
+  width: 90%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -118,14 +118,14 @@
 }
 
 .progressBar {
-  margin-top: -5%;
+  /* margin-top: -5%; */
   margin-bottom: 3%;
   display: flex;
   justify-content: center;
 }
 
 .progess {
-  background-color: #165a4a;
+  /* background-color: #165a4a; */
   width: 160px;
   height: 4px;
 }
