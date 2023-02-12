@@ -80,6 +80,7 @@
   height: 100vh;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 .questionDiv1 {
   width: 70%;
@@ -138,4 +139,66 @@
 
 .progressBar label {
   color: rgb(83, 75, 75);
+}
+
+
+.resultDiv {
+  font-family: Poppins, sans-serif;
+  background: url("./images/result-bg-2.png");
+  /* background-image: url("./images/result-bg-2.jpg"); */
+  background-size: 100% 100%;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* opacity: 0.2; */
+}
+.resultSubDiv {
+  /* background-color: red; */
+  margin-top: 3%;
+  width: 55%;
+  height: 65vh;
+  display: flex;
+}
+@media only screen and (max-width: 850px) {
+  .resultSubDiv {
+    width: 60%;
+  }
+}
+
+.resultLeft {
+  background-image: url("https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/26e71882-6d8e-4d4b-8136-ae80a3f8fc7a/980acbc2-8a97-49f4-8e5c-27c5a932a980?org_if_sml=17399");
+  border-radius: 0 0 0 10px;
+  flex: 0.6;
+}
+.resultRight {
+  background-image: url("https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/26e71882-6d8e-4d4b-8136-ae80a3f8fc7a/e04b013f-dedb-491b-8452-c30bbf9033ce?org_if_sml=14435");
+  border-radius: 0 10px 10px 0;
+  flex: 0.4;
+  opacity: 1;
+  /* background-color: #165a4a; */
+}
+
+.resultLogo {
+  position: absolute;
+  top: 10%;
+  left: 19%;
+  width: 20rem;
+}
+/* .resultInputInfo {
+  display: flex;
+  flex-direction: column;
+  gap:20%;
+} */
+.resultInputEachInfo {
+  margin-top: 2%;
+}
+.carbonEmissionResult {
+  height: 100vh;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: flex-end; */
+  align-items: center;
 }

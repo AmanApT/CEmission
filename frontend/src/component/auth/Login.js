@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import TextField from "@mui/material/TextField";
-import { styled } from "@mui/material/styles";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import auth from "../firebase";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Login = ({ setToggleAuth, setLoggedUser }) => {
   const [email, setEmail] = useState("");
@@ -19,11 +20,23 @@ const Login = ({ setToggleAuth, setLoggedUser }) => {
       .catch((error) => {
         const errorCode = error.code;
         const warning = errorCode.slice(5, errorCode.length);
-        alert(warning);
+        notify(warning);
         // const errorMessage = error.message;
         // alert(warning);
       });
   };
+
+  const notify = (warning) =>
+    toast.warn(warning, {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
 
   return (
     <div className="loginAuth">
@@ -68,6 +81,18 @@ const Login = ({ setToggleAuth, setLoggedUser }) => {
           </h4>
         </div>
       </div>
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </div>
   );
 };

@@ -1,28 +1,39 @@
 import React from "react";
 import TextField from "@mui/material/TextField";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 
-const QuestionPage1 = () => {
+const QuestionPage4 = ({ setToggleQuestion }) => {
   return (
     <div className="questionPage1">
+      <ArrowBackIosIcon onClick={() => setToggleQuestion(3)} />
       <div className="questionDiv1">
         <div className="progressBar">
           <div>
             <label>01</label>
-            <div className="progess" style={{backgroundColor:"#165a4a"}}></div>
+            <div
+              className="progess"
+              style={{ backgroundColor: "#165a4a" }}
+            ></div>
           </div>
 
           <div>
             <label>02</label>
-            <div className="progess" style={{backgroundColor:"#165a4a"}}></div>
+            <div
+              className="progess"
+              style={{ backgroundColor: "#165a4a" }}
+            ></div>
           </div>
           <div>
             <label>03</label>
-            <div className="progess" style={{backgroundColor:"#165a4a"}}></div>
+            <div
+              className="progess"
+              style={{ backgroundColor: "#165a4a" }}
+            ></div>
           </div>
 
           <div>
             <label>04</label>
-            <div className="progess" style={{backgroundColor:"white"}}></div>
+            <div className="progess" style={{ backgroundColor: "white" }}></div>
           </div>
         </div>
 
@@ -45,10 +56,15 @@ const QuestionPage1 = () => {
             variant="filled"
           />
         </div>
-        <button className="nextQuestionPage">NEXT</button>
+        <button
+          className="nextQuestionPage"
+          onClick={() => setToggleQuestion(5)}
+        >
+          RESULTS
+        </button>
       </div>
     </div>
   );
 };
 
-export default QuestionPage1;
+export default QuestionPage4;
