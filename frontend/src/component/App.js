@@ -24,7 +24,9 @@ function App() {
   const [loggedUser, setLoggedUser] = useState("");
 
   return (
-    <div>{loggedUser ? <Home /> : <Auth setLoggedUser={setLoggedUser} />}</div>
+    // <div>{loggedUser ? <Home /> : <Auth setLoggedUser={setLoggedUser} />}</div>
+<div> <Home/></div>
+
   );
 }
 

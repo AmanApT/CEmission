@@ -202,3 +202,26 @@
   /* justify-content: flex-end; */
   align-items: center;
 }
+
+/* <-----------------------------Home Page ------------------------------> */
+
+.navBar{
+  width: 100vw;
+  height: 20vh;
+  background-color: white;
+}
+
+.mainFirst{
+  font-family: Poppins, sans-serif;
+  width:100vw;
+  height: 80vh;
+  background: url("./images/rectangle_11.png");
+  background-size: 100% 100%;
+}
+
+.mainFirstDiv{
+  font-size: 25px;
+  color: white;
+  width: 20vw;
+
+}

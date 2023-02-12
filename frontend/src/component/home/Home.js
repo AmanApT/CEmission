@@ -31,7 +31,7 @@ const Home = () => {
   //     },
   //   });
 
-  //   // 3) parse response
+    //// 3) parse response 
   //   //   const data = response.json();
   //   console.log(response);
   //   //   return data;

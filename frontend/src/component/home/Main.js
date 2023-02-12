@@ -2,11 +2,19 @@ import React from "react";
 
 const Main = ({ setHomeQuestion, homeQuestion }) => {
   return (
-    <>
-      <button onClick={() => setHomeQuestion(1)}>
+    <div>
+      <nav className="navBar"></nav>
+
+      <div className="mainFirst">
+        <div className="mainFirstDiv">
+          <h1>ITS TIME TO OFFSET YOUR CARBON FOOTPRINTS EMISSION</h1>
+        </div>
+      </div>
+
+      {/* <button onClick={() => setHomeQuestion(1)}>
         Question dekhne ke liye mujhe dabaye
-      </button>
-    </>
+      </button> */}
+    </div>
   );
 };
 
