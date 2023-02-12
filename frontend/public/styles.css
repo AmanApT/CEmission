@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Unna&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -217,11 +219,286 @@
   height: 80vh;
   background: url("./images/rectangle_11.png");
   background-size: 100% 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  /* padding: 8rem; */
 }
 
 .mainFirstDiv{
   font-size: 25px;
   color: white;
-  width: 20vw;
+  /* color: rgb(71, 64, 64); */
+  width: 36vw;
+  margin-left: 12%;
+  /* text-align: center; */
+  /* text-align: left; */
+}
 
+
+.miniSection{
+  background-color: #EAF1F0;
+  width: 100vw;
+  height: 45vh;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+.getStartedBtn{
+  margin-top: 3%;
+  padding: 3% 7%;
+  border: 2px solid #165a4a;
+  font-weight: 900;
+  font-size: 1rem;
+}
+
+.headingMinSection{
+  font-family: 'Unna', serif;
+  font-size: 22px;
+}
+
+.miniSectionDescription{
+  font-family: Poppins, sans-serif;
+}
+
+/* <--------------------------------------------CardsSection----------------------------------> */
+
+
+.cardsSection{
+
+  font-family: Poppins, sans-serif;
+  width: 100vw;
+  height: 100vh;
+  background-color: #165a4a;
+  padding: 7% 4%;
+}
+
+.cardsSectionHeading{
+  width: 50%;
+  font-size: 50px;
+  color: white;
+}
+
+.cardsSectionHeading_Description{
+display: flex;
+
+}
+
+.cardsSectionDescription{
+  width: 80%;
+  margin-left: 20%;
+  color:white;
+  font-size: 20px;
+  display: block;
+  margin-bottom: 2%;
+  /* display: flex; */
+  /* flex-direction: column; */
+}
+
+
+.cardsSectionMiniDescription{
+text-decoration: underline;
+  width: 60%;
+  margin-left: 20%;
+  color:white;
+  font-size: 15px;
+  margin-top: 1%;
+  /* display: block; */
+}
+
+/* <-------------------------------------------Did You Know Section----------------------------> */
+
+
+.didYouKnow{
+  background-color: #EAF1F0;
+  font-family: Poppins, sans-serif;
+  display: flex;
+  /* justify-content: center; */
+  gap:10%;
+  padding: 5%;
+}
+
+.leafImage{
+  width: 20%;
+}
+
+.headingDidYouKnow{
+  font-size: 48px;
+  margin-top: 5%;
+  margin-bottom: 2%;
+}
+
+.textDidYouKnow{
+  color: #393b3b;
+  margin-bottom: 4%;
+  line-height: 1.8;
+}
+
+.subHeadingDidYouKnow{
+font-size: 24px;
+font-weight: 700;
+color: #165a4a;
+line-height: 1.2;
+}
+
+
+/* <----------------------------------------Calculate Carbon Emission Section------------------------------------> */
+
+#calculateCarbonEmission{
+  font-family: Poppins, sans-serif;
+  background:url("./images/rectangle_13abcd.png");
+  background-size: 100% 100%;
+  width: 100vw;
+  height: 100vh;
+}
+
+.calculateMainDiv{
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  text-align: center;
+}
+
+.calculateHeading{
+  font-size: 43px;
+  margin-top: 5%;
+text-align: center;
+/* width: 40%; */
+line-height: 1.5;
+
+}
+.calculationBoxes{
+  display: flex;
+  gap:1%;
+  justify-content: center;
+  
+}
+
+.box1{
+  opacity: 0.9;
+width: 35vw;
+height: 45vh ;
+background-color: #165a4a;
+border-radius: 5px;
+font-size: 40px;
+color: white;
+font-weight: 600;
+text-align: center;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+/* <---------------------------------------Graph----------------------------------------> */
+
+
+#graph{
+  width: 100vw;
+  height: 70vh;
+  background-color: #EAF1F0;
+  padding: 5%;
+}
+
+.graphHeading{
+  font-size: 50px;
+  font-family: Poppins, sans-serif;
+  color:#0d1818
+}
+
+/* <---------------------------------------Contact Us-----------------------------------------> */
+
+
+#contactUs{
+  font-family: Poppins, sans-serif;
+  background-color: #a5f8ec;
+  width:100vw;
+  height: 45vh;
+  display: flex;
+}
+
+.getInTouch{
+margin-top: 2%;
+margin-bottom: 2%;
+color:#242525;
+font-size: 20px;
+
+}
+.contactUsLeft{
+padding: 5%;
+flex: 0.5;
+}
+
+.contactUsLeftJoin{
+font-size: 24px;
+margin-top: 1%;
+width: 40%;
+}
+.contactUsLeftJoin2{
+font-size: 20px;
+width: 100%;
+}
+.email{
+  width: 100%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+.emailInfo{
+  padding: 2px;
+  background-color: #9effea;
+  color: rgb(20, 63, 7);
+  margin-top: 1%;
+  width: 100%;
+}
+.emailInfo:hover{
+  color: rgb(39, 9, 94);
+  text-decoration: underline;
+}
+.socialLinks{
+
+  margin-top: 1%;
+}
+.linkedIn{
+  background: url("./images/linkedin.png");
+  width: 24px;
+  height: 24px;
+  margin-left: 10px;
+}
+.instagram{
+  background: url("./images/instagram.png");
+  width: 24px;
+  height: 24px;
+  margin-left: 10px;
+}
+.twitter{
+  background: url("./images/twitter.png");
+  width: 24px;
+  height: 24px;
+  margin-left: 10px;
+}
+.facebook{
+  background: url("./images/facebook.png");
+  width: 24px;
+  height: 24px;
+  margin-left: 10px;
+}
+.contactUsRight{
+  flex:0.5;
+}
+
+.inputFieldDiv{
+  display: flex;
+  flex-direction: column;
+}
+.inputField{
+  width: 40%;
+  padding: 1%;
+  margin-bottom: 1%;
+  border: 1px solid #165a4a;
+}
+.inputFieldM{
+  width: 40%;
+  border: 1px solid #165a4a;
+  padding: 1.5% ;
+  padding-bottom: 10%;
+  
 }

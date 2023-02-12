@@ -1,8 +1,36 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import logo from "../questions/logo_v2_1.png";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import { collection, addDoc } from "firebase/firestore";
+import { db } from "../firebase";
 
-const Result = ({ setToggleQuestion }) => {
+const Result = ({
+  setToggleQuestion,
+  eBill,
+  gBill,
+  oBill,
+  carMileage,
+  flight,
+  flight2,
+  newspaper,
+  tin,
+  toggleResult,
+  finalInArr,
+}) => {
+  // useEffect(() => {
+  //   inArr.push(eBill);
+  //   inArr.push(gBill);
+  //   inArr.push(oBill);
+  //   inArr.push(carMileage);
+  //   inArr.push(flight);
+  //   inArr.push(flight2);
+  //   inArr.push(newspaper);
+  //   inArr.push(tin);
+  //   inArr = inArr.slice(0, 8);
+  //   finalInArr = inArr;
+  //   // console.log(finalInArr);
+  // }, []);
+
   return (
     <div className="resultDiv">
       <ArrowBackIosIcon onClick={() => setToggleQuestion(4)} />

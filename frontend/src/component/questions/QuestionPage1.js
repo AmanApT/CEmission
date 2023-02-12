@@ -1,12 +1,53 @@
 import React from "react";
 import TextField from "@mui/material/TextField";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 // import Home from "../home/Home";
 
-const QuestionPage1 = ({ setToggleQuestion, setHomeQuestion }) => {
+const QuestionPage1 = ({
+  setToggleQuestion,
+  setHomeQuestion,
+  eBill,
+  setEBill,
+  gBill,
+  setGBill,
+}) => {
+  const handleClick = () => {
+    if (!eBill || !gBill) {
+      notify();
+    } else {
+      setToggleQuestion(2);
+    }
+  };
+
+  const notify = () =>
+    toast.error("Please fill in all details", {
+      position: "top-center",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+
   return (
     <div className="questionPage1">
       <ArrowBackIosIcon onClick={() => setHomeQuestion(0)} />
+      <ToastContainer
+        position="top-center"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
       <div className="questionDiv1">
         <div className="progressBar">
           <div>
@@ -37,6 +78,8 @@ const QuestionPage1 = ({ setToggleQuestion, setHomeQuestion }) => {
             label="Rs."
             variant="filled"
             required
+            value={eBill}
+            onChange={(e) => setEBill(e.target.value)}
           />
         </div>
 
@@ -48,12 +91,11 @@ const QuestionPage1 = ({ setToggleQuestion, setHomeQuestion }) => {
             label="Rs."
             variant="filled"
             required
+            value={gBill}
+            onChange={(e) => setGBill(e.target.value)}
           />
         </div>
-        <button
-          className="nextQuestionPage"
-          onClick={() => setToggleQuestion(2)}
-        >
+        <button className="nextQuestionPage" onClick={handleClick}>
           NEXT
         </button>
       </div>

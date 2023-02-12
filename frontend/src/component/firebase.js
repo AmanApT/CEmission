@@ -1,5 +1,6 @@
 import { getAuth } from "firebase/auth";
 import firebase from "firebase/compat/app";
+import { getFirestore } from "firebase/firestore";
 
 //To initialize firebase in react app
 const app = firebase.initializeApp({
@@ -13,5 +14,8 @@ const app = firebase.initializeApp({
 });
 
 const auth = getAuth(app);
+
+// Initialize Cloud Firestore and get a reference to the service
+export const db = getFirestore(app);
 
 export default auth;

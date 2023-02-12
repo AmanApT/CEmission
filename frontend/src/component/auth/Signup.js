@@ -4,13 +4,15 @@ import React, { useState } from "react";
 import auth from "../firebase";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { db } from "../firebase";
+import { collection, addDoc } from "firebase/firestore";
 
 const Signup = ({ setToggleAuth, setLoggedUser }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleClick = () => {
-    console.log(email);
+  const handleClick = async () => {
+    // console.log(email);
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
@@ -25,6 +27,15 @@ const Signup = ({ setToggleAuth, setLoggedUser }) => {
         notify(warning);
         // ..
       });
+
+    try {
+      const docRef = await addDoc(collection(db, "userinfo"), {
+        email: email,
+      });
+      console.log("Document written with ID: ", docRef.id);
+    } catch (e) {
+      console.error("Error adding document: ", e);
+    }
   };
 
   const notify = (warning) =>

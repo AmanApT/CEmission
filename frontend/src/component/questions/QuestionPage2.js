@@ -1,11 +1,51 @@
 import React from "react";
 import TextField from "@mui/material/TextField";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-const QuestionPage2 = ({ setToggleQuestion }) => {
+const QuestionPage2 = ({
+  setToggleQuestion,
+  oBill,
+  setOBill,
+  carMileage,
+  setCarMileage,
+}) => {
+  const handleClick = () => {
+    if (!oBill || !carMileage) {
+      notify();
+    } else {
+      setToggleQuestion(3);
+    }
+  };
+
+  const notify = () =>
+    toast.error("Please fill in all details", {
+      position: "top-center",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+
   return (
     <div className="questionPage1">
       <ArrowBackIosIcon onClick={() => setToggleQuestion(1)} />
+      <ToastContainer
+        position="top-center"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
       <div className="questionDiv1">
         <div className="progressBar">
           <div>
@@ -38,6 +78,8 @@ const QuestionPage2 = ({ setToggleQuestion }) => {
             id="filled-basic"
             label="Rs."
             variant="filled"
+            value={oBill}
+            onChange={(e) => setOBill(e.target.value)}
           />
         </div>
 
@@ -48,12 +90,11 @@ const QuestionPage2 = ({ setToggleQuestion }) => {
             id="filled-basic"
             label="Km"
             variant="filled"
+            value={carMileage}
+            onChange={(e) => setCarMileage(e.target.value)}
           />
         </div>
-        <button
-          className="nextQuestionPage"
-          onClick={() => setToggleQuestion(3)}
-        >
+        <button className="nextQuestionPage" onClick={handleClick}>
           NEXT
         </button>
       </div>

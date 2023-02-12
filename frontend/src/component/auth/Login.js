@@ -15,6 +15,7 @@ const Login = ({ setToggleAuth, setLoggedUser }) => {
         // Signed in
         const user = userCredential.user;
         setLoggedUser(user);
+        console.log(user);
         // ...
       })
       .catch((error) => {
