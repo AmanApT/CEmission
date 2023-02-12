@@ -96,7 +96,7 @@ const Main = ({ setHomeQuestion, homeQuestion }) => {
             <br /> Carbon Footprint Today
           </p>
 
-          <div className="calculationBoxes">
+          <div className="calculationBoxes" onClick={()=> setHomeQuestion(1)}>
             <div className="box1">
               <div>
                 {" "}

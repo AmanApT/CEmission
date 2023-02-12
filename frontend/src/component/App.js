@@ -30,6 +30,9 @@ function App() {
       ) : (
         <Auth setLoggedUser={setLoggedUser} />
       )}
+
+     
+     
     </div>
   );
 }

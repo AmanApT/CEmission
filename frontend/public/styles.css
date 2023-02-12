@@ -417,27 +417,34 @@ align-items: center;
 }
 
 .getInTouch{
-margin-top: 2%;
+margin-top: 5%;
 margin-bottom: 2%;
-color:#242525;
+color:#292b2b;
 font-size: 20px;
 
 }
 .contactUsLeft{
 padding: 5%;
+padding-left: 18%;
 flex: 0.5;
 }
 
 .contactUsLeftJoin{
-font-size: 24px;
+  color: #3b3b3b;
+font-size: 28px;
+font-weight: 700;
 margin-top: 1%;
 width: 40%;
 }
 .contactUsLeftJoin2{
-font-size: 20px;
+  color: #3b3b3b;
+  font-size: 24px;
+  font-weight: 700;
+
 width: 100%;
 }
 .email{
+  color: #252525;
   width: 100%;
   margin-top: 2%;
   margin-bottom: 2%;

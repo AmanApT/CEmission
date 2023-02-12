@@ -16,6 +16,7 @@ const Result = ({
   tin,
   toggleResult,
   finalInArr,
+  opArr,
 }) => {
   // useEffect(() => {
   //   inArr.push(eBill);
@@ -77,7 +78,7 @@ const Result = ({
         <div className="resultRight">
           <div className="carbonEmissionResult">
             <p>Your Average Carbon Emission is :</p>
-            <h1> 223.4 tonnes</h1>
+            <h1> {opArr[0]} tonnes</h1>
           </div>
         </div>
       </div>

@@ -32,6 +32,7 @@ const QuestionPage4 = ({
   setTin,
   loggedUser,
   finalInArr,
+  setOpArr,
 }) => {
   // const [userinfo, setUserinfo] = useState("");
 
@@ -39,6 +40,10 @@ const QuestionPage4 = ({
   let userId = "";
 
   let [inArr, setInArr] = useState([]);
+
+  // const description = [1000, 1000, 1200, 10000, 4, 4, 0, 0];
+
+  const api = "http://127.0.0.1:5000/query1";
 
   const handleClick = async () => {
     if (!newspaper || !tin) {
@@ -82,6 +87,26 @@ const QuestionPage4 = ({
     await updateDoc(washingtonRef, {
       info: arrayUnion({ in: finalInArr, timestamp: new Date() }),
     });
+
+    const response = await fetch(`${api}?description=${finalInArr}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    // 3) parse response
+    response.json().then((value) => {
+      setOpArr(value);
+    });
+    // const result = PromiseResult;
+    // const firstElement = result[0];
+    // const secondElement = result[1];
+    // console.log(firstElement);
+    // console.log(secondElement);
+    // console.log(data);
+
+    // console.log(response.json());
   };
 
   const notify = () =>

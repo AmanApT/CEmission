@@ -15,6 +15,7 @@ const Question = ({ setHomeQuestion, loggedUser }) => {
   const [flight2, setFlight2] = useState("");
   const [newspaper, setNewspaper] = useState("");
   const [tin, setTin] = useState("");
+  const [opArr, setOpArr] = useState([]);
 
   const [toggleResult, setToggleResult] = useState(0);
 
@@ -60,11 +61,13 @@ const Question = ({ setHomeQuestion, loggedUser }) => {
           setTin={setTin}
           setToggleResult={setToggleResult}
           loggedUser={loggedUser}
+          setOpArr={setOpArr}
         />
       ) : (
         <Result
           setToggleQuestion={setToggleQuestion}
           toggleResult={toggleResult}
+          opArr={opArr}
         />
       )}
     </>
