@@ -15,7 +15,6 @@ body::-webkit-scrollbar {
     overflow-x: hidden ;
   }
 }
-
 /* <---------------------------Auth---------------------------> */
 
 .loginAuth {
@@ -325,7 +324,7 @@ margin-left: 5%;
 .cardsSection {
   font-family: Poppins, sans-serif;
   width: 100vw;
-  height: 100vh;
+  height: 110vh;
   background-color: #165a4a;
   padding: 7% 4%;
 }
@@ -360,6 +359,70 @@ margin-left: 5%;
   margin-top: 1%;
   /* display: block; */
 }
+
+
+.mainCardDiv{
+  /* background-color: red; */
+  height: 70vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr ;
+  grid-template-columns: repeat(auto-fill, minmax(1fr));
+  grid-gap: 5px;
+  margin-top: 3%;
+  color: white;
+  /* font-size: 25px; */
+  font-weight: 600;
+
+}
+@media screen and (max-width: 720px) {
+  .mainCardDiv{
+    grid-template-columns: 1fr 1fr 1fr ;
+  } 
+ 
+ }
+
+
+
+
+.card1{
+  display: flex;
+  align-items: flex-end;
+  background:url("./images/cardImage1.png");
+  background-size: 100% 100%;
+  
+}
+.card2{
+  display: flex;
+  align-items: flex-end;
+  background:url("./images/cardImage2.png");
+  background-size: 100% 100%;
+}
+.card3{
+  display: flex;
+  align-items: flex-end;
+  background:url("./images/cardImage3.png");
+  background-size: 100% 100%;
+}
+.card4{
+  display: flex;
+  align-items: flex-end;
+  background:url("./images/cardImage4.png");
+  background-size: 100% 100%;
+}
+.card5{
+  background:url("./images/cardImage5.png");
+  display: flex;
+  align-items: flex-end;
+  background-size: 100% 100%;
+}
+
+
+/* @media screen and (max-width: 720px) {
+  
+ } */
+
+
+
 
 /* <-------------------------------------------Did You Know Section----------------------------> */
 

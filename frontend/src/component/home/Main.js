@@ -76,6 +76,16 @@ const Main = ({ setHomeQuestion, homeQuestion }) => {
             </div>
           </div>
         </div>
+
+            <div className="mainCardDiv">
+              <div className="card1"> <h2> CALCULATE</h2> </div>
+              <div className="card2"> <h2> ANALYZE</h2> </div>
+              <div className="card3"> <h2>REDUCE </h2> </div>
+              <div className="card4"> <h2>OFFSET </h2> </div>
+              <div className="card5"> <h2> REGULAR TRACKING</h2> </div>
+            </div>
+
+
       </div>
 
       {/* .................................Did you know Section............................ */}
