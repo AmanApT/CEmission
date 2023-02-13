@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import QuestionPage1 from "./QuestionPage1";
-import QuestionPage3 from "../questions/QuestionPage3";
-import QuestionPage2 from "../questions/QuestionPage2";
-import QuestionPage4 from "../questions/QuestionPage4";
+import QuestionPage3 from "./QuestionPage3";
+import QuestionPage2 from "./QuestionPage2";
+import QuestionPage4 from "./QuestionPage4";
 import Result from "./Result";
 
 const Question = ({ setHomeQuestion, loggedUser }) => {
@@ -15,7 +15,10 @@ const Question = ({ setHomeQuestion, loggedUser }) => {
   const [flight2, setFlight2] = useState("");
   const [newspaper, setNewspaper] = useState("");
   const [tin, setTin] = useState("");
+  const [inArr, setInArr] = useState([]);
   const [opArr, setOpArr] = useState([]);
+
+  let finalInArr = [];
 
   const [toggleResult, setToggleResult] = useState(0);
 
@@ -61,13 +64,18 @@ const Question = ({ setHomeQuestion, loggedUser }) => {
           setTin={setTin}
           setToggleResult={setToggleResult}
           loggedUser={loggedUser}
+          opArr={opArr}
           setOpArr={setOpArr}
+          inArr={inArr}
+          finalInArr={finalInArr}
         />
       ) : (
         <Result
           setToggleQuestion={setToggleQuestion}
           toggleResult={toggleResult}
           opArr={opArr}
+          inArr={inArr}
+          loggedUser={loggedUser}
         />
       )}
     </>

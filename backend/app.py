@@ -9,7 +9,7 @@ from json import *
 app = Flask(__name__)
 CORS(app, supports_credentials=True)
 model1 = pickle.load(open('individual_RF_model.pickle', 'rb'))
-model2 = pickle.load(open('individual_RF_model.pickle', 'rb'))
+model2 = pickle.load(open('industry_RF_model.pickle', 'rb'))
 
 fin = []
 
@@ -27,7 +27,7 @@ def model_pred_1():
               'No. of flights in past year (4hrs or more)',
               'Recycled Newspaper past year', 'Recycled Aluminium and Tin Past year']
 
-    inputData = [int(i) for i in description.split(',')]
+    inputData = [float(i) for i in description.split(',')]
     print(f"Yaha Input aa rha h ------->  {inputData}")
 
     df = pd.DataFrame(dict(zip(keys_d, inputData)), index=[0])
@@ -49,7 +49,7 @@ def model_pred_2():
               'SiteEUI(kBtu/sf)', 'SourceEUI(kBtu/sf)',
               'SteamUse(kBtu)', 'Electricity(kBtu)', 'NaturalGas(kBtu)']
 
-    inputData = [int(i) for i in description.split(',')]
+    inputData = [float(i) for i in description.split(',')]
 
     df = pd.DataFrame(dict(zip(keys_d, inputData)), index=[0])
 
@@ -57,7 +57,7 @@ def model_pred_2():
 
     print(f"idhar answer h -> {type(inputData)}")
     # prediction.headers.add('Access-Control-Allow-Origin', '*')
-    return jsonify([y_pred, "Something2"])
+    return jsonify([round(y_pred, 3), "Something2"])
 
 
 if __name__ == "__main__":

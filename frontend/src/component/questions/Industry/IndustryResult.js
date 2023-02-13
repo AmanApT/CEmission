@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import logo from "../questions/logo_v2_1.png";
+// import logo from '../';
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import { collection, addDoc } from "firebase/firestore";
-import { db } from "../firebase";
+import { db } from "../../firebase";
 
-const Result = ({
+const IndustryResult = ({
   setToggleQuestion,
   eBill,
   gBill,
@@ -16,7 +16,7 @@ const Result = ({
   tin,
   toggleResult,
   finalInArr,
-  opArr,
+  opArrIndustry,
 }) => {
   // useEffect(() => {
   //   inArr.push(eBill);
@@ -35,7 +35,7 @@ const Result = ({
   return (
     <div className="resultDiv">
       <ArrowBackIosIcon onClick={() => setToggleQuestion(4)} />
-      <img className="resultLogo" src={logo} alt="React Logo" />
+      {/* <img className="resultLogo" src={logo} alt="React Logo" /> */}
       <div className="resultSubDiv">
         <div className="resultLeft">
           <h2
@@ -78,11 +78,11 @@ const Result = ({
         <div className="resultRight">
           <div className="carbonEmissionResult">
             <p>Your Average Carbon Emission is :</p>
-            <h1> {opArr[0]} tonnes</h1>
+            <h1> {opArrIndustry[0]} tonnes</h1>
           </div>
         </div>
       </div>
     </div>
   );
 };
-export default Result;
+export default IndustryResult;

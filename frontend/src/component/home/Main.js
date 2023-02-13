@@ -1,10 +1,10 @@
 import React from "react";
-import leafImage from "../questions/leaf.png";
-import linkedIn from "../questions/linkedin.png";
-import twitter from "../questions/twitter.png";
-import facebook from "../questions/facebook.png";
-import instagram from "../questions/instagram.png";
-import Dilogue from "./Dilogue"
+import leafImage from "../questions/images/leaf.png";
+import linkedIn from "../questions/images/linkedin.png";
+import twitter from "../questions/images/twitter.png";
+import facebook from "../questions/images/facebook.png";
+import instagram from "../questions/images/instagram.png";
+import Dilogue from "./Dilogue";
 
 const Main = ({ setHomeQuestion, homeQuestion }) => {
   return (
@@ -97,8 +97,8 @@ const Main = ({ setHomeQuestion, homeQuestion }) => {
             <br /> Carbon Footprint Today
           </p>
 
-          <div className="calculationBoxes" onClick={()=> setHomeQuestion(1)}>
-            <div className="box1">
+          <div className="calculationBoxes">
+            <div className="box1" onClick={() => setHomeQuestion(1)}>
               <div>
                 {" "}
                 FOR
@@ -106,7 +106,7 @@ const Main = ({ setHomeQuestion, homeQuestion }) => {
               </div>
             </div>
             <div>
-              <div className="box1">
+              <div className="box1" onClick={() => setHomeQuestion(2)}>
                 FOR <br /> INDUSTRY{" "}
               </div>
             </div>
@@ -119,11 +119,7 @@ const Main = ({ setHomeQuestion, homeQuestion }) => {
       <section id="graph">
         <p className="graphHeading">My Footprint</p>
 
-
-     <Dilogue />
-
-
-
+        <Dilogue />
       </section>
 
       {/* .............................................Contact Us............................................. */}

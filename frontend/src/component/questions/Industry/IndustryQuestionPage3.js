@@ -5,19 +5,19 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 // import Home from "../home/Home";
 
-const QuestionPage1 = ({
+const IndustryQuestionPage3 = ({
   setToggleQuestion,
   setHomeQuestion,
-  eBill,
-  setEBill,
-  gBill,
-  setGBill,
+  sourceEUI,
+  setSourceEUI,
+  steam,
+  setSteam,
 }) => {
   const handleClick = () => {
-    if (!eBill || !gBill) {
+    if (!sourceEUI || !steam) {
       notify();
     } else {
-      setToggleQuestion(2);
+      setToggleQuestion(4);
     }
   };
 
@@ -35,7 +35,7 @@ const QuestionPage1 = ({
 
   return (
     <div className="questionPage1">
-      <ArrowBackIosIcon onClick={() => setHomeQuestion(0)} />
+      <ArrowBackIosIcon onClick={() => setToggleQuestion(2)} />
       <ToastContainer
         position="top-center"
         autoClose={2000}
@@ -52,12 +52,18 @@ const QuestionPage1 = ({
         <div className="progressBar">
           <div>
             <label>01</label>
-            <div className="progess" style={{ backgroundColor: "white" }}></div>
+            <div
+              className="progess"
+              style={{ backgroundColor: "#165a4a" }}
+            ></div>
           </div>
 
           <div>
             <label>02</label>
-            <div className="progess" style={{ backgroundColor: "white" }}></div>
+            <div
+              className="progess"
+              style={{ backgroundColor: "#165a4a" }}
+            ></div>
           </div>
           <div>
             <label>03</label>
@@ -71,28 +77,29 @@ const QuestionPage1 = ({
         </div>
 
         <div className="questionElectricity">
-          <h1>How many floors are there in the industry?</h1>
+          <h1>What is the SourceEUI(kBtu/sf)?</h1>
+
           <TextField
             style={{ width: "60%", margin: "3%" }}
             id="filled-basic"
             label="Rs."
             variant="filled"
             required
-            value={eBill}
-            onChange={(e) => setEBill(e.target.value)}
+            value={sourceEUI}
+            onChange={(e) => setSourceEUI(e.target.value)}
           />
         </div>
 
         <div className="questionGas">
-          <h1>What is the PropertyGFAParking?</h1>
+          <h1>What is the SteamUse(kBtu)?</h1>
           <TextField
             style={{ width: "60%", margin: "3%" }}
             id="filled-basic"
             label="Rs."
             variant="filled"
             required
-            value={gBill}
-            onChange={(e) => setGBill(e.target.value)}
+            value={steam}
+            onChange={(e) => setSteam(e.target.value)}
           />
         </div>
         <button className="nextQuestionPage" onClick={handleClick}>
@@ -103,4 +110,4 @@ const QuestionPage1 = ({
   );
 };
 
-export default QuestionPage1;
+export default IndustryQuestionPage3;

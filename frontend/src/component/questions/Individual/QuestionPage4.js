@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import TextField from "@mui/material/TextField";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import Checkbox from "@mui/material/Checkbox";
@@ -15,7 +15,7 @@ import {
   doc,
   serverTimestamp,
 } from "firebase/firestore";
-import { db } from "../firebase";
+import { db } from "../../firebase";
 
 const QuestionPage4 = ({
   setToggleQuestion,
@@ -32,18 +32,18 @@ const QuestionPage4 = ({
   setTin,
   loggedUser,
   finalInArr,
+  opArr,
   setOpArr,
+  inArr,
 }) => {
   // const [userinfo, setUserinfo] = useState("");
 
   let userinfo = {};
   let userId = "";
 
-  let [inArr, setInArr] = useState([]);
+  // const [callApi, setCallApi] = useState("");
 
   // const description = [1000, 1000, 1200, 10000, 4, 4, 0, 0];
-
-  const api = "http://127.0.0.1:5000/query1";
 
   const handleClick = async () => {
     if (!newspaper || !tin) {
@@ -51,8 +51,11 @@ const QuestionPage4 = ({
     } else {
       setToggleQuestion(5);
       setToggleResult(1);
+      // setCallApi("1");
     }
 
+    // useEffect(async () => {
+    const api = "http://127.0.0.1:5000/query1";
     // console.log(loggedUser);
 
     inArr.push(eBill);
@@ -63,7 +66,7 @@ const QuestionPage4 = ({
     inArr.push(flight2);
     inArr.push(newspaper);
     inArr.push(tin);
-    inArr = inArr.slice(0, 8);
+    inArr = inArr.slice(inArr.length - 8, inArr.length + 1);
     finalInArr = inArr;
 
     const q = query(
@@ -83,11 +86,6 @@ const QuestionPage4 = ({
     const washingtonRef = doc(db, "userinfo", userId);
     console.log(`final array -> ${finalInArr}`);
 
-    // Set the "capital" field of the city 'DC'
-    await updateDoc(washingtonRef, {
-      info: arrayUnion({ in: finalInArr, timestamp: new Date() }),
-    });
-
     const response = await fetch(`${api}?description=${finalInArr}`, {
       method: "POST",
       headers: {
@@ -96,17 +94,14 @@ const QuestionPage4 = ({
     });
 
     // 3) parse response
-    response.json().then((value) => {
+    await response.json().then(async (value) => {
       setOpArr(value);
+      await updateDoc(washingtonRef, {
+        info: arrayUnion({ in: finalInArr, timestamp: new Date(), op: value }),
+      });
     });
-    // const result = PromiseResult;
-    // const firstElement = result[0];
-    // const secondElement = result[1];
-    // console.log(firstElement);
-    // console.log(secondElement);
-    // console.log(data);
 
-    // console.log(response.json());
+    // Set the "capital" field of the city 'DC'
   };
 
   const notify = () =>

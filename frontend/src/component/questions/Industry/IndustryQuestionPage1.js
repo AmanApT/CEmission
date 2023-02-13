@@ -5,16 +5,16 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 // import Home from "../home/Home";
 
-const QuestionPage1 = ({
+const IndustryQuestionPage1 = ({
   setToggleQuestion,
   setHomeQuestion,
-  eBill,
-  setEBill,
-  gBill,
-  setGBill,
+  floor,
+  setFloor,
+  parking,
+  setParking,
 }) => {
   const handleClick = () => {
-    if (!eBill || !gBill) {
+    if (!floor || !parking) {
       notify();
     } else {
       setToggleQuestion(2);
@@ -52,7 +52,7 @@ const QuestionPage1 = ({
         <div className="progressBar">
           <div>
             <label>01</label>
-            <div className="progess" style={{ backgroundColor: "#165a4a" }}></div>
+            <div className="progess" style={{ backgroundColor: "white" }}></div>
           </div>
 
           <div>
@@ -71,29 +71,28 @@ const QuestionPage1 = ({
         </div>
 
         <div className="questionElectricity">
-        <h1>What is the PropertyGFABuilding(s)?</h1>
-         
+          <h1>How many floors are there in the industry?</h1>
           <TextField
             style={{ width: "60%", margin: "3%" }}
             id="filled-basic"
             label="Rs."
             variant="filled"
             required
-            value={eBill}
-            onChange={(e) => setEBill(e.target.value)}
+            value={floor}
+            onChange={(e) => setFloor(e.target.value)}
           />
         </div>
 
         <div className="questionGas">
-        <h1>What is the SiteEUI(kBtu/sf)?</h1>
+          <h1>What is the PropertyGFAParking?</h1>
           <TextField
             style={{ width: "60%", margin: "3%" }}
             id="filled-basic"
             label="Rs."
             variant="filled"
             required
-            value={gBill}
-            onChange={(e) => setGBill(e.target.value)}
+            value={parking}
+            onChange={(e) => setParking(e.target.value)}
           />
         </div>
         <button className="nextQuestionPage" onClick={handleClick}>
@@ -104,4 +103,4 @@ const QuestionPage1 = ({
   );
 };
 
-export default QuestionPage1;
+export default IndustryQuestionPage1;
