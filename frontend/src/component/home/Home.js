@@ -9,6 +9,20 @@ import Question from "../questions/Individual/Question";
 import IndustryQuestion from "../questions/Industry/IndustryQuestion";
 import Login from "../auth/Login";
 import Main from "./Main";
+import { async } from "@firebase/util";
+import {
+  collection,
+  addDoc,
+  getDocs,
+  query,
+  where,
+  arrayUnion,
+  updateDoc,
+  doc,
+  serverTimestamp,
+} from "firebase/firestore";
+import { db } from "../firebase";
+
 
 const Home = ({ loggedUser }) => {
   useEffect(()=>{
@@ -16,6 +30,8 @@ const Home = ({ loggedUser }) => {
   }, []);
   //   const [pageToggle, setPageToggle] = useState(0);
   const [homeQuestion, setHomeQuestion] = useState(0);
+
+
 
   // const description = [1000, 1000, 1200, 10000, 4, 4, 0, 0];
 
@@ -35,6 +51,34 @@ const Home = ({ loggedUser }) => {
   //   // response();
   // };
 
+  // let  userinfo = {}
+  // useEffect(()=>{
+
+  //   const getData = async()=> {
+  //     const q = query(
+  //       collection(db, "userinfo"),
+  //       where("email", "==", loggedUser.email)
+  //     );
+    
+  //     const querySnapshot = await getDocs(q);
+  //     console.log(querySnapshot);
+  //     querySnapshot.forEach((doc) => {
+  //       // doc.data() is never undefined for query doc snapshots
+  //       // console.log(doc.id, " => ", doc.data());
+  //       userinfo = doc.data().info;
+  //       // console.log(userinfo);
+
+  //       // userId = doc.id;
+  //     });
+  //   }
+  //   getData();
+
+
+  // },[])
+
+
+ 
+
   return (
     <div>
       {/* <button onClick={handleClick}>Send Api Request</button> */}
@@ -46,7 +90,7 @@ const Home = ({ loggedUser }) => {
           loggedUser={loggedUser}
         />
       ) : (
-        <Main setHomeQuestion={setHomeQuestion} homeQuestion={homeQuestion} />
+        <Main setHomeQuestion={setHomeQuestion} homeQuestion={homeQuestion} loggedUser={loggedUser}/>
       )}
     </div>
   );

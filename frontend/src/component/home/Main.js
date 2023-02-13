@@ -7,7 +7,7 @@ import facebook from "../questions/images/facebook.png";
 import instagram from "../questions/images/instagram.png";
 import Dilogue from "./Dilogue";
 
-const Main = ({ setHomeQuestion, homeQuestion }) => {
+const Main = ({ setHomeQuestion, homeQuestion,userinfo,loggedUser }) => {
   return (
     <div>
       <nav className="navBar">
@@ -140,7 +140,7 @@ const Main = ({ setHomeQuestion, homeQuestion }) => {
       <section data-aos="fade" id="graph">
         <p className="graphHeading">My Footprint</p>
 
-        <Dilogue />
+        <Dilogue loggedUser={loggedUser} />
       </section>
 
       {/* .............................................Contact Us............................................. */}

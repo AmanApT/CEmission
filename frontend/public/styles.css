@@ -771,3 +771,44 @@ margin-left: 5%;
 .popup.active .dismiss-btn {
   transition: all 300ms ease-in-out 400ms;
 }
+
+/* <---------------------------------Table-----------------------------> */
+
+.tableParent {
+  overflow-x: scroll;
+}
+
+.tableParent::-webkit-scrollbar {
+  display: none;
+}
+
+.table {
+  margin-top: 2%;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.table td,
+.table th {
+  padding: 4px;
+}
+
+.table tr:nth-child(odd) {
+  background-color: #efeaf8;
+}
+
+.table tr:hover {
+  background-color: #ddd;
+}
+
+.table th {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-align: left;
+  background-color: rgb(135, 35, 206);
+  color: white;
+}
+
+.special-td {
+  word-break: break-word;
+}
