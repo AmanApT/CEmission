@@ -36,7 +36,7 @@ def model_pred_1():
 
     print(f"idhar answer h -> {type(inputData)}")
     # prediction.headers.add('Access-Control-Allow-Origin', '*')
-    return jsonify([y_pred, "Something1"])
+    return jsonify([round(y_pred, 3), "Something1"])
 
 
 @app.route('/query2', methods=['POST'])
