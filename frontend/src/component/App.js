@@ -10,13 +10,13 @@ function App() {
 
   return (
     <div>
-      {loggedUser ? (
+      {/* {loggedUser ? (
         <Home loggedUser={loggedUser} />
       ) : (
         <Auth setLoggedUser={setLoggedUser} />
-      )}
+      )} */}
 
-      {/* <Main /> */}
+      <Home />
     </div>
   );
 }

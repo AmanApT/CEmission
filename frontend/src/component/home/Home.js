@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 // import QuestionPage1 from "../questions/QuestionPage1";
 // import QuestionPage3 from "../questions/QuestionPage3";
 // import QuestionPage2 from "../questions/QuestionPage2";
@@ -9,13 +11,15 @@ import Login from "../auth/Login";
 import Main from "./Main";
 
 const Home = ({ loggedUser }) => {
+  useEffect(()=>{
+    AOS.init({duration: 1000})
+  }, []);
   //   const [pageToggle, setPageToggle] = useState(0);
   const [homeQuestion, setHomeQuestion] = useState(0);
 
   // const description = [1000, 1000, 1200, 10000, 4, 4, 0, 0];
 
   // const api = "http://127.0.0.1:5000/query1";
-
   // const handleClick = async () => {
   //   const response = await fetch(`${api}?description=${description}`, {
   //     method: "POST",

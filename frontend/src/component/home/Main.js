@@ -1,5 +1,6 @@
 import React from "react";
 import leafImage from "../questions/images/leaf.png";
+import logo_v2_1 from "../questions/logo_v2_1.png";
 import linkedIn from "../questions/images/linkedin.png";
 import twitter from "../questions/images/twitter.png";
 import facebook from "../questions/images/facebook.png";
@@ -9,9 +10,19 @@ import Dilogue from "./Dilogue";
 const Main = ({ setHomeQuestion, homeQuestion }) => {
   return (
     <div>
-      <nav className="navBar"></nav>
+      <nav className="navBar">
+        <div className="navbarImage">
+          <img className="logo_v2_1" src={logo_v2_1} alt="React Logo" />
+        </div>
 
-      <div className="mainFirst">
+        <div className="navbarRightFields">
+          <p>HOME</p>
+          <p>CALCULATE</p>
+          <p>MY FOOTPRINT</p>
+        </div>
+      </nav>
+
+      <div  className="mainFirst">
         <div className="mainFirstDiv">
           <h1>ITS TIME TO OFFSET YOUR CARBON FOOTPRINTS EMISSION</h1>
         </div>
@@ -19,7 +30,7 @@ const Main = ({ setHomeQuestion, homeQuestion }) => {
 
       {/* .................................Mini Section............................ */}
 
-      <div className="miniSection">
+      <div data-aos="fade"className="miniSection">
         <div style={{ width: "50%", marginTop: "2%" }}>
           <div className="headingMinSection" style={{ width: "100%" }}>
             <h1 style={{ color: "#165a4a", fontWeight: "400" }}>
@@ -47,7 +58,7 @@ const Main = ({ setHomeQuestion, homeQuestion }) => {
 
       {/* .................................Card Section............................ */}
 
-      <div className="cardsSection">
+      <div  data-aos="fade" className="cardsSection">
         <div className="cardsSectionHeading_Description">
           <p className="cardsSectionHeading">
             A simple and streamlined process
@@ -69,7 +80,7 @@ const Main = ({ setHomeQuestion, homeQuestion }) => {
 
       {/* .................................Did you know Section............................ */}
 
-      <div className="didYouKnow">
+      <div  data-aos="fade" className="didYouKnow">
         <img className="leafImage" src={leafImage} alt="React Logo" />
 
         <div className="didYouKnowDescription">
@@ -90,7 +101,7 @@ const Main = ({ setHomeQuestion, homeQuestion }) => {
 
       {/* ..........................................Calculate Section....................................... */}
 
-      <section id="calculateCarbonEmission">
+      <section  data-aos="fade" id="calculateCarbonEmission">
         <div className="calculateMainDiv">
           <p className="calculateHeading">
             Calculate Your
@@ -116,7 +127,7 @@ const Main = ({ setHomeQuestion, homeQuestion }) => {
 
       {/* ...............................................Graph Section........................................ */}
 
-      <section id="graph">
+      <section data-aos="fade" id="graph">
         <p className="graphHeading">My Footprint</p>
 
         <Dilogue />
@@ -124,7 +135,7 @@ const Main = ({ setHomeQuestion, homeQuestion }) => {
 
       {/* .............................................Contact Us............................................. */}
 
-      <section id="contactUs">
+      <section data-aos="fade" id="contactUs">
         <div className="contactUsLeft">
           <p className="contactUsLeftJoin">Join Us</p>
           <p className="contactUsLeftJoin2">Sign Up for our Newsletter!</p>

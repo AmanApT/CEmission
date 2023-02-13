@@ -9,6 +9,13 @@
 body::-webkit-scrollbar {
   display: none;
 }
+
+@media screen and (max-width: 720px) {
+  body {
+    overflow-x: hidden ;
+  }
+}
+
 /* <---------------------------Auth---------------------------> */
 
 .loginAuth {
@@ -209,11 +216,57 @@ body::-webkit-scrollbar {
 
 /* <-----------------------------Home Page ------------------------------> */
 
-.navBar {
-  width: 100vw;
-  height: 20vh;
-  background-color: white;
+@media screen and (max-width: 720px) {
+  
 }
+
+
+/* <------------------------------------------Navbar----------------------------------------> */
+.navBar {
+  font-family: Poppins, sans-serif;
+  width: 100vw;
+  height: 15vh;
+  background-color: white;
+  display: flex;
+  gap:40%;
+  /* justify-content: space-around; */
+  align-items: center;
+
+}
+.navbarImage{
+margin-left: 5%;
+}
+
+.navbarRightFields{
+  width: 30%;
+  display: flex;
+  gap: 7%;
+}
+.navbarRightFields >p{
+  font-size: 19px;
+  color: #242726;
+  cursor: pointer;
+}
+.navbarRightFields >p:hover{
+  color:rgb(40, 70, 19);
+  transition-delay: 300ms;
+  font-weight: 500;
+  
+}
+
+/* .navbarRightFields >p :hover{
+  color: black;
+  font-weight: 800;
+} */
+
+
+
+
+
+
+
+
+
 
 .mainFirst {
   font-family: Poppins, sans-serif;
@@ -225,6 +278,11 @@ body::-webkit-scrollbar {
   justify-content: flex-start;
   align-items: center;
   /* padding: 8rem; */
+}
+@media screen and (max-width: 720px) {
+  .mainFirst {
+    background-size: cover;
+  }
 }
 
 .mainFirstDiv {
@@ -318,6 +376,14 @@ body::-webkit-scrollbar {
   width: 20%;
 }
 
+@media screen and (max-width: 720px) {
+ .leafImage{
+  width: 40%;
+  height: 50%;
+  margin-top: 10%;
+ } 
+}
+
 .headingDidYouKnow {
   font-size: 48px;
   margin-top: 5%;
@@ -346,6 +412,13 @@ body::-webkit-scrollbar {
   width: 100vw;
   height: 100vh;
 }
+
+@media screen and (max-width: 720px) {
+  #calculateCarbonEmission{
+   background-size: cover;
+   height: 60vh;
+  } 
+ }
 
 .calculateMainDiv {
   display: flex;
@@ -380,7 +453,16 @@ body::-webkit-scrollbar {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
+
+@media screen and (max-width: 720px) {
+  .box1{
+    font-size: 30px;
+    width: 40vw;
+    height: 30vh;
+  } 
+ }
 
 /* <---------------------------------------Graph----------------------------------------> */
 
@@ -418,6 +500,10 @@ body::-webkit-scrollbar {
   padding-left: 18%;
   flex: 0.5;
 }
+.contactUsRight{
+  margin-top: 2.5%;
+}
+
 
 .contactUsLeftJoin {
   color: #3b3b3b;
@@ -486,12 +572,14 @@ body::-webkit-scrollbar {
   flex-direction: column;
 }
 .inputField {
-  width: 40%;
+  border-radius: 5px;
+  width: 50%;
   padding: 1%;
   margin-bottom: 1%;
   border: 1px solid #165a4a;
 }
 .inputFieldM {
+  border-radius: 5px;
   width: 40%;
   border: 1px solid #165a4a;
   padding: 1.5%;
