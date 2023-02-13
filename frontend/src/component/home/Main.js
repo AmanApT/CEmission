@@ -4,6 +4,7 @@ import linkedIn from "../questions/linkedin.png";
 import twitter from "../questions/twitter.png";
 import facebook from "../questions/facebook.png";
 import instagram from "../questions/instagram.png";
+import Dilogue from "./Dilogue"
 
 const Main = ({ setHomeQuestion, homeQuestion }) => {
   return (
@@ -117,6 +118,12 @@ const Main = ({ setHomeQuestion, homeQuestion }) => {
 
       <section id="graph">
         <p className="graphHeading">My Footprint</p>
+
+
+     <Dilogue />
+
+
+
       </section>
 
       {/* .............................................Contact Us............................................. */}

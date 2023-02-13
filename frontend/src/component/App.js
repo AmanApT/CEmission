@@ -6,6 +6,7 @@ import Auth from "./auth/Auth";
 import "firebase/compat/firestore";
 import "firebase/compat/auth";
 import Home from "./home/Home";
+import Main from "./home/Main";
 
 // import { useAuthState } from "react-firebase-hooks/auth";
 // import { useCollectionData } from "react-firebase-hooks/firestore";
@@ -25,13 +26,13 @@ function App() {
 
   return (
     <div>
-      {loggedUser ? (
+      {/* {loggedUser ? (
         <Home loggedUser={loggedUser} />
       ) : (
         <Auth setLoggedUser={setLoggedUser} />
-      )}
+      )} */}
 
-     
+     <Main />
      
     </div>
   );
