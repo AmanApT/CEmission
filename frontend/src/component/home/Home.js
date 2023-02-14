@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import AOS from "aos";
+import "aos/dist/aos.css";
 // import QuestionPage1 from "../questions/QuestionPage1";
 // import QuestionPage3 from "../questions/QuestionPage3";
 // import QuestionPage2 from "../questions/QuestionPage2";
@@ -23,15 +23,12 @@ import {
 } from "firebase/firestore";
 import { db } from "../firebase";
 
-
-const Home = ({ loggedUser }) => {
-  useEffect(()=>{
-    AOS.init({duration: 1000})
+const Home = ({ loggedUser, setCheckUser }) => {
+  useEffect(() => {
+    AOS.init({ duration: 1000 });
   }, []);
   //   const [pageToggle, setPageToggle] = useState(0);
   const [homeQuestion, setHomeQuestion] = useState(0);
-
-
 
   // const description = [1000, 1000, 1200, 10000, 4, 4, 0, 0];
 
@@ -59,7 +56,7 @@ const Home = ({ loggedUser }) => {
   //       collection(db, "userinfo"),
   //       where("email", "==", loggedUser.email)
   //     );
-    
+
   //     const querySnapshot = await getDocs(q);
   //     console.log(querySnapshot);
   //     querySnapshot.forEach((doc) => {
@@ -73,11 +70,7 @@ const Home = ({ loggedUser }) => {
   //   }
   //   getData();
 
-
   // },[])
-
-
- 
 
   return (
     <div>
@@ -90,7 +83,12 @@ const Home = ({ loggedUser }) => {
           loggedUser={loggedUser}
         />
       ) : (
-        <Main setHomeQuestion={setHomeQuestion} homeQuestion={homeQuestion} loggedUser={loggedUser}/>
+        <Main
+          setHomeQuestion={setHomeQuestion}
+          homeQuestion={homeQuestion}
+          loggedUser={loggedUser}
+          setCheckUser={setCheckUser}
+        />
       )}
     </div>
   );

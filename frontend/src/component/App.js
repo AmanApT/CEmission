@@ -7,16 +7,21 @@ import Home from "./home/Home";
 
 function App() {
   const [loggedUser, setLoggedUser] = useState("");
+  const [checkUser, setCheckUser] = useState(0);
 
   return (
     <div>
-      {loggedUser ? (
+      {/* {loggedUser ? (
         <Home loggedUser={loggedUser} />
       ) : (
         <Auth setLoggedUser={setLoggedUser} />
+      )} */}
+      {checkUser === 0 ? (
+        <Home setCheckUser={setCheckUser} loggedUser={loggedUser} />
+      ) : (
+        <Auth setCheckUser={setCheckUser} setLoggedUser={setLoggedUser} />
       )}
-
-    
+      {/* <Home /> */}
     </div>
   );
 }

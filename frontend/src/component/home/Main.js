@@ -7,7 +7,29 @@ import facebook from "../questions/images/facebook.png";
 import instagram from "../questions/images/instagram.png";
 import Dilogue from "./Dilogue";
 
-const Main = ({ setHomeQuestion, homeQuestion,userinfo,loggedUser }) => {
+const Main = ({
+  setHomeQuestion,
+  homeQuestion,
+  userinfo,
+  loggedUser,
+  setCheckUser,
+}) => {
+  const handleClick = () => {
+    if (loggedUser) {
+      setHomeQuestion(1);
+    } else {
+      setCheckUser(1);
+    }
+  };
+
+  const handleClick2 = () => {
+    if (loggedUser) {
+      setHomeQuestion(2);
+    } else {
+      setCheckUser(1);
+    }
+  };
+
   return (
     <div>
       <nav className="navBar">
@@ -22,7 +44,7 @@ const Main = ({ setHomeQuestion, homeQuestion,userinfo,loggedUser }) => {
         </div>
       </nav>
 
-      <div  className="mainFirst">
+      <div className="mainFirst">
         <div className="mainFirstDiv">
           <h1>ITS TIME TO OFFSET YOUR CARBON FOOTPRINTS EMISSION</h1>
         </div>
@@ -30,7 +52,7 @@ const Main = ({ setHomeQuestion, homeQuestion,userinfo,loggedUser }) => {
 
       {/* .................................Mini Section............................ */}
 
-      <div data-aos="fade"className="miniSection">
+      <div data-aos="fade" className="miniSection">
         <div style={{ width: "50%", marginTop: "2%" }}>
           <div className="headingMinSection" style={{ width: "100%" }}>
             <h1 style={{ color: "#165a4a", fontWeight: "400" }}>
@@ -58,7 +80,7 @@ const Main = ({ setHomeQuestion, homeQuestion,userinfo,loggedUser }) => {
 
       {/* .................................Card Section............................ */}
 
-      <div  data-aos="fade" className="cardsSection">
+      <div data-aos="fade" className="cardsSection">
         <div className="cardsSectionHeading_Description">
           <p className="cardsSectionHeading">
             A simple and streamlined process
@@ -77,20 +99,33 @@ const Main = ({ setHomeQuestion, homeQuestion,userinfo,loggedUser }) => {
           </div>
         </div>
 
-            <div className="mainCardDiv">
-              <div className="card1"> <h2> CALCULATE</h2> </div>
-              <div className="card2"> <h2> ANALYZE</h2> </div>
-              <div className="card3"> <h2>REDUCE </h2> </div>
-              <div className="card4"> <h2>OFFSET </h2> </div>
-              <div className="card5"> <h2> REGULAR TRACKING</h2> </div>
-            </div>
-
-
+        <div className="mainCardDiv">
+          <div className="card1">
+            {" "}
+            <h2> CALCULATE</h2>{" "}
+          </div>
+          <div className="card2">
+            {" "}
+            <h2> ANALYZE</h2>{" "}
+          </div>
+          <div className="card3">
+            {" "}
+            <h2>REDUCE </h2>{" "}
+          </div>
+          <div className="card4">
+            {" "}
+            <h2>OFFSET </h2>{" "}
+          </div>
+          <div className="card5">
+            {" "}
+            <h2> REGULAR TRACKING</h2>{" "}
+          </div>
+        </div>
       </div>
 
       {/* .................................Did you know Section............................ */}
 
-      <div  data-aos="fade" className="didYouKnow">
+      <div data-aos="fade" className="didYouKnow">
         <img className="leafImage" src={leafImage} alt="React Logo" />
 
         <div className="didYouKnowDescription">
@@ -111,7 +146,7 @@ const Main = ({ setHomeQuestion, homeQuestion,userinfo,loggedUser }) => {
 
       {/* ..........................................Calculate Section....................................... */}
 
-      <section  data-aos="fade" id="calculateCarbonEmission">
+      <section data-aos="fade" id="calculateCarbonEmission">
         <div className="calculateMainDiv">
           <p className="calculateHeading">
             Calculate Your
@@ -119,7 +154,7 @@ const Main = ({ setHomeQuestion, homeQuestion,userinfo,loggedUser }) => {
           </p>
 
           <div className="calculationBoxes">
-            <div className="box1" onClick={() => setHomeQuestion(1)}>
+            <div className="box1" onClick={handleClick}>
               <div>
                 {" "}
                 FOR
@@ -127,7 +162,7 @@ const Main = ({ setHomeQuestion, homeQuestion,userinfo,loggedUser }) => {
               </div>
             </div>
             <div>
-              <div className="box1" onClick={() => setHomeQuestion(2)}>
+              <div className="box1" onClick={handleClick2}>
                 FOR <br /> INDUSTRY{" "}
               </div>
             </div>
@@ -140,7 +175,7 @@ const Main = ({ setHomeQuestion, homeQuestion,userinfo,loggedUser }) => {
       <section data-aos="fade" id="graph">
         <p className="graphHeading">My Footprint</p>
 
-        <Dilogue loggedUser={loggedUser} />
+        <Dilogue loggedUser={loggedUser} setCheckUser={setCheckUser} />
       </section>
 
       {/* .............................................Contact Us............................................. */}

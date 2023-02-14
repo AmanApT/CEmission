@@ -5,23 +5,25 @@ import auth from "../firebase";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const Login = ({ setToggleAuth, setLoggedUser }) => {
+const Login = ({ setToggleAuth, setLoggedUser, setCheckUser }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const handleClick = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
+        // console.log("hello");
         // Signed in
         const user = userCredential.user;
         setLoggedUser(user);
+        setCheckUser(0);
         console.log(user);
         // ...
       })
       .catch((error) => {
         const errorCode = error.code;
-        const warning = errorCode.slice(5, errorCode.length);
-        notify(warning);
+        // const warning = errorCode.slice(5, errorCode.length);
+        notify(errorCode);
         // const errorMessage = error.message;
         // alert(warning);
       });
