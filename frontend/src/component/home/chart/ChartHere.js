@@ -109,11 +109,13 @@ const ChartHere = ({ loggedUser }) => {
 
       setUserData({
         // labels: userinfo.map((data) => data.year),
-        labels: [1, 2, 3, 4, 5, 6],
+        labels: [1, 2, 3, 4, 5, 6,7,8,9,10],
         datasets: [
           {
-            label: "Users Gained",
+            label: "Carbon Emissions",
             backgroundColor: "#165A4A",
+            maintainAspectRatio: 'false',
+            // barThickness: 100,
             data: userinfo.flatMap((innerArr) =>
               innerArr.map(({ op }) => op[0])
             ),
@@ -125,9 +127,9 @@ const ChartHere = ({ loggedUser }) => {
   }, [loggedUser.email]);
 
   return (
-    <div>
+    <>
       <Bar data={userData} />
-    </div>
+    </>
   );
 };
 

@@ -176,9 +176,9 @@ const Main = ({
       <section data-aos="fade" id="graph">
         <p className="graphHeading">My Footprint</p>
 
-              <div> 
+              {/* <div style={{width:"100%", height:"90%",marginTop:"4%",marginLeft:"2%"}}> 
               <ChartHere loggedUser={loggedUser}/>
-              </div>
+              </div> */}
 
         {loggedUser ? (
           <Dilogue loggedUser={loggedUser} setCheckUser={setCheckUser} />

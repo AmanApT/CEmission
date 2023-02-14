@@ -531,7 +531,7 @@ margin-left: 5%;
 
 #graph {
   width: 100vw;
-  height: 110vh;
+  height: 120vh;
   background-color: #eaf1f0;
   padding: 5%;
 }
@@ -662,8 +662,8 @@ margin-left: 5%;
   /* Adjust Top and Left to adjust center button */
   position: relative;
   width: 20%;
-  top: -20%;
-  left: 80%;
+  top: -10%;
+  left: 50%;
   /* margin-bottom: 20%; */
   /* bottom:0%; */
 }
