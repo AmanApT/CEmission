@@ -99,10 +99,10 @@ const QuestionPage4 = ({
       await updateDoc(washingtonRef, {
         info: arrayUnion({
           in: finalInArr,
-          timestamp: 1,
+          // timestamp: new Date().getUTCMonth() + 1,
           op: value,
         }),
-        // timestamp: new Date().getUTCMonth() + 1,
+        // 
       });
     });
 

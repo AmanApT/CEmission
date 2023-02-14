@@ -42,33 +42,11 @@ const Dilogue = ({ loggedUser, setCheckUser }) => {
     // }
   }, []);
 
+  let sno=1;
+  let sno2=1;
   const [userInfo, setUserInfo] = useState([]);
+  const [userInfoIndustry, setUserInfoIndustry] = useState([]);
   const [febArr, setFebArr] = useState([]);
-
-  //  userinfo = [];
-  // let userInfoMap = [];
-  // useEffect(() => {
-  //   const getData = async () => {
-  //     const q = query(
-  //       collection(db, "userinfo"),
-  //       where("email", "==", loggedUser.email)
-  //     );
-
-  //     const querySnapshot = await getDocs(q);
-  //     // console.log(querySnapshot);
-  //     querySnapshot.forEach((doc) => {
-  //       // doc.data() is never undefined for query doc snapshots
-  //       // console.log(doc.id, " => ", doc.data());
-  //       userinfo = doc.data().info;
-
-  //       // userId = doc.id;
-  //     });
-
-  //   };
-  //   getData();
-
-  //   console.log(userinfo);
-  // }, []);
 
   const handleClick = async () => {
     const q = query(
@@ -76,12 +54,15 @@ const Dilogue = ({ loggedUser, setCheckUser }) => {
       where("email", "==", loggedUser.email)
     );
 
+   
+
     const querySnapshot = await getDocs(q);
     // console.log(querySnapshot);
     querySnapshot.forEach((doc) => {
       // doc.data() is never undefined for query doc snapshots
       // console.log(doc.id, " => ", doc.data());
       setUserInfo(doc.data().info.reverse());
+      setUserInfoIndustry(doc.data().info2.reverse());
       // if (doc.data().info.timestamp === 2) {
       //   console.log('febArr');
       //   setFebArr(doc.data().info.reverse());
@@ -108,13 +89,14 @@ const Dilogue = ({ loggedUser, setCheckUser }) => {
               aria-controls="panel1a-content"
               id="panel1a-header"
             >
-              <Typography>February</Typography>
+              <Typography>Individual </Typography>
             </AccordionSummary>
             <AccordionDetails>
               <div className="tableParent">
                 <table className="table">
                   <tr>
-                    <th style={{ borderTopLeftRadius: "12px" }}>
+                    <th style={{ borderTopLeftRadius: "12px" }}> # </th>
+                    <th>
                       Electricity Bill
                     </th>
                     <th>Gas Bill</th>
@@ -129,9 +111,10 @@ const Dilogue = ({ loggedUser, setCheckUser }) => {
 
                   {userInfo ? (
                     userInfo.map((eachInfo) => {
-                      if (eachInfo.timestamp === 2) {
+                      
                         return (
                           <tr>
+                            <td> {sno++}</td>
                             <td style={{ fontSize: "13px" }}>
                               {eachInfo.in[0]}
                             </td>
@@ -151,49 +134,17 @@ const Dilogue = ({ loggedUser, setCheckUser }) => {
                               {eachInfo.in[5]}
                             </td>
                             <td style={{ fontSize: "13px" }}>
-                              {eachInfo.in[6]}
+                              {eachInfo.in[6] ==='0'? '❌' : '✅'} 
                             </td>
                             <td style={{ fontSize: "13px" }}>
-                              {eachInfo.in[7]}
-                            </td>
-                            <td style={{ fontSize: "13px" }}>
-                              {eachInfo.op[0]}
-                            </td>
-                          </tr>
-                        );
-                      } else if (eachInfo.timestamp === 1) {
-                        return (
-                          <tr>
-                            <td style={{ fontSize: "13px" }}>
-                              {eachInfo.in[0]}
-                            </td>
-                            <td style={{ fontSize: "13px" }}>
-                              {eachInfo.in[1]}
-                            </td>
-                            <td style={{ fontSize: "13px" }}>
-                              {eachInfo.in[2]}
-                            </td>
-                            <td style={{ fontSize: "13px" }}>
-                              {eachInfo.in[3]}
-                            </td>
-                            <td style={{ fontSize: "13px" }}>
-                              {eachInfo.in[4]}
-                            </td>
-                            <td style={{ fontSize: "13px" }}>
-                              {eachInfo.in[5]}
-                            </td>
-                            <td style={{ fontSize: "13px" }}>
-                              {eachInfo.in[6]}
-                            </td>
-                            <td style={{ fontSize: "13px" }}>
-                              {eachInfo.in[7]}
+                              {eachInfo.in[7] ==='0'? '❌' : '✅'}
                             </td>
                             <td style={{ fontSize: "13px" }}>
                               {eachInfo.op[0]}
                             </td>
                           </tr>
-                        );
-                      }
+                        );                      
+
                     })
                   ) : (
                     <div> Kuch nahi hai lavde</div>
@@ -202,10 +153,79 @@ const Dilogue = ({ loggedUser, setCheckUser }) => {
               </div>
             </AccordionDetails>
           </Accordion>
-          {/* }) */}
-          {/* ) : (
-            <></>
-          )} */}
+
+          
+          <Accordion>
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls="panel1a-content"
+              id="panel1a-header"
+            >
+              <Typography>Industry </Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <div className="tableParent">
+                <table className="table">
+                  <tr>
+                    <th style={{ borderTopLeftRadius: "12px" }}> # </th>
+                    <th>
+                      Electricity Bill
+                    </th>
+                    <th>Gas Bill</th>
+                    <th>Car Mileage</th>
+                    <th>Flight1</th>
+                    <th>Flight2</th>
+                    <th>Oil Bill</th>
+                    <th>Recylcle1</th>
+                    <th>Recycle2</th>
+                    <th style={{ borderTopRightRadius: "12px" }}>C.Emission</th>
+                  </tr>
+
+                  {userInfoIndustry ? (
+                    userInfoIndustry.map((eachInfo) => {
+                      
+                        return (
+                          <tr>
+                            <td> {sno2++}</td>
+                            <td style={{ fontSize: "13px" }}>
+                              {eachInfo.in[0]}
+                            </td>
+                            <td style={{ fontSize: "13px" }}>
+                              {eachInfo.in[1]}
+                            </td>
+                            <td style={{ fontSize: "13px" }}>
+                              {eachInfo.in[2]}
+                            </td>
+                            <td style={{ fontSize: "13px" }}>
+                              {eachInfo.in[3]}
+                            </td>
+                            <td style={{ fontSize: "13px" }}>
+                              {eachInfo.in[4]}
+                            </td>
+                            <td style={{ fontSize: "13px" }}>
+                              {eachInfo.in[5]}
+                            </td>
+                            <td style={{ fontSize: "13px" }}>
+                              {eachInfo.in[6]} 
+                            </td>
+                            <td style={{ fontSize: "13px" }}>
+                              {eachInfo.in[7]}
+                            </td>
+                            <td style={{ fontSize: "13px" }}>
+                              {eachInfo.op[0]}
+                            </td>
+                          </tr>
+                        );                      
+
+                    })
+                  ) : (
+                    <div> Kuch nahi hai lavde</div>
+                  )}
+                </table>
+              </div>
+            </AccordionDetails>
+          </Accordion>
+         
         </div>
         <div class="dismiss-btn">
           <button id="dismiss-popup-btn">Dismiss</button>
