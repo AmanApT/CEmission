@@ -74,7 +74,7 @@ const QuestionPage2 = ({
         <div className="questionElectricity">
           <h1>What is the monthly Oil Bill?</h1>
           <TextField
-            style={{ width: "60%", margin: "3%" }}
+            style={{ width: "30%", margin: "3%" }}
             id="filled-basic"
             label="Rs."
             variant="filled"
@@ -86,7 +86,7 @@ const QuestionPage2 = ({
         <div className="questionGas">
           <h1>What is the yearly car mileage?</h1>
           <TextField
-            style={{ width: "60%", margin: "3%" }}
+            style={{ width: "30%", margin: "3%" }}
             id="filled-basic"
             label="Km"
             variant="filled"

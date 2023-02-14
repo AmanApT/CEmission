@@ -73,9 +73,9 @@ const IndustryQuestionPage1 = ({
         <div className="questionElectricity">
           <h1>How many floors are there in the industry?</h1>
           <TextField
-            style={{ width: "60%", margin: "3%" }}
+            style={{ width: "30%", margin: "3%" }}
             id="filled-basic"
-            label="Rs."
+            label="No"
             variant="filled"
             required
             value={floor}
@@ -86,9 +86,9 @@ const IndustryQuestionPage1 = ({
         <div className="questionGas">
           <h1>What is the PropertyGFAParking?</h1>
           <TextField
-            style={{ width: "60%", margin: "3%" }}
+            style={{ width: "30%", margin: "3%" }}
             id="filled-basic"
-            label="Rs."
+            label=""
             variant="filled"
             required
             value={parking}

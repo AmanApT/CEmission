@@ -80,9 +80,9 @@ const IndustryQuestionPage3 = ({
           <h1>What is the SourceEUI(kBtu/sf)?</h1>
 
           <TextField
-            style={{ width: "60%", margin: "3%" }}
+            style={{ width: "30%", margin: "3%" }}
             id="filled-basic"
-            label="Rs."
+            label=""
             variant="filled"
             required
             value={sourceEUI}
@@ -93,9 +93,9 @@ const IndustryQuestionPage3 = ({
         <div className="questionGas">
           <h1>What is the SteamUse(kBtu)?</h1>
           <TextField
-            style={{ width: "60%", margin: "3%" }}
+            style={{ width: "30%", margin: "3%" }}
             id="filled-basic"
-            label="Rs."
+            label=""
             variant="filled"
             required
             value={steam}

@@ -78,9 +78,9 @@ const QuestionPage3 = ({
           <h1>How many number of flights did you take past year?</h1>
           <p style={{ color: "gray" }}>Duration of flight: 4 hour or less</p>
           <TextField
-            style={{ width: "60%", margin: "3%" }}
+            style={{ width: "30%", margin: "3%" }}
             id="filled-basic"
-            label="Rs."
+            label="No."
             variant="filled"
             value={flight}
             onChange={(e) => setFlight(e.target.value)}
@@ -91,9 +91,9 @@ const QuestionPage3 = ({
           <h1>How many number of flights did you take past year?</h1>
           <p style={{ color: "gray" }}>Duration of flight: 4 hour or more</p>
           <TextField
-            style={{ width: "60%", margin: "3%" }}
+            style={{ width: "30%", margin: "3%" }}
             id="filled-basic"
-            label="Km"
+            label="No."
             variant="filled"
             value={flight2}
             onChange={(e) => setFlight2(e.target.value)}

@@ -77,9 +77,9 @@ const IndustryQuestionPage2 = ({
           <h1>What is the PropertyGFABuilding(s)?</h1>
 
           <TextField
-            style={{ width: "60%", margin: "3%" }}
+            style={{ width: "30%", margin: "3%" }}
             id="filled-basic"
-            label="Rs."
+            label=""
             variant="filled"
             required
             value={building}
@@ -90,9 +90,9 @@ const IndustryQuestionPage2 = ({
         <div className="questionGas">
           <h1>What is the SiteEUI(kBtu/sf)?</h1>
           <TextField
-            style={{ width: "60%", margin: "3%" }}
+            style={{ width: "30%", margin: "3%" }}
             id="filled-basic"
-            label="Rs."
+            label=""
             variant="filled"
             required
             value={siteEUI}
