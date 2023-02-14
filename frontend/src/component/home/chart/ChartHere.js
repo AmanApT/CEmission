@@ -14,8 +14,6 @@ import {
 } from "firebase/firestore";
 import { db } from "../../firebase";
 
-
-
 // const ChartHere = ({loggedUser}) => {
 //   let userinfo=[];
 //   useEffect(() => {
@@ -36,7 +34,7 @@ import { db } from "../../firebase";
 //     };
 //     getData();
 //   },[]);
-  
+
 //   console.log('====================================');
 //   console.log(userinfo);
 //   console.log('====================================');
@@ -79,7 +77,7 @@ import { db } from "../../firebase";
 //     </div>
 //   );
 // };
-const ChartHere = ({loggedUser}) => {
+const ChartHere = ({ loggedUser }) => {
   const [userData, setUserData] = useState({
     labels: [],
     datasets: [
@@ -100,21 +98,25 @@ const ChartHere = ({loggedUser}) => {
       const querySnapshot = await getDocs(q);
       console.log(querySnapshot);
       const userinfo = [];
+      const userinfo2 = [];
+      // const xNo = [];
+      // let len = 0;
       querySnapshot.forEach((doc) => {
         userinfo.push(doc.data().info);
+        userinfo2.push(doc.data().info2);
+        // xNo.push(len + 1);
       });
-        // console.log(userinfo[0][0].op[0]);
-        console.log("😂😂😂😂😂😂😂😂😂");
-
-        // let idk = -1;
 
       setUserData({
         // labels: userinfo.map((data) => data.year),
-        labels:[1,2,3,4], 
+        labels: [1, 2, 3, 4, 5, 6],
         datasets: [
           {
             label: "Users Gained",
-            data: userinfo.map((eachinfo) => eachinfo[0].op[0]),
+            backgroundColor: "#165A4A",
+            data: userinfo.flatMap((innerArr) =>
+              innerArr.map(({ op }) => op[0])
+            ),
           },
         ],
       });
@@ -124,10 +126,9 @@ const ChartHere = ({loggedUser}) => {
 
   return (
     <div>
-      <Bar data={userData} />;
+      <Bar data={userData} />
     </div>
   );
 };
-
 
 export default ChartHere;

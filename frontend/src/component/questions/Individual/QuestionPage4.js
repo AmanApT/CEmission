@@ -14,6 +14,7 @@ import {
   updateDoc,
   doc,
   serverTimestamp,
+  FieldValue,
 } from "firebase/firestore";
 import { db } from "../../firebase";
 
@@ -93,6 +94,8 @@ const QuestionPage4 = ({
       },
     });
 
+    let sno = 1;
+
     // 3) parse response
     await response.json().then(async (value) => {
       setOpArr(value);
@@ -102,7 +105,7 @@ const QuestionPage4 = ({
           // timestamp: new Date().getUTCMonth() + 1,
           op: value,
         }),
-        // 
+        //
       });
     });
 
