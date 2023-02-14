@@ -22,6 +22,8 @@ import {
   serverTimestamp,
 } from "firebase/firestore";
 import { db } from "../firebase";
+import Drawer from "./Drawer";
+
 
 const Home = ({ loggedUser, setCheckUser }) => {
   useEffect(() => {
@@ -29,6 +31,8 @@ const Home = ({ loggedUser, setCheckUser }) => {
   }, []);
   //   const [pageToggle, setPageToggle] = useState(0);
   const [homeQuestion, setHomeQuestion] = useState(0);
+  const [open, setOpen] = useState(false);
+
 
   // const description = [1000, 1000, 1200, 10000, 4, 4, 0, 0];
 
@@ -90,6 +94,7 @@ const Home = ({ loggedUser, setCheckUser }) => {
           setCheckUser={setCheckUser}
         />
       )}
+      
     </div>
   );
 };

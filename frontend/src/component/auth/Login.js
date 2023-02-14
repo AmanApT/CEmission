@@ -67,7 +67,7 @@ const Login = ({ setToggleAuth, setLoggedUser, setCheckUser }) => {
             }}
           />
         </div>
-        <button className="authButton" onClick={handleClick}>
+        <button className="authButton" style={{cursor:"pointer" }} onClick={handleClick}>
           Login
         </button>
         <div>
@@ -78,7 +78,7 @@ const Login = ({ setToggleAuth, setLoggedUser, setCheckUser }) => {
             onClick={() => {
               setToggleAuth(true);
             }}
-            style={{ display: "inline", color: "#165A4A", fontWeight: "700" }}
+            style={{ display: "inline", color: "#165A4A", fontWeight: "700",cursor:"pointer" }}
           >
             Sign Up
           </h4>

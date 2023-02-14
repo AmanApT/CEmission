@@ -17,8 +17,13 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { Drawer } from "@mui/material";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
-const Dilogue = ({ loggedUser, setCheckUser }) => {
+
+
+
+const Dilogue = ({ loggedUser, setCheckUser,open,setOpen }) => {
   useEffect(() => {
     // if (loggedUser) {
     document
@@ -76,11 +81,46 @@ const Dilogue = ({ loggedUser, setCheckUser }) => {
     // console.log("====================================");
   };
 
+  const drawerStyle = {
+    left: 140,
+    top: 80,
+    height: "70%",
+    width: "80.5%",
+    borderTopLeftRadius: 20,
+    borderBottomLeftRadius: 20,
+    borderTopRightRadius: 20,
+    borderBottomRightRadius: 20,
+    backgroundColor: "#ffffff",
+    boxShadow: "none",
+    "@media(max-width: 980px)": {
+      width: "60%",
+      height: "30%",
+    },
+  };
+
+  function handleClick2() {
+    setOpen(false);
+  }
+
+
+
+
   return (
-    <div style={{ height: "100%" }}>
-      <div class="popup center ">
-        <div class="title">Your Carbon Emission history</div>
-        <div class="description">
+  
+    <Drawer
+    selected
+    className="drawer"
+    variant="temporary"
+    anchor="right"
+    open={open}
+    onClose={() => setOpen(false)}
+    PaperProps={{ sx: drawerStyle }}
+  >
+    <div className="drawerTop">
+      <ArrowBackIcon className="arrowBackIcon" onClick={handleClick2} />
+      
+    </div>
+   
           {/* {userInfo ? ( */}
           {/* userInfo.map((eachInfo) => { */}
           <Accordion>
@@ -88,7 +128,7 @@ const Dilogue = ({ loggedUser, setCheckUser }) => {
               expandIcon={<ExpandMoreIcon />}
               aria-controls="panel1a-content"
               id="panel1a-header"
-            >
+              >
               <Typography>Individual </Typography>
             </AccordionSummary>
             <AccordionDetails>
@@ -226,18 +266,8 @@ const Dilogue = ({ loggedUser, setCheckUser }) => {
             </AccordionDetails>
           </Accordion>
          
-        </div>
-        <div class="dismiss-btn">
-          <button id="dismiss-popup-btn">Dismiss</button>
-        </div>
-      </div>
-
-      <div class="center-btn">
-        <button onClick={handleClick} id="open-popup-btn">
-          Show history
-        </button>
-      </div>
-    </div>
+              </Drawer>
+       
   );
 };
 

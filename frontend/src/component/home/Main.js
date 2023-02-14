@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import leafImage from "../questions/images/leaf.png";
 import logo_v2_1 from "../questions/logo_v2_1.png";
 import linkedIn from "../questions/images/linkedin.png";
@@ -6,6 +6,7 @@ import twitter from "../questions/images/twitter.png";
 import facebook from "../questions/images/facebook.png";
 import instagram from "../questions/images/instagram.png";
 import Dilogue from "./Dilogue";
+import Drawer from "./Drawer";
 import ChartHere from "./chart/ChartHere"
 
 const Main = ({
@@ -30,6 +31,8 @@ const Main = ({
       setCheckUser(1);
     }
   };
+
+  const [open, setOpen] = useState(false);
 
   return (
     <div>
@@ -103,23 +106,23 @@ const Main = ({
         <div className="mainCardDiv">
           <div className="card1">
             {" "}
-            <h2> CALCULATE</h2>{" "}
+            <h2 style={{marginBottom:"15%"}}> CALCULATE</h2>{" "}
           </div>
           <div className="card2">
             {" "}
-            <h2> ANALYZE</h2>{" "}
+            <h2  style={{marginBottom:"15%"}}> ANALYZE</h2>{" "}
           </div>
           <div className="card3">
             {" "}
-            <h2>REDUCE </h2>{" "}
+            <h2 style={{marginBottom:"15%"}}>REDUCE </h2>{" "}
           </div>
           <div className="card4">
             {" "}
-            <h2>OFFSET </h2>{" "}
+            <h2 style={{marginBottom:"15%"}}>OFFSET </h2>{" "}
           </div>
           <div className="card5">
             {" "}
-            <h2> REGULAR TRACKING</h2>{" "}
+            <h2 style={{marginBottom:"15%"}}> REGULAR TRACKING</h2>{" "}
           </div>
         </div>
       </div>
@@ -176,16 +179,18 @@ const Main = ({
       <section data-aos="fade" id="graph">
         <p className="graphHeading">My Footprint</p>
 
-              {/* <div style={{width:"100%", height:"90%",marginTop:"4%",marginLeft:"2%"}}> 
+              <div style={{width:"100%", height:"90%",marginTop:"4%",marginLeft:"2%"}}> 
               <ChartHere loggedUser={loggedUser}/>
-              </div> */}
+              </div>
 
         {loggedUser ? (
-          <Dilogue loggedUser={loggedUser} setCheckUser={setCheckUser} />
+          <Dilogue setOpen={setOpen} open={open} loggedUser={loggedUser} setCheckUser={setCheckUser} />
         ) : (
           <>
           </>
         )}
+<button onClick={()=> setOpen(true)} >Click Me </button>
+{/* <Drawer setOpen={setOpen} open={open} /> */}
       </section>
 
       {/* .............................................Contact Us............................................. */}
