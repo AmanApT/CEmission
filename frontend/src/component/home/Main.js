@@ -6,6 +6,7 @@ import twitter from "../questions/images/twitter.png";
 import facebook from "../questions/images/facebook.png";
 import instagram from "../questions/images/instagram.png";
 import Dilogue from "./Dilogue";
+import ChartHere from "./chart/ChartHere"
 
 const Main = ({
   setHomeQuestion,
@@ -174,10 +175,16 @@ const Main = ({
 
       <section data-aos="fade" id="graph">
         <p className="graphHeading">My Footprint</p>
+
+              <div> 
+              <ChartHere loggedUser={loggedUser}/>
+              </div>
+
         {loggedUser ? (
           <Dilogue loggedUser={loggedUser} setCheckUser={setCheckUser} />
         ) : (
-          <></>
+          <>
+          </>
         )}
       </section>
 
