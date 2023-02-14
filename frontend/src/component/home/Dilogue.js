@@ -103,8 +103,6 @@ const Dilogue = ({ loggedUser, setCheckUser,open,setOpen }) => {
   }
 
 
-
-
   return (
   
     <Drawer

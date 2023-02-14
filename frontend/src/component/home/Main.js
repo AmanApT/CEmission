@@ -6,7 +6,7 @@ import twitter from "../questions/images/twitter.png";
 import facebook from "../questions/images/facebook.png";
 import instagram from "../questions/images/instagram.png";
 import Dilogue from "./Dilogue";
-import Drawer from "./Drawer";
+
 import ChartHere from "./chart/ChartHere"
 
 const Main = ({
@@ -183,12 +183,12 @@ const Main = ({
               <ChartHere loggedUser={loggedUser}/>
               </div>
 
-        {loggedUser ? (
+        {/* {loggedUser ? (
           <Dilogue setOpen={setOpen} open={open} loggedUser={loggedUser} setCheckUser={setCheckUser} />
         ) : (
           <>
           </>
-        )}
+        )} */}
 <button onClick={()=> setOpen(true)} >Click Me </button>
 {/* <Drawer setOpen={setOpen} open={open} /> */}
       </section>
@@ -200,15 +200,9 @@ const Main = ({
           <p className="contactUsLeftJoin">Join Us</p>
           <p className="contactUsLeftJoin2">Sign Up for our Newsletter!</p>
           <p className="email">
-            E-Mail : <span className="emailInfo">mahirakhan35@gmail.com</span>
+            E Mail: 
           </p>
-          <p>Follow us On :</p>
-          <div className="socialLinks">
-            <img className="linkedIn" src={linkedIn} alt="React Logo" />
-            <img className="instagram" src={instagram} alt="React Logo" />
-            <img className="twitter" src={twitter} alt="React Logo" />
-            <img className="facebook" src={facebook} alt="React Logo" />
-          </div>
+          <span className="emailInfo">mahirakhan35@gmail.com</span>
         </div>
 
         <div className="contactUsRight">
@@ -231,6 +225,18 @@ const Main = ({
             />
           </div>
         </div>
+
+        <div className="followUsOn">
+        <p style={{marginLeft:"9%"}}>Follow us On :</p>
+          <div className="socialLinks">
+            <img className="linkedIn" src={linkedIn} alt="React Logo" />
+            <img className="instagram" src={instagram} alt="React Logo" />
+            <img className="twitter" src={twitter} alt="React Logo" />
+            <img className="facebook" src={facebook} alt="React Logo" />
+          </div>
+
+        </div>
+
       </section>
 
       {/* <button onClick={() => setHomeQuestion(1)}>

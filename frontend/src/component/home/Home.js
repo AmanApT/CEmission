@@ -22,7 +22,6 @@ import {
   serverTimestamp,
 } from "firebase/firestore";
 import { db } from "../firebase";
-import Drawer from "./Drawer";
 
 
 const Home = ({ loggedUser, setCheckUser }) => {
