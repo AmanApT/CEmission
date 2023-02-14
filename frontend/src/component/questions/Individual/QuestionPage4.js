@@ -97,7 +97,12 @@ const QuestionPage4 = ({
     await response.json().then(async (value) => {
       setOpArr(value);
       await updateDoc(washingtonRef, {
-        info: arrayUnion({ in: finalInArr, timestamp: new Date(), op: value }),
+        info: arrayUnion({
+          in: finalInArr,
+          timestamp: 1,
+          op: value,
+        }),
+        // timestamp: new Date().getUTCMonth() + 1,
       });
     });
 

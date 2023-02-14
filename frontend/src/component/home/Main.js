@@ -174,8 +174,11 @@ const Main = ({
 
       <section data-aos="fade" id="graph">
         <p className="graphHeading">My Footprint</p>
-
-        <Dilogue loggedUser={loggedUser} setCheckUser={setCheckUser} />
+        {loggedUser ? (
+          <Dilogue loggedUser={loggedUser} setCheckUser={setCheckUser} />
+        ) : (
+          <></>
+        )}
       </section>
 
       {/* .............................................Contact Us............................................. */}
