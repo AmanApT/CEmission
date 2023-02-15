@@ -140,7 +140,7 @@ const QuestionPage4 = ({
         theme="light"
       />
       <div className="questionDiv1">
-        <div className="progressBar">
+        <div className="progressBar" style={{marginTop:"-12%",marginBottom:"10%"}}>
           <div>
             <label>01</label>
             <div
@@ -171,11 +171,16 @@ const QuestionPage4 = ({
         </div>
 
         <div className="questionElectricity">
-          <h1>Did you recycle newspapers past year?</h1>
+          <div>
+            <h1>Did you recycle newspapers past year?</h1>
 
-          {/* <div class="container"> */}
+            {/* <div class="container"> */}
             <div
-              style={{ display: "flex", gap: "40%", justifyContent: "center" }}
+              style={{
+                display: "flex",
+                gap: "11%",
+                justifyContent: "center",
+              }}
             >
               <div>
                 <input
@@ -200,7 +205,8 @@ const QuestionPage4 = ({
                 </label>
               </div>
             </div>
-          {/* </div> */}
+            {/* </div> */}
+          </div>
         </div>
 
         <div className="questionGas">
@@ -237,9 +243,6 @@ const QuestionPage4 = ({
             RESULTS
           </button>
         </div>
-
-
-
       </div>
     </div>
   );

@@ -159,13 +159,13 @@ const Main = ({
           </div>
           <nav ref={navRef}>
             <Link to="#home">
-              <a className="navLinks">Home</a>
+              <a className="navLinks">HOME</a>
             </Link>
             <Link to="#calculate" scroll={(el) => scrollWidthOffset2(el)}>
-              <a className="navLinks">Calculate</a>
+              <a className="navLinks">CALCULATE</a>
             </Link>
             <Link to="#history" scroll={(el) => scrollWidthOffset(el)}>
-              <a className="navLinks">My Footprint</a>
+              <a className="navLinks">MY FOOTPRINT</a>
             </Link>
             {loggedUser ? (
               <></>
@@ -224,13 +224,15 @@ const Main = ({
           <p
             className="minSectionDescription"
             style={{
-              color: "rgb(71, 64, 64)",
+              color: "#798280",
               fontSize: "22px",
               marginTop: "2%",
               marginLeft: "auto",
               marginRight: "auto",
               width: "80%",
               fontSize: "20px",
+              // fontWeight:"550"
+              lineHeight:"1.2"
             }}
           >
             for tracking, analyzing,cutting carbon of individual, industry level
