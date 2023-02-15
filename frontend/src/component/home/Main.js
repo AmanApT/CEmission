@@ -10,6 +10,8 @@ import { FaBars, FaTimes } from "react-icons/fa";
 import { HashLink as Link } from "react-router-hash-link";
 import { BrowserRouter } from "react-router-dom";
 import CalculateSection from "./CalculateSection";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import ChartHere from "./chart/ChartHere";
 
@@ -35,22 +37,17 @@ const Main = ({
 }) => {
   const [userInfo, setUserInfo] = useState([]);
   const [userInfoIndustry, setUserInfoIndustry] = useState([]);
+  const [contact, setContact] = useState("");
 
   const scrollWidthOffset = (el) => {
     const yCoordinate = el.getBoundingClientRect().top + window.pageYOffset;
-    const yOffset = -250;
+    const yOffset = -200;
     window.scrollTo({ top: yCoordinate + yOffset, behavior: "smooth" });
   };
 
   const scrollWidthOffset2 = (el) => {
     const yCoordinate = el.getBoundingClientRect().top + window.pageYOffset;
-    const yOffset = -80;
-    window.scrollTo({ top: yCoordinate + yOffset, behavior: "smooth" });
-  };
-
-  const scrollWidthOffset3 = (el) => {
-    const yCoordinate = el.getBoundingClientRect().top + window.pageYOffset;
-    const yOffset = -350;
+    const yOffset = -20;
     window.scrollTo({ top: yCoordinate + yOffset, behavior: "smooth" });
   };
 
@@ -65,8 +62,6 @@ const Main = ({
       mainDiv.classList.remove("scroll");
     }
   };
-
-
 
   const handleClick3 = async () => {
     const q = query(
@@ -96,6 +91,38 @@ const Main = ({
     // console.log("====================================");
   };
 
+  const handleClick4 = () => {
+    if (contact === "") {
+      alert("Fill in all details!!");
+    } else {
+      alert("Successfully Subscribed");
+    }
+  };
+
+  const notify = () =>
+    toast.error("Please fill in all details", {
+      position: "top-center",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+
+  const notify2 = () =>
+    toast.error("Please fill in all details", {
+      position: "top-center",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+
   const [open, setOpen] = useState(false);
 
   const navRef = useRef();
@@ -123,18 +150,40 @@ const Main = ({
           {/* <h3>LOGO</h3> */}
           {/* <img className="logo_v2_1" src={logo_v2_1} alt="React Logo" /> */}
           <div className="navbarImage">
-            <img className="logo_v2_1" src={logo_v2_1} style={{width:"80%"}} alt="React Logo" />
+            <img
+              className="logo_v2_1"
+              src={logo_v2_1}
+              style={{ width: "80%" }}
+              alt="React Logo"
+            />
           </div>
           <nav ref={navRef}>
             <Link to="#home">
-             <a>Home</a>
+              <a>Home</a>
             </Link>
-            <Link to="#calculate" scroll={(el) => scrollWidthOffset(el)}>
+            <Link to="#calculate" scroll={(el) => scrollWidthOffset2(el)}>
               <a>Calculate</a>
             </Link>
             <Link to="#history" scroll={(el) => scrollWidthOffset(el)}>
               <a>My Footprint</a>
             </Link>
+            {loggedUser ? (
+              <></>
+            ) : (
+              <div
+                style={{
+                  backgroundColor: "green",
+                  padding: "1rem",
+                  cursor: "pointer",
+                  borderRadius: "12px",
+                  color: "white",
+                }}
+                onClick={() => setCheckUser(1)}
+              >
+                LogIn/SignUp
+              </div>
+            )}
+
             {/* <a href="/#">About me</a> */}
             <button className="nav-btn nav-close-btn" onClick={showNavbar}>
               <FaTimes />
@@ -272,7 +321,11 @@ const Main = ({
 
       {/* ..........................................Calculate Section....................................... */}
 
-     <CalculateSection  setHomeQuestion={setHomeQuestion} setCheckUser={setCheckUser} loggedUser={loggedUser} />
+      <CalculateSection
+        setHomeQuestion={setHomeQuestion}
+        setCheckUser={setCheckUser}
+        loggedUser={loggedUser}
+      />
 
       {/* ...............................................Graph Section........................................ */}
 
@@ -281,10 +334,11 @@ const Main = ({
 
         <div
           style={{
-            width: "100%",
-            height: "90%",
-            marginTop: "4%",
-            marginLeft: "2%",
+            // position: "relative",
+            // width: "100%",
+            // height: "200vh",
+            paddingTop: "4%",
+            paddingLeft: "4%",
           }}
         >
           <ChartHere loggedUser={loggedUser} />
@@ -300,7 +354,13 @@ const Main = ({
               userInfo={userInfo}
               userInfoIndustry={userInfoIndustry}
             />
-            <button onClick={handleClick3}>Click Me </button>
+            <button
+              // style={{ marginLeft: "90%", marginTop: "2%" }}
+              className="butt-10"
+              onClick={handleClick3}
+            >
+              Show History
+            </button>
           </>
         ) : (
           <></>
@@ -311,6 +371,18 @@ const Main = ({
       {/* .............................................Contact Us............................................. */}
 
       <section data-aos="fade" id="contactUs">
+        {/* <ToastContainer
+          position="top-center"
+          autoClose={2000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+        /> */}
         <div className="contactUsLeft">
           <p className="contactUsLeftJoin">Join Us</p>
           <p className="contactUsLeftJoin2">Sign Up for our Newsletter!</p>
@@ -335,7 +407,11 @@ const Main = ({
               placeholder="YOUR MESSAGE"
               className="inputFieldM"
               contenteditable="false"
+              onChange={(e) => setContact(e.target.value)}
             />
+            <div style={{ backgroundColor: "green" }} onClick={handleClick4}>
+              Submit
+            </div>
           </div>
         </div>
 

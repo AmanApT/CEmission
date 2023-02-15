@@ -187,9 +187,15 @@ border: 1px solid rgba(255, 255, 255, 0.18);
   height: 65vh;
   display: flex;
 }
-@media only screen and (max-width: 850px) {
+@media only screen and (max-width: 610px) {
   .resultSubDiv {
-    width: 60%;
+    width: 97%;
+    height: 80vh;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .resultSubDiv{
+    width: 90%;
   }
 }
 
@@ -451,15 +457,17 @@ nav {
   font-family: Poppins,sans-serif;
   background-color: #eaf1f0;
   width: 100vw;
-  height: 40vh;
+  /* height: 40vh; */
   display: flex;
   justify-content: center;
   text-align: center;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
 .miniSectionDiv{
   width: 70%;
-  margin-top: 1%;
+  /* margin-top: 1%; */
 }
 
 @media screen and (max-width: 720px) {
@@ -493,9 +501,11 @@ nav {
 .cardsSection {
   font-family: Poppins, sans-serif;
   width: 100vw;
-  height: 115vh;
+  /* height: 100vh; */
   background-color: #165a4a;
-  padding: 7% 4%;
+  padding: 2rem 2rem 0 2rem;
+  /* padding-top: 2rem;
+  padding-left: 2em; */
 }
 
 .cardsSectionHeading {
@@ -532,7 +542,7 @@ nav {
 
 .mainCardDiv{
   /* background-color: red; */
-  height: 79vh;
+  height: 71vh;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr ;
   grid-template-columns: repeat(auto-fill, minmax(1fr));
@@ -542,13 +552,17 @@ nav {
   /* font-size: 25px; */
   font-weight: 600;
   font-family: "Bebas Neue", sans-serif;
-  font-size: 26px;
+  font-size: 26px;
 
 }
 @media screen and (max-width: 720px) {
   .mainCardDiv{
     grid-template-columns: 1fr 1fr 1fr ;
+    height: 100vh;
   } 
+  .cardsSectionHeading{
+    font-size: 30px;
+  }
  
  }
 
@@ -637,18 +651,19 @@ nav {
 
 /* <----------------------------------------Calculate Carbon Emission Section------------------------------------> */
 
-#calculateCarbonEmission {
+.calculateCarbonEmission {
   font-family: Poppins, sans-serif;
   background: url("./images/rectangle_13abcd.png");
   background-size: 100% 100%;
   width: 100vw;
-  height: 100vh;
+  /* height: 100vh; */
+  padding-bottom: 10vw;
 }
 
 @media screen and (max-width: 720px) {
-  #calculateCarbonEmission{
+  .calculateCarbonEmission{
    background-size: cover;
-   height: 60vh;
+   /* height: 60vh; */
   } 
  }
 
@@ -711,14 +726,58 @@ nav {
   color: #0d1818;
 }
 
+
+.butt-10{
+  background-color: #fff;
+  padding: 1rem 1.5rem;
+  height: 3rem;
+  width: 8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+  border-style: solid;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
+  outline: none;
+  transition: all 235ms ease-in-out;
+  border-bottom-left-radius: 15px 255px;
+  border-bottom-right-radius: 225px 15px;
+  border-top-left-radius: 255px 15px;
+  border-top-right-radius: 15px 225px;
+  margin-left: 90%;
+  margin-top: 1%;
+}
+
+@media screen and (max-width: 720px) {
+  .butt-10{
+    margin-left: 40%;
+    margin-top: 2%;
+  }
+ }
+.butt-10:hover {
+  box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
+  transform: translate3d(0, 2px, 0);
+}  
+.butt-10:focus {
+  box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
+}
+
+
+
 /* <---------------------------------------Contact Us-----------------------------------------> */
 
 #contactUs {
   font-family: Poppins, sans-serif;
   background-color: #eaf1f0;
   width: 100vw;
-  height: 32vh;
+  /* height: 32vh; */
   display: flex;
+  /* justify-content: space-around; */
+  padding-left: 3rem;
+  padding-right: 1rem;
+  padding-bottom: 2rem;
+  /* flex-wrap: wrap; */
 }
 
 .getInTouch {
@@ -728,12 +787,21 @@ nav {
   font-size: 20px;
 }
 .contactUsLeft {
-  padding: 3%;
-  padding-left: 8%;
+  /* padding: 3%;
+  padding-left: 8%; */
+  /* width: 40vw; */
   flex: 0.4;
+
 }
 .contactUsRight{
-  padding-left: 5%;
+  /* padding-left: 5%; */
+  flex: 0.4;
+  width: 40vw;
+}
+.followUsOn{
+  /* padding-top: 5%;
+  margin-right: 9%; */
+  flex: 0.2;
 }
 
 
@@ -795,9 +863,9 @@ nav {
   height: 24px;
   margin-left: 10px;
 }
-.contactUsRight {
+/* .contactUsRight {
   flex: 0.5;
-}
+} */
 
 .inputFieldDiv {
   display: flex;
@@ -819,11 +887,6 @@ nav {
   padding-bottom: 10%;
 }
 
-.followUsOn{
-
-  padding-top: 5%;
-  margin-right: 9%;
-}
 
 
 

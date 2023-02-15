@@ -1,6 +1,6 @@
 import React from "react";
 
-const CalculateSection = ({loggedUser, setCheckUser,setHomeQuestion}) => {
+const CalculateSection = ({ loggedUser, setCheckUser, setHomeQuestion }) => {
   const handleClick = () => {
     if (loggedUser) {
       setHomeQuestion(1);
@@ -17,8 +17,9 @@ const CalculateSection = ({loggedUser, setCheckUser,setHomeQuestion}) => {
     }
   };
 
+  // id="calculateCarbonEmission
   return (
-    <section data-aos="fade" id="calculateCarbonEmission calculate">
+    <section className="calculateCarbonEmission" data-aos="fade" id="calculate">
       <div className="calculateMainDiv">
         <p className="calculateHeading">
           Calculate Your

@@ -114,8 +114,6 @@ const ChartHere = ({ loggedUser }) => {
           {
             label: "Carbon Emissions",
             backgroundColor: "#165A4A",
-            maintainAspectRatio: "false",
-            // barThickness: 100,
             data: userinfo.flatMap((innerArr) =>
               innerArr.map(({ op }) => op[0])
             ),
@@ -127,8 +125,8 @@ const ChartHere = ({ loggedUser }) => {
   }, [loggedUser.email]);
 
   return (
-    <div id="history">
-      <Bar data={userData} />
+    <div id="history" style={{ width: "80vw", height: "80vh" }}>
+      <Bar data={userData} options={{ maintainAspectRatio: false }} />
     </div>
   );
 };
