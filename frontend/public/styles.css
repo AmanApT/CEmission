@@ -285,7 +285,7 @@ header {
 	align-items: center;
 	justify-content: space-between;
 	height: 80px;
-	padding: 0 2rem;
+	padding: 3rem 2rem;
 	background-color: var(--mainColor);
 	color: var(--textColor);
 }

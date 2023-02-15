@@ -26,7 +26,7 @@ import { db } from "../firebase";
 
 const Home = ({ loggedUser, setCheckUser }) => {
   useEffect(() => {
-    AOS.init({ duration: 1000 });
+    AOS.init({ duration: 100 });
   }, []);
   //   const [pageToggle, setPageToggle] = useState(0);
   const [homeQuestion, setHomeQuestion] = useState(0);

@@ -9,6 +9,7 @@ import Dilogue from "./Dilogue";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { HashLink as Link } from "react-router-hash-link";
 import { BrowserRouter } from "react-router-dom";
+import CalculateSection from "./CalculateSection";
 
 import ChartHere from "./chart/ChartHere";
 
@@ -65,21 +66,7 @@ const Main = ({
     }
   };
 
-  const handleClick = () => {
-    if (loggedUser) {
-      setHomeQuestion(1);
-    } else {
-      setCheckUser(1);
-    }
-  };
 
-  const handleClick2 = () => {
-    if (loggedUser) {
-      setHomeQuestion(2);
-    } else {
-      setCheckUser(1);
-    }
-  };
 
   const handleClick3 = async () => {
     const q = query(
@@ -136,14 +123,14 @@ const Main = ({
           {/* <h3>LOGO</h3> */}
           {/* <img className="logo_v2_1" src={logo_v2_1} alt="React Logo" /> */}
           <div className="navbarImage">
-            <img className="logo_v2_1" src={logo_v2_1} alt="React Logo" />
+            <img className="logo_v2_1" src={logo_v2_1} style={{width:"80%"}} alt="React Logo" />
           </div>
           <nav ref={navRef}>
             <Link to="#home">
-              <a>Home</a>
+             <a>Home</a>
             </Link>
             <Link to="#calculate" scroll={(el) => scrollWidthOffset(el)}>
-              <div>Calculate</div>
+              <a>Calculate</a>
             </Link>
             <Link to="#history" scroll={(el) => scrollWidthOffset(el)}>
               <a>My Footprint</a>
@@ -285,29 +272,7 @@ const Main = ({
 
       {/* ..........................................Calculate Section....................................... */}
 
-      <section data-aos="fade" id="calculateCarbonEmission">
-        <div className="calculateMainDiv">
-          <p className="calculateHeading">
-            Calculate Your
-            <br /> Carbon Footprint Today
-          </p>
-
-          <div className="calculationBoxes">
-            <div className="box1" onClick={handleClick}>
-              <div>
-                {" "}
-                FOR
-                <br /> INDIVIDUAL{" "}
-              </div>
-            </div>
-            <div>
-              <div className="box1" onClick={handleClick2}>
-                FOR <br /> INDUSTRY{" "}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+     <CalculateSection  setHomeQuestion={setHomeQuestion} setCheckUser={setCheckUser} loggedUser={loggedUser} />
 
       {/* ...............................................Graph Section........................................ */}
 
