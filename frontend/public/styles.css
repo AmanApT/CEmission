@@ -1,10 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Unna&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Poppins, sans-serif; 
+  /* font-family: Poppins, sans-serif;  */
 }
 
 *::-webkit-scrollbar {
@@ -235,24 +237,28 @@ border: 1px solid rgba(255, 255, 255, 0.18);
 
 
 /* <------------------------------------------Navbar----------------------------------------> */
-.navBar {
+/* .navBar {
   font-family: Poppins, sans-serif;
   width: 100vw;
   height: 15vh;
   background-color: white;
   display: flex;
   gap:40%;
-  /* justify-content: space-around; */
+  justify-content: space-between;
   align-items: center;
 
 }
 .navbarImage{
 margin-left: 5%;
+flex: 0.9;
 }
 
 .navbarRightFields{
   width: 30%;
   display: flex;
+  justify-content: space-between;
+  align-items: ;
+  justify-content: space-around;
   gap: 7%;
 }
 .navbarRightFields >p{
@@ -265,6 +271,101 @@ margin-left: 5%;
   transition-delay: 300ms;
   font-weight: 500;
   
+} */
+
+:root {
+	--mainColor: white;
+	--mainColorLight: #5767aa;
+	--secondaryColor: #db2b39;
+	--textColor: black;
+}
+
+header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	height: 80px;
+	padding: 0 2rem;
+	background-color: var(--mainColor);
+	color: var(--textColor);
+}
+
+/* .navbarImage{
+  width: 1rem;
+  height: 1rem;
+} */
+
+/* nav{
+  justify-self: flex-end;
+} */
+
+nav a {
+	margin: 0 1rem;
+	color: var(--textColor);
+	text-decoration: none;
+}
+
+nav a:hover {
+	color: var(--secondaryColor);
+}
+
+header .nav-btn {
+	padding: 5px;
+	cursor: pointer;
+	background: transparent;
+	border: none;
+	outline: none;
+	color: var(--textColor);
+	visibility: hidden;
+	opacity: 0;
+	font-size: 1.8rem;
+  display: none;
+}
+
+/* header div, */
+nav {
+	display: flex;
+	align-items: center;
+  /* margin-left: 65%; */
+  /* justify-content: space-around; */
+}
+
+@media only screen and (max-width: 1024px) {
+	header .nav-btn {
+		visibility: visible;
+		opacity: 1;
+    display: inline;
+	}
+
+	header nav {
+		position: fixed;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 1.5rem;
+		background-color: var(--mainColor);
+		transition: 1s;
+		transform: translateY(-100vh);
+	}
+
+	header .responsive_nav {
+		transform: none;
+	}
+
+	nav .nav-close-btn {
+		position: absolute;
+		top: 2rem;
+		right: 2rem;
+	}
+
+	nav a {
+		font-size: 1.5rem;
+	}
 }
 
 /* .navbarRightFields >p :hover{
@@ -282,7 +383,7 @@ margin-left: 5%;
 
 
 .mainFirst {
-  font-family: Poppins, sans-serif;
+  font-family: "Bebas Neue", sans-serif;
   width: 100vw;
   height: 80vh;
   background: url("./images/rectangle_11.png");
@@ -299,27 +400,81 @@ margin-left: 5%;
 }
 
 .mainFirstDiv {
-  font-size: 25px;
+  font-size: 30px;
+  line-height: 1.1;
   color: white;
-  /* color: rgb(71, 64, 64); */
-  width: 35vw;
+  width: 36vw;
   margin-left: 12%;
-  /* text-align: center; */
-  /* text-align: left; */
+}
+@media screen and (max-width: 720px) {
+  /* .mainFirstDiv{
+    width: 100%;
+  } */
+  .mainFirstDivHeading1{
+    margin-left: 0;
+  }
+  .mainFirstDivHeading2{
+    margin-left: 0;
+  }
+  .mainFirstDivHeading3{
+    /* width: 200%; */
+  }
+  
+  .mainFirstDivHeading4{
+    margin-left: 0;
+  }
+  
+}
+
+.mainFirstDiv >h1{
+  font-weight: 200;
+}
+
+.mainFirstDivHeading1{
+  margin-left: 10%;
+  width: 140%;
+}
+.mainFirstDivHeading2{
+  margin-left: 6%;
+  width: 140%;
+}
+.mainFirstDivHeading4{
+  margin-left: 40%;
+  width: 140%;
+}
+.mainFirstDivHeading3{
+  width: 140%;
+
 }
 
 .miniSection {
+  font-family: Poppins,sans-serif;
   background-color: #eaf1f0;
   width: 100vw;
-  height: 45vh;
+  height: 40vh;
   display: flex;
   justify-content: center;
   text-align: center;
 }
+
+.miniSectionDiv{
+  width: 70%;
+  margin-top: 1%;
+}
+
+@media screen and (max-width: 720px) {
+  .miniSectionDiv{
+    width: 140vw;
+  }  
+}
+
+
 .getStartedBtn {
-  margin-top: 3%;
-  padding: 3% 7%;
-  border: 2px solid #165a4a;
+
+  font-family: Poppins, sans-serif;
+  margin-top: 2%;
+  padding: 1.5% 5%;
+  border: 1px solid #165a4a;
   font-weight: 900;
   font-size: 1rem;
 }
@@ -386,6 +541,8 @@ margin-left: 5%;
   color: white;
   /* font-size: 25px; */
   font-weight: 600;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 26px;
 
 }
 @media screen and (max-width: 720px) {
@@ -455,7 +612,7 @@ margin-left: 5%;
  .leafImage{
   width: 40%;
   height: 50%;
-  margin-top: 10%;
+  margin-top: 30%;
  } 
 }
 
@@ -560,7 +717,7 @@ margin-left: 5%;
   font-family: Poppins, sans-serif;
   background-color: #eaf1f0;
   width: 100vw;
-  height: 30vh;
+  height: 32vh;
   display: flex;
 }
 
@@ -585,7 +742,7 @@ margin-left: 5%;
   font-size: 28px;
   font-weight: 700;
   margin-top: 1%;
-  width: 40%;
+  width: 100%;
 }
 .contactUsLeftJoin2 {
   color: #3b3b3b;
