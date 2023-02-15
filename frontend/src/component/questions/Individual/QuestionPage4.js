@@ -172,77 +172,74 @@ const QuestionPage4 = ({
 
         <div className="questionElectricity">
           <h1>Did you recycle newspapers past year?</h1>
-          {/* <div>
-            <input
-              id="radio-yes-21"
-              name="question-2"
-              type="radio"
-              // value="1"
-            />
-            <label>
-              <span>Yes</span>
-            </label>
-            <input
-              id="radio-no-22"
-              name="question-2"
-              type="radio"
-              // value="0"
-            />
-            <label>
-              <span>No</span>
-            </label>
-          </div> */}
 
-          <div class="container">
-            <input
-              type="radio"
-              name="radio"
-              value={newspaper}
-              onChange={() => setNewspaper("1")}
-            />
-            <label for="opt1" class="label1">
-              <span>YES</span>
-            </label>
-            <input
-              type="radio"
-              name="radio"
-              value={newspaper}
-              onChange={() => setNewspaper("0")}
-            />
-            <label for="opt2" class="label2">
-              <span>NO</span>
-            </label>
-          </div>
+          {/* <div class="container"> */}
+            <div
+              style={{ display: "flex", gap: "40%", justifyContent: "center" }}
+            >
+              <div>
+                <input
+                  type="radio"
+                  name="radio"
+                  value={newspaper}
+                  onChange={() => setNewspaper("1")}
+                />
+                <label for="opt1" class="label1">
+                  <span style={{ fontSize: "20px" }}>Yes</span>
+                </label>
+              </div>
+              <div>
+                <input
+                  type="radio"
+                  name="radio"
+                  value={newspaper}
+                  onChange={() => setNewspaper("0")}
+                />
+                <label for="opt2" class="label2">
+                  <span style={{ fontSize: "20px" }}>No</span>
+                </label>
+              </div>
+            </div>
+          {/* </div> */}
         </div>
 
         <div className="questionGas">
           <div>
             <h1>Did you recycle Aluminium and Tin past year?</h1>
-            <div>
-              <input
-                name="question-2"
-                type="radio"
-                onChange={() => setTin("1")}
-                value={tin}
-              />
-              <label>
-                <span>YES</span>
-              </label>
-              <input
-                name="question-2"
-                type="radio"
-                onChange={() => setTin("0")}
-                value={tin}
-              />
-              <label>
-                <span>NO</span>
-              </label>
+            <div
+              style={{ display: "flex", gap: "10%", justifyContent: "center" }}
+            >
+              <div>
+                <input
+                  name="question-2"
+                  type="radio"
+                  onChange={() => setTin("1")}
+                  value={tin}
+                />
+                <label>
+                  <span style={{ fontSize: "20px" }}>Yes</span>
+                </label>
+              </div>
+              <div>
+                <input
+                  name="question-2"
+                  type="radio"
+                  onChange={() => setTin("0")}
+                  value={tin}
+                />
+                <label>
+                  <span style={{ fontSize: "20px" }}>No</span>
+                </label>
+              </div>
             </div>
           </div>
           <button className="nextQuestionPage" onClick={handleClick}>
             RESULTS
           </button>
         </div>
+
+
+
       </div>
     </div>
   );

@@ -79,7 +79,7 @@ const IndustryResult = ({
           <div className="carbonEmissionResult">
             <div style={{marginTop:"59%"}}>
             <p>Your Average Carbon Emission is :</p>
-            <h1> {opArrIndustry[0]} tonnes</h1>
+            <h1> {opArrIndustry[0]}K.Tonnes</h1>
             </div>
           </div>
         </div>

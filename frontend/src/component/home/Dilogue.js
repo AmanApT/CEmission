@@ -92,11 +92,17 @@ const Dilogue = ({
     borderBottomLeftRadius: 20,
     borderTopRightRadius: 20,
     borderBottomRightRadius: 20,
-    backgroundColor: "#ffffff",
+    display:'flex',
+    paddingTop:"2.5rem",
+    alignItems: 'center',
+    // backgroundColor: "#ffffff",
+    backgroundColor: "rgb(108,184,166)",
+background: "linear-gradient(128deg, rgba(108,184,166,1) 0%, rgba(108,184,166,1) 35%, rgba(96,223,147,1) 100%)",
+
     boxShadow: "none",
-    "@media(max-width: 980px)": {
-      width: "60%",
-      height: "30%",
+    "@media(max-width: 1080px)": {
+      width: "90%",
+      height: "60%",
     },
   };
 
@@ -114,13 +120,16 @@ const Dilogue = ({
       onClose={() => setOpen(false)}
       PaperProps={{ sx: drawerStyle }}
     >
-      <div className="drawerTop">
+       {/* style={{paddingTop:"5%",paddingLeft:"auto",paddingRight:"auto"}} */}
+      {/* <div className="drawerTop">
         <ArrowBackIcon className="arrowBackIcon" onClick={handleClick2} />
-      </div>
-
+      </div> */}
+      <div>
+          <h1 style={{marginBottom:"2rem",fontFamily:"Poppins, sans-serif",fontWeight:"600",fontSize:"36px"}}> Your Carbon Emission History</h1>
+          </div>
       {/* {userInfo ? ( */}
       {/* userInfo.map((eachInfo) => { */}
-      <Accordion>
+      <Accordion style={{width:"78vw",marginBottom:"1rem"}}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1a-content"
@@ -149,13 +158,13 @@ const Dilogue = ({
                   return (
                     <tr>
                       <td> {sno++}</td>
-                      <td style={{ fontSize: "13px" }}>{eachInfo.in[0]}</td>
-                      <td style={{ fontSize: "13px" }}>{eachInfo.in[1]}</td>
-                      <td style={{ fontSize: "13px" }}>{eachInfo.in[2]}</td>
-                      <td style={{ fontSize: "13px" }}>{eachInfo.in[3]}</td>
-                      <td style={{ fontSize: "13px" }}>{eachInfo.in[4]}</td>
-                      <td style={{ fontSize: "13px" }}>{eachInfo.in[5]}</td>
-                      <td style={{ fontSize: "13px" }}>
+                      <td style={{ fontSize: "17px" }}>{eachInfo.in[0]}</td>
+                      <td style={{ fontSize: "17px" }}>{eachInfo.in[1]}</td>
+                      <td style={{ fontSize: "17px" }}>{eachInfo.in[2]}</td>
+                      <td style={{ fontSize: "17px" }}>{eachInfo.in[3]}</td>
+                      <td style={{ fontSize: "17px" }}>{eachInfo.in[4]}</td>
+                      <td style={{ fontSize: "17px" }}>{eachInfo.in[5]}</td>
+                      <td style={{ fontSize: "17px" }}>
                         {eachInfo.in[6] === "0" ? "❌" : "✅"}
                       </td>
                       <td style={{ fontSize: "13px" }}>
@@ -173,7 +182,7 @@ const Dilogue = ({
         </AccordionDetails>
       </Accordion>
 
-      <Accordion>
+      <Accordion style={{width:"78vw"}}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1a-content"
@@ -186,15 +195,15 @@ const Dilogue = ({
             <table className="table">
               <tr>
                 <th style={{ borderTopLeftRadius: "12px" }}> # </th>
-                <th>Electricity Bill</th>
-                <th>Gas Bill</th>
-                <th>Car Mileage</th>
-                <th>Flight1</th>
-                <th>Flight2</th>
-                <th>Oil Bill</th>
-                <th>Recylcle1</th>
-                <th>Recycle2</th>
-                <th style={{ borderTopRightRadius: "12px" }}>C.Emission</th>
+                <th>No.of Floors</th>
+                <th>GFA Parking</th>
+                <th>GFA Builidings</th>
+                <th>SiteEUI</th>
+                <th>SourceEUI</th>
+                <th>Steam Use</th>
+                <th>Electricity</th>
+                <th>Natural</th>
+                <th style={{ borderTopRightRadius: "12px" }}>C.Emission(kT)</th>
               </tr>
 
               {userInfoIndustry ? (
@@ -202,15 +211,15 @@ const Dilogue = ({
                   return (
                     <tr>
                       <td> {sno2++}</td>
-                      <td style={{ fontSize: "13px" }}>{eachInfo.in[0]}</td>
-                      <td style={{ fontSize: "13px" }}>{eachInfo.in[1]}</td>
-                      <td style={{ fontSize: "13px" }}>{eachInfo.in[2]}</td>
-                      <td style={{ fontSize: "13px" }}>{eachInfo.in[3]}</td>
-                      <td style={{ fontSize: "13px" }}>{eachInfo.in[4]}</td>
-                      <td style={{ fontSize: "13px" }}>{eachInfo.in[5]}</td>
-                      <td style={{ fontSize: "13px" }}>{eachInfo.in[6]}</td>
-                      <td style={{ fontSize: "13px" }}>{eachInfo.in[7]}</td>
-                      <td style={{ fontSize: "13px" }}>{eachInfo.op[0]}</td>
+                      <td style={{ fontSize: "17px" }}>{eachInfo.in[0]}</td>
+                      <td style={{ fontSize: "17px" }}>{eachInfo.in[1]}</td>
+                      <td style={{ fontSize: "17px" }}>{eachInfo.in[2]}</td>
+                      <td style={{ fontSize: "17px" }}>{eachInfo.in[3]}</td>
+                      <td style={{ fontSize: "17px" }}>{eachInfo.in[4]}</td>
+                      <td style={{ fontSize: "17px" }}>{eachInfo.in[5]}</td>
+                      <td style={{ fontSize: "17px" }}>{eachInfo.in[6]}</td>
+                      <td style={{ fontSize: "17px" }}>{eachInfo.in[7]}</td>
+                      <td style={{ fontSize: "17px" }}>{eachInfo.op[0]}</td>
                     </tr>
                   );
                 })

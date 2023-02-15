@@ -84,6 +84,15 @@
   border-style: none;
 }
 
+
+.navLinks{
+  font-family: Poppins, sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+
+
 /* <---------------------------------Question Page 1 ---------------------------> */
 
 .questionPage1 {
@@ -103,7 +112,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: -10%;
+  /* margin-top: -10%; */
 }
 
 .questionElectricity {
@@ -713,6 +722,15 @@ nav {
 
 /* <---------------------------------------Graph----------------------------------------> */
 
+.staticGraph{
+  background: url(./images/graph.png);
+  height: 80vh;
+  width: 90vw;
+  background-size: 100% 100%;
+}
+
+
+
 #graph {
   width: 100vw;
   height: 120vh;
@@ -1028,18 +1046,19 @@ nav {
 }
 
 .table {
-  margin-top: 2%;
+  /* margin-top: 2%; */
   border-collapse: collapse;
   width: 100%;
 }
-
 .table td,
 .table th {
   padding: 4px;
+  text-align: center;
+  /* font-size: 19px; */
 }
 
 .table tr:nth-child(odd) {
-  background-color: #efeaf8;
+  background-color: rgb(223, 243, 239);
 }
 
 .table tr:hover {
@@ -1047,11 +1066,12 @@ nav {
 }
 
 .table th {
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding-top: 7px;
+  padding-bottom: 7px;
   text-align: center;
-  background-color: rgb(135, 35, 206);
+  background-color: rgb(22,90,74);
   color: white;
+  font-size: 19px;
 }
 
 .special-td {

@@ -159,24 +159,25 @@ const Main = ({
           </div>
           <nav ref={navRef}>
             <Link to="#home">
-              <a>Home</a>
+              <a className="navLinks">Home</a>
             </Link>
             <Link to="#calculate" scroll={(el) => scrollWidthOffset2(el)}>
-              <a>Calculate</a>
+              <a className="navLinks">Calculate</a>
             </Link>
             <Link to="#history" scroll={(el) => scrollWidthOffset(el)}>
-              <a>My Footprint</a>
+              <a className="navLinks">My Footprint</a>
             </Link>
             {loggedUser ? (
               <></>
             ) : (
               <div
                 style={{
-                  backgroundColor: "green",
+                  backgroundColor: "#165a4a",
                   padding: "1rem",
                   cursor: "pointer",
                   borderRadius: "12px",
                   color: "white",
+                  fontFamily:"Poppins, sans-serif"
                 }}
                 onClick={() => setCheckUser(1)}
               >
@@ -332,18 +333,18 @@ const Main = ({
       <section data-aos="fade" id="graph">
         <p className="graphHeading">My Footprint</p>
 
-        <div
-          style={{
-            // position: "relative",
-            // width: "100%",
-            // height: "200vh",
-            paddingTop: "4%",
-            paddingLeft: "4%",
-          }}
-        >
-          <ChartHere loggedUser={loggedUser} />
-        </div>
-
+        {loggedUser ? (
+          <div
+            style={{
+              paddingTop: "4%",
+              paddingLeft: "4%",
+            }}
+          >
+            <ChartHere loggedUser={loggedUser} />
+          </div>
+        ) : (
+          <div className="staticGraph"></div>
+        )}
         {loggedUser ? (
           <>
             <Dilogue
@@ -409,7 +410,17 @@ const Main = ({
               contenteditable="false"
               onChange={(e) => setContact(e.target.value)}
             />
-            <div style={{ backgroundColor: "green" }} onClick={handleClick4}>
+            <div
+              style={{
+                width: "4rem",
+                padding: "1%",
+                marginTop: "1%",
+                color: "white",
+                borderRadius: "10px",
+                backgroundColor: "#165a4a",
+              }}
+              onClick={handleClick4}
+            >
               Submit
             </div>
           </div>
