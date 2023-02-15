@@ -173,15 +173,16 @@ const Main = ({
               <div
                 style={{
                   backgroundColor: "#165a4a",
-                  padding: "1rem",
+                  padding: "1rem 1.5rem",
                   cursor: "pointer",
-                  borderRadius: "12px",
+                  borderRadius: "5px",
                   color: "white",
-                  fontFamily:"Poppins, sans-serif"
+                  fontFamily:"Poppins, sans-serif",
+                  fontSize:"18px"
                 }}
                 onClick={() => setCheckUser(1)}
               >
-                LogIn/SignUp
+                LOGIN/SIGNUP
               </div>
             )}
 
@@ -258,7 +259,7 @@ const Main = ({
             <div>
               <p className="cardsSectionMiniDescription">How does it work?</p>
               <p className="cardsSectionMiniDescription">
-                Check the descrption below
+                Check the journey map given below
               </p>
             </div>
           </div>
@@ -389,8 +390,13 @@ const Main = ({
         <div className="contactUsLeft">
           <p className="contactUsLeftJoin">Join Us</p>
           <p className="contactUsLeftJoin2">Sign Up for our Newsletter!</p>
-          <p className="email">E Mail:</p>
-          <span className="emailInfo">mahirakhan35@gmail.com</span>
+          <p className="email">E-Mail:</p>
+          <input 
+              placeholder="example123@gmail.com"
+              className="inputField"
+              contenteditable="false"
+            />
+          {/* <span className="emailInfo">mahirakhan35@gmail.com</span> */}
         </div>
 
         <div className="contactUsRight">
@@ -414,22 +420,22 @@ const Main = ({
             />
             <div
               style={{
-                width: "4rem",
-                padding: "1%",
+                width: "6rem",
+                padding: "2% 4% ",
                 marginTop: "1%",
                 color: "white",
-                borderRadius: "10px",
+                borderRadius: "5px",
                 backgroundColor: "#165a4a",
               }}
               onClick={handleClick4}
             >
-              Submit
+              SUBMIT
             </div>
           </div>
         </div>
 
         <div className="followUsOn">
-          <p style={{ marginLeft: "9%" }}>Follow us On :</p>
+          <p style={{ marginLeft: "4%", fontSize:"20px",color:"#575757" }}>Follow us On :</p>
           <div className="socialLinks">
             <img className="linkedIn" src={linkedIn} alt="React Logo" />
             <img className="instagram" src={instagram} alt="React Logo" />

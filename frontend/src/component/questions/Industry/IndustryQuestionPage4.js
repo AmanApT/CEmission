@@ -164,7 +164,7 @@ const IndustryQuestionPage4 = ({
         </div>
 
         <div className="questionGas">
-          <h1>What is the Natural(kBtu)?</h1>
+          <h1>What is the Natural Gas Usage(kBtu)?</h1>
           <TextField
             style={{ width: "30%", margin: "3%" }}
             id="filled-basic"

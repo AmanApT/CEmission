@@ -80,7 +80,7 @@ const Signup = ({ setToggleAuth, setLoggedUser, setCheckUser }) => {
           </h4>
           <h4
             onClick={() => setToggleAuth(false)}
-            style={{ display: "inline", color: "#165A4A", fontWeight: "700",cursor:"pointer"  }}
+            style={{ display: "inline", color: "#165A4A", fontWeight: "500",cursor:"pointer"  }}
           >
             Log In
           </h4>

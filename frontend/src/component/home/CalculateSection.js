@@ -23,7 +23,7 @@ const CalculateSection = ({ loggedUser, setCheckUser, setHomeQuestion }) => {
       <div className="calculateMainDiv">
         <p className="calculateHeading">
           Calculate Your
-          <br /> Carbon Footprint Today
+          <br /> Carbon Footprint Today!
         </p>
 
         <div className="calculationBoxes">
