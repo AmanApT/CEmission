@@ -1,30 +1,30 @@
 import { createChatBotMessage } from "react-chatbot-kit";
+import Options from "./Options";
+import WebAss from "./WebAss";
 
 const config = {
   botName: "Reclaim Green",
-   customStyles: {
+  customStyles: {
     botMessageBox: {
       backgroundColor: "#165A4A",
     },
   },
-  initialMessages: [createChatBotMessage(`Hello! How may I help You ?`)],
+  initialMessages: [
+    createChatBotMessage(`Hello! How may I help You ?`, {
+      widget: "options",
+    }),
+  ],
+
   widgets: [
     {
-      widgetName: "overview",
-      widgetFunc: (props) => <Overview {...props} />,
-      mapStateToProps: ["gist"],
+      widgetName: "options",
+      widgetFunc: (props) => <Options {...props} />,
     },
     {
-      widgetName: "messageParser",
-      widgetFunc: (props) => <MessageParser {...props} />,
-      mapStateToProps: ["gist"],
-    },
-    {
-      widgetName: "actionProviderDocs",
-      widgetFunc: (props) => <ActionProviderDocs {...props} />,
-      mapStateToProps: ["gist"],
+      widgetName: "webAss",
+      widgetFunc: (props) => <WebAss {...props} />,
     },
   ],
-}
+};
 
-export default config
+export default config;
