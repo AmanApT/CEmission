@@ -1,20 +1,19 @@
+// chatbot/config.js
 import { createChatBotMessage } from "react-chatbot-kit";
 import Options from "./Options";
-import WebAss from "./WebAss";
+import WebAssWidget from "./WebAssWidget";
+import HistoryWidget from "./HistoryWidget";
+import IndividualWidget from "./IndividualWidget";
+import IndustryWidget from "./IndustryWidget";
+import RateExperienceWidget from "./RateExperienceWidget";
 
 const config = {
-  botName: "Reclaim Green",
-  customStyles: {
-    botMessageBox: {
-      backgroundColor: "#165A4A",
-    },
-  },
+  botName: "My Chatbot",
   initialMessages: [
-    createChatBotMessage(`Hello! How may I help You ?`, {
+    createChatBotMessage("Hey there! How can I help you today?", {
       widget: "options",
     }),
   ],
-
   widgets: [
     {
       widgetName: "options",
@@ -22,7 +21,23 @@ const config = {
     },
     {
       widgetName: "webAss",
-      widgetFunc: (props) => <WebAss {...props} />,
+      widgetFunc: (props) => <WebAssWidget {...props} />,
+    },
+    {
+      widgetName: "history",
+      widgetFunc: (props) => <HistoryWidget {...props} />,
+    },
+    {
+      widgetName: "individual",
+      widgetFunc: (props) => <IndividualWidget {...props} />,
+    },
+    {
+      widgetName: "industry",
+      widgetFunc: (props) => <IndustryWidget {...props} />,
+    },
+    {
+      widgetName: "rateExperience",
+      widgetFunc: (props) => <RateExperienceWidget {...props} />,
     },
   ],
 };

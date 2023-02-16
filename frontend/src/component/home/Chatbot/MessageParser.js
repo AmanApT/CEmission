@@ -1,12 +1,22 @@
 class MessageParser {
-    constructor(actionProvider, state) {
-      this.actionProvider = actionProvider;
-      this.state = state;
+  constructor(actionProvider) {
+    this.actionProvider = actionProvider;
+  }
+
+  parse(message) {
+    const lowercase = message.toLowerCase();
+
+    if (lowercase.includes("options")) {
+      this.actionProvider.handleOptions();
     }
-  
-    parse(message) {
-      console.log(message)
+    if (lowercase.includes("webass")) {
+      this.actionProvider.handleWebAss();
+    }
+
+    if (lowercase.includes("history")) {
+      this.actionProvider.handleHistory();
     }
   }
-  
-  export default MessageParser;
+}
+
+export default MessageParser;

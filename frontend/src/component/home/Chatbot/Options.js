@@ -1,27 +1,30 @@
+// components/Options.js
 import React from "react";
-import "./Options.css";
+import { createChatBotMessage } from "react-chatbot-kit";
 
 const Options = (props) => {
-  const options = [
-    {
-      text: "Web Ass",
-      handler: props.actionProvider.webAss,
-      // handler: () => {
-      //   props.actionProvider.webAss;
-      // },
-      id: 1,
-    },
-    { text: "Previous Records", handler: () => {}, id: 2 },
-    { text: "Rate Your Exp", handler: () => {}, id: 3 },
-  ];
+  //   const { handleClick } = props;
+  const { setState, steps } = props;
 
-  const buttonsMarkup = options.map((option) => (
-    <button key={option.id} onClick={option.handler} className="option-button">
-      {option.text}
-    </button>
-  ));
+  const handleClick = (widget) => {
+    const message = createChatBotMessage("", { widget });
 
-  return <div className="options-container">{buttonsMarkup}</div>;
+    setState((prevState) => ({
+      ...prevState,
+      messages: [...prevState.messages, message],
+    }));
+  };
+
+  return (
+    <div>
+      <p>What can I help you with today?</p>
+      <button onClick={() => handleClick("webAss")}>WebAss</button>
+      <button onClick={() => handleClick("history")}>History</button>
+      <button onClick={() => handleClick("rateExperience")}>
+        Rate your experience
+      </button>
+    </div>
+  );
 };
 
 export default Options;

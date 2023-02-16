@@ -12,7 +12,12 @@ import { BrowserRouter } from "react-router-dom";
 import CalculateSection from "./CalculateSection";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Chatbot from "./Chatbot/Chatbot"
+// import Chatbot from "./Chatbot/Chatbot";
+import config from "./Chatbot/config";
+import { Chatbot } from "react-chatbot-kit";
+import ActionProvider from "./Chatbot/ActionProvider";
+import MessageParser from "./Chatbot/MessageParser";
+import "react-chatbot-kit/build/main.css";
 
 import ChartHere from "./chart/ChartHere";
 
@@ -178,8 +183,8 @@ const Main = ({
                   cursor: "pointer",
                   borderRadius: "5px",
                   color: "white",
-                  fontFamily:"Poppins, sans-serif",
-                  fontSize:"18px"
+                  fontFamily: "Poppins, sans-serif",
+                  fontSize: "18px",
                 }}
                 onClick={() => setCheckUser(1)}
               >
@@ -207,12 +212,13 @@ const Main = ({
         </div>
       </div>
 
+      {/* ...................................ChatBot Section.................................. */}
 
-{/* ...................................ChatBot Section.................................. */}
-
-
-<Chatbot />
-
+      <Chatbot
+        config={config}
+        actionProvider={ActionProvider}
+        messageParser={MessageParser}
+      />
 
       {/* .................................Mini Section............................ */}
 
@@ -241,7 +247,7 @@ const Main = ({
               width: "80%",
               fontSize: "20px",
               // fontWeight:"550"
-              lineHeight:"1.2"
+              lineHeight: "1.2",
             }}
           >
             for tracking, analyzing,cutting carbon of individual, industry level
@@ -399,11 +405,11 @@ const Main = ({
           <p className="contactUsLeftJoin">Join Us</p>
           <p className="contactUsLeftJoin2">Sign Up for our Newsletter!</p>
           <p className="email">E-Mail:</p>
-          <input 
-              placeholder="example123@gmail.com"
-              className="inputField"
-              contenteditable="false"
-            />
+          <input
+            placeholder="example123@gmail.com"
+            className="inputField"
+            contenteditable="false"
+          />
           {/* <span className="emailInfo">mahirakhan35@gmail.com</span> */}
         </div>
 
@@ -443,7 +449,9 @@ const Main = ({
         </div>
 
         <div className="followUsOn">
-          <p style={{ marginLeft: "4%", fontSize:"20px",color:"#575757" }}>Follow us On :</p>
+          <p style={{ marginLeft: "4%", fontSize: "20px", color: "#575757" }}>
+            Follow us On :
+          </p>
           <div className="socialLinks">
             <img className="linkedIn" src={linkedIn} alt="React Logo" />
             <img className="instagram" src={instagram} alt="React Logo" />
