@@ -20,7 +20,7 @@ const config = {
       widgetFunc: (props) => <Options {...props} />,
     },
     {
-      widgetName: "webAss",
+      widgetName: "Web Assistance",
       widgetFunc: (props) => <WebAssWidget {...props} />,
     },
     {

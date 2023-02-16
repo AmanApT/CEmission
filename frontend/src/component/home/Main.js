@@ -44,6 +44,8 @@ const Main = ({
   const [userInfo, setUserInfo] = useState([]);
   const [userInfoIndustry, setUserInfoIndustry] = useState([]);
   const [contact, setContact] = useState("");
+  const [chatBotToggle, setChatBotToggle] = useState(0);
+  const [botIcon, setBotIcon] = useState(0);
 
   const scrollWidthOffset = (el) => {
     const yCoordinate = el.getBoundingClientRect().top + window.pageYOffset;
@@ -103,6 +105,11 @@ const Main = ({
     } else {
       alert("Successfully Subscribed");
     }
+  };
+
+  const handleClick5 = () => {
+    setChatBotToggle((prev) => (prev === 0 ? 1 : 0));
+    setBotIcon((prev) => (prev === 0 ? 1 : 0));
   };
 
   const notify = () =>
@@ -170,7 +177,7 @@ const Main = ({
             <Link to="#calculate" scroll={(el) => scrollWidthOffset2(el)}>
               <a className="navLinks">CALCULATE</a>
             </Link>
-            <Link to="#history" scroll={(el) => scrollWidthOffset(el)}>
+            <Link to="#history" scroll={(el) => scrollWidthOffset2(el)}>
               <a className="navLinks">MY FOOTPRINT</a>
             </Link>
             {loggedUser ? (
@@ -214,11 +221,28 @@ const Main = ({
 
       {/* ...................................ChatBot Section.................................. */}
 
-      <Chatbot
-        config={config}
-        actionProvider={ActionProvider}
-        messageParser={MessageParser}
-      />
+      {chatBotToggle === 1 ? (
+        <div className="chatBot">
+          <Chatbot
+            config={config}
+            actionProvider={ActionProvider}
+            messageParser={MessageParser}
+            loggedUser={loggedUser}
+            setHomeQuestion={setHomeQuestion}
+            setCheckUser={setCheckUser}
+            headerText="ChatBot"
+            disableUserInput={true}
+          />
+        </div>
+      ) : (
+        <></>
+      )}
+
+      {chatBotToggle === 1 ? (
+        <div className="chatBotIcon2" onClick={handleClick5}></div>
+      ) : (
+        <div className="chatBotIcon" onClick={handleClick5}></div>
+      )}
 
       {/* .................................Mini Section............................ */}
 
@@ -347,7 +371,7 @@ const Main = ({
 
       {/* ...............................................Graph Section........................................ */}
 
-      <section data-aos="fade" id="graph">
+      <section data-aos="fade" className="graph" id="history">
         <p className="graphHeading">My Footprint</p>
 
         {loggedUser ? (

@@ -1,26 +1,13 @@
+// components/RateExperienceWidget.js
 import React from "react";
 import { createChatBotMessage } from "react-chatbot-kit";
 
 const RateExperienceWidget = (props) => {
   const { setState } = props;
 
-  const handleGoodExperience = () => {
-    const message = createChatBotMessage("Thank you for your feedback!", {
-      widget: "goodbye",
-    });
-
-    setState((prevState) => ({
-      ...prevState,
-      messages: [...prevState.messages, message],
-    }));
-  };
-
-  const handleBadExperience = () => {
+  const handleClick = (rating) => {
     const message = createChatBotMessage(
-      "We are sorry to hear that. Please contact us at support@mychatbot.com",
-      {
-        widget: "goodbye",
-      }
+      `Thank you for your feedback! You rated us ${rating} stars.`
     );
 
     setState((prevState) => ({
@@ -29,11 +16,24 @@ const RateExperienceWidget = (props) => {
     }));
   };
 
+  const renderStars = () => {
+    const stars = [];
+
+    for (let i = 1; i <= 5; i++) {
+      stars.push(
+        <span key={i} onClick={() => handleClick(i)}>
+          &#9733;
+        </span>
+      );
+    }
+
+    return stars;
+  };
+
   return (
     <div>
-      <p>How was your experience?</p>
-      <button onClick={handleGoodExperience}>Good</button>
-      <button onClick={handleBadExperience}>Bad</button>
+      <p>How would you rate your experience with our chatbot?</p>
+      {renderStars()}
     </div>
   );
 };

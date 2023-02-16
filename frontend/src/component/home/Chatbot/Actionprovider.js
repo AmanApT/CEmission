@@ -15,7 +15,7 @@ class ActionProvider {
   };
   handleWebAss = () => {
     const message = this.createChatBotMessage("Choose an option:", {
-      widget: "webAss",
+      widget: "Web Assistance",
     });
 
     this.updateChatbotState(message);
