@@ -12,6 +12,7 @@ import { BrowserRouter } from "react-router-dom";
 import CalculateSection from "./CalculateSection";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Chatbot from "./Chatbot/Chatbot"
 
 import ChartHere from "./chart/ChartHere";
 
@@ -205,6 +206,13 @@ const Main = ({
           <h1 className="mainFirstDivHeading4">EMISSIONS</h1>
         </div>
       </div>
+
+
+{/* ...................................ChatBot Section.................................. */}
+
+
+<Chatbot />
+
 
       {/* .................................Mini Section............................ */}
 
