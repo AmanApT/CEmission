@@ -59,9 +59,9 @@ const Options = (props) => {
         </Link>
         <button
           className="option-button"
-          onClick={() => handleClick("rateExperience")}
+          onClick={() => handleClick("Rate Your Experience")}
         >
-          Rate your experience
+          Rate Your Experience
         </button>
       </div>
     </BrowserRouter>

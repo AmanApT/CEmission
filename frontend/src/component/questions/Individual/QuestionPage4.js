@@ -140,7 +140,10 @@ const QuestionPage4 = ({
         theme="light"
       />
       <div className="questionDiv1">
-        <div className="progressBar" style={{marginTop:"-12%",marginBottom:"10%"}}>
+        <div
+          className="progressBar"
+          style={{ marginTop: "-12%", marginBottom: "10%" }}
+        >
           <div>
             <label>01</label>
             <div
@@ -182,7 +185,7 @@ const QuestionPage4 = ({
                 justifyContent: "center",
               }}
             >
-              <div>
+              {/* <div>
                 <input
                   type="radio"
                   name="radio"
@@ -203,6 +206,33 @@ const QuestionPage4 = ({
                 <label for="opt2" class="label2">
                   <span style={{ fontSize: "20px" }}>No</span>
                 </label>
+              </div> */}
+
+              <div>
+                <label>
+                  <input
+                    type="radio"
+                    name="radio"
+                    value="yes"
+                    style={{ opacity: "0" }}
+                    onChange={() => setNewspaper("1")}
+                  />
+                  <span class="radio-button"></span>
+                  <span class="label-text">Yes</span>
+                </label>
+              </div>
+              <div>
+                <label>
+                  <input
+                    type="radio"
+                    name="radio"
+                    value="no"
+                    style={{ opacity: "0" }}
+                    onChange={() => setNewspaper("0")}
+                  />
+                  <span class="radio-button"></span>
+                  <span class="label-text">No</span>
+                </label>
               </div>
             </div>
             {/* </div> */}
@@ -215,7 +245,7 @@ const QuestionPage4 = ({
             <div
               style={{ display: "flex", gap: "10%", justifyContent: "center" }}
             >
-              <div>
+              {/* <div>
                 <input
                   name="question-2"
                   type="radio"
@@ -235,6 +265,33 @@ const QuestionPage4 = ({
                 />
                 <label>
                   <span style={{ fontSize: "20px" }}>No</span>
+                </label>
+              </div> */}
+
+              <div>
+                <label>
+                  <input
+                    type="radio"
+                    name="radio2"
+                    value="yes"
+                    style={{ opacity: "0" }}
+                    onChange={() => setTin("1")}
+                  />
+                  <span class="radio-button"></span>
+                  <span class="label-text">Yes</span>
+                </label>
+              </div>
+              <div>
+                <label>
+                  <input
+                    type="radio"
+                    name="radio2"
+                    value="no"
+                    style={{ opacity: "0" }}
+                    onChange={() => setTin("0")}
+                  />
+                  <span class="radio-button"></span>
+                  <span class="label-text">No</span>
                 </label>
               </div>
             </div>

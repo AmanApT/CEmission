@@ -36,7 +36,7 @@ const config = {
       widgetFunc: (props) => <IndustryWidget {...props} />,
     },
     {
-      widgetName: "rateExperience",
+      widgetName: "Rate Your Experience",
       widgetFunc: (props) => <RateExperienceWidget {...props} />,
     },
   ],

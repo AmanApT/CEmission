@@ -364,6 +364,40 @@ border: 1px solid rgba(255, 255, 255, 0.18);
   align-items: center;
 }
 
+.radio-button {
+  display: inline-block;
+  position: relative;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  margin-right: 10px;
+  background-color: white;
+}
+
+.radio-button::after {
+  content: "";
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+input[type="radio"]:checked + .radio-button::after {
+  display: block;
+}
+
+input[type="radio"][value="yes"]:checked + .radio-button::after {
+  content: "✔";
+  color: green;
+}
+
+input[type="radio"][value="no"]:checked + .radio-button::after {
+  content: "✘";
+  color: red;
+}
+
 /* <-----------------------------Home Page ------------------------------> */
 
 @media screen and (max-width: 720px) {

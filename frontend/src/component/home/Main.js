@@ -112,6 +112,10 @@ const Main = ({
     setBotIcon((prev) => (prev === 0 ? 1 : 0));
   };
 
+  const handleClick6 = () => {
+    alert("Successfully Subscribed");
+  };
+
   const notify = () =>
     toast.error("Please fill in all details", {
       position: "top-center",
@@ -435,6 +439,20 @@ const Main = ({
             className="inputField"
             contenteditable="false"
           />
+          <div
+            style={{
+              width: "6rem",
+              padding: "2% 4% ",
+              marginTop: "1%",
+              color: "white",
+              borderRadius: "5px",
+              backgroundColor: "#165a4a",
+              cursor: "pointer",
+            }}
+            onClick={handleClick6}
+          >
+            SUBMIT
+          </div>
           {/* <span className="emailInfo">mahirakhan35@gmail.com</span> */}
         </div>
 
@@ -465,6 +483,7 @@ const Main = ({
                 color: "white",
                 borderRadius: "5px",
                 backgroundColor: "#165a4a",
+                cursor: "pointer",
               }}
               onClick={handleClick4}
             >

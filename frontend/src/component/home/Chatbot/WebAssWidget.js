@@ -23,7 +23,6 @@ const WebAssWidget = (props) => {
 
   const handleClick2 = () => {
     if (loggedUser) {
-      // rook na ❤️de
       setHomeQuestion(2);
     } else {
       setCheckUser(1);
@@ -32,7 +31,7 @@ const WebAssWidget = (props) => {
 
   return (
     <div className="options-container">
-      <p>Are you an Individual or Industry?</p>
+      {/* <p>Are you an Individual or Industry?</p> */}
       <button className="option-button" onClick={() => handleClick()}>
         Individual
       </button>
