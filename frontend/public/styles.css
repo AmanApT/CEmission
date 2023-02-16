@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Unna&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap%27');
 
 * {
   margin: 0;
@@ -50,8 +51,90 @@
   bottom: 65px;
   right: 70px;
   z-index: 50;
+  /* height: 300px;
+  overflow-y: scroll; */
+  /* height: 30vh; */
 }
 
+.react-chatbot-kit-chat-input{
+  display: none;
+}
+.react-chatbot-kit-chat-btn-send{
+  display: none;
+}
+/* .react-chatbot-kit-chat-message-container{
+  height: 30vh;
+} */
+
+.react-chatbot-kit-chat-container{
+  /* height: 40vh; */
+  /* width: 400px !important; */
+  /* height: 200px !important; */
+}
+
+/* .react-chatbot-kit-chat-inner-container{
+
+} */
+
+.react-chatbot-kit-chat-inner-container{
+  /* height: 200px !important; */
+  background-color: #eaf1f0 !important;
+  /* display: none !important; */
+}
+
+.react-chatbot-kit-chat-message-container{
+  background-color: #eaf1f0;
+}
+
+/* .react-chatbot-kit-chat-bot-message-container{
+  
+} */
+.react-chatbot-kit-chat-header{
+  background-color: #165a4a !important;
+  padding: 1rem !important;
+  color: white !important;
+  font-size: 22px !important;
+  font-weight: 400 !important;
+  font-family: 'Inter', sans-serif !important;
+}
+
+.react-chatbot-kit-chat-bot-avatar{
+  display: none;
+}
+
+.react-chatbot-kit-user-avatar{
+  display: none;
+}
+
+.react-chatbot-kit-chat-bot-message{
+  margin-left: 0 !important;
+  background-color: white !important;
+  color: black !important;
+  /* font-family: Poppins, sans-serif !important; */
+  font-family: 'Inter', sans-serif;
+}
+
+.react-chatbot-kit-chat-bot-message-arrow{
+  /* background-color: white !important; */
+  border-right: 8px solid white !important;
+}
+
+/* .react-chatbot-kit-chat-bot-message{
+  background-color: white !important;
+  border-right: 8px solid white !important;
+
+} */
+
+.react-chatbot-kit-user-chat-message{
+  background-color: #165a4a !important;
+  color: white !important;
+  font-family: 'Inter', sans-serif;
+}
+
+.react-chatbot-kit-user-chat-message-arrow{
+  /* background-color: white !important; */
+  border-left: 8px solid #165a4a !important;
+}
 
 /* <---------------------------Auth---------------------------> */
 

@@ -231,7 +231,8 @@ const Main = ({
             setHomeQuestion={setHomeQuestion}
             setCheckUser={setCheckUser}
             headerText="ChatBot"
-            disableUserInput={true}
+            // disableUserInput={true}
+            // height={200}
           />
         </div>
       ) : (

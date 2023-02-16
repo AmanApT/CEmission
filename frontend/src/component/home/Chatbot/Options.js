@@ -54,7 +54,7 @@ const Options = (props) => {
             className="option-button"
             // onClick={() => handleClick("history")}
           >
-            History
+            Check Previous Records
           </button>
         </Link>
         <button

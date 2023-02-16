@@ -10,7 +10,7 @@ import RateExperienceWidget from "./RateExperienceWidget";
 const config = {
   botName: "My Chatbot",
   initialMessages: [
-    createChatBotMessage("Hey there! How can I help you today?", {
+    createChatBotMessage("Welcome to Reclaim Green! How may I help you ?", {
       widget: "options",
     }),
   ],

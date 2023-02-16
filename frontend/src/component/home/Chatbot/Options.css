@@ -9,11 +9,14 @@
   .option-button {
     margin: 5px;
     cursor: pointer;
-    border-radius: 25px;
-    width: 12vw;
+    border-radius: 20px;
+    width: 14vw;
     padding: 8px;
     /* padding: 4px 1px 4px 1px; */
-    border-color: green;
+    /* border-color: #165a4a; */
+    border: 1.5px solid #165a4a;
+    color: #165a4a;
     background: transparent;
     text-align: center;
+    font-family: 'Inter', sans-serif;
   }
