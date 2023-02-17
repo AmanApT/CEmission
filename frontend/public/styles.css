@@ -51,6 +51,8 @@
   bottom: 65px;
   right: 70px;
   z-index: 50;
+  border: 1.5px solid #6e6e6e;
+  border-radius: 6px;
   /* height: 300px;
   overflow-y: scroll; */
   /* height: 30vh; */
@@ -970,12 +972,13 @@ nav {
 
 #contactUs {
   font-family: Poppins, sans-serif;
-  background-color: #eaf1f0;
+  background-color: #b2d1ca;
   width: 100vw;
   /* height: 32vh; */
   display: flex;
   /* justify-content: space-around; */
   padding-left: 3rem;
+  padding-top: 1rem;
   padding-right: 1rem;
   padding-bottom: 2rem;
   /* flex-wrap: wrap; */

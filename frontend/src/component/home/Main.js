@@ -103,7 +103,7 @@ const Main = ({
     if (contact === "") {
       alert("Fill in all details!!");
     } else {
-      alert("Thank you for reaching out");
+      alert("Thank You For Reaching Out!!");
     }
   };
 
@@ -113,7 +113,7 @@ const Main = ({
   };
 
   const handleClick6 = () => {
-    alert("Succesfully Signed Up for our newsletter");
+    alert("Succesfully Signed Up For Our Newsletter");
   };
 
   const notify = () =>
