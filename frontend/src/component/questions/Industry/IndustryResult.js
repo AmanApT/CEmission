@@ -16,21 +16,10 @@ const IndustryResult = ({
   tin,
   toggleResult,
   finalInArr,
+  inArr,
   opArrIndustry,
 }) => {
-  // useEffect(() => {
-  //   inArr.push(eBill);
-  //   inArr.push(gBill);
-  //   inArr.push(oBill);
-  //   inArr.push(carMileage);
-  //   inArr.push(flight);
-  //   inArr.push(flight2);
-  //   inArr.push(newspaper);
-  //   inArr.push(tin);
-  //   inArr = inArr.slice(0, 8);
-  //   finalInArr = inArr;
-  //   // console.log(finalInArr);
-  // }, []);
+
 
   return (
     <div className="resultDiv">
@@ -53,23 +42,23 @@ const IndustryResult = ({
             style={{ marginLeft: "10%", color: "white" }}
           >
             <p className="resultInputEachInfo">
-             Number of floors in the industry :{" "}
+             Number of floors in the industry : {inArr[0]}
             </p>
 
-            <p className="resultInputEachInfo">Property GFA Parking :</p>
-            <p className="resultInputEachInfo">Property GFABuilding(s) :</p>
-            <p className="resultInputEachInfo">The SiteEUI(kBtu/sf) :</p>
+            <p className="resultInputEachInfo">Property GFA Parking : {inArr[1]}</p>
+            <p className="resultInputEachInfo">Property GFABuilding(s) : {inArr[2]}</p>
+            <p className="resultInputEachInfo">The SiteEUI(kBtu/sf) : {inArr[3]}</p>
             <p className="resultInputEachInfo">
-            The SourceEUI(kBtu/sf) :
+            The SourceEUI(kBtu/sf) : {inArr[4]}
             </p>
             <p className="resultInputEachInfo">
-            The SteamUse(kBtu) :
+            The SteamUse(kBtu) : {inArr[5]}
             </p>
             <p className="resultInputEachInfo">
-              The Electricity Usage (kBtu) :
+              The Electricity Usage (kBtu) : {inArr[6]}
             </p>
             <p className="resultInputEachInfo">
-            Natural Gas Usage(kBtu) :
+            Natural Gas Usage(kBtu) : {inArr[7]}
             </p>
           </div>
         </div>

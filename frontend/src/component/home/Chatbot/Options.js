@@ -10,12 +10,17 @@ const Options = (props) => {
   const { setState, steps, loggedUser, setCheckUser } = props;
 
   const handleClick = (widget) => {
-    const message = createClientMessage(widget, { widget });
 
+    
+    const message = createClientMessage(widget, { widget });
+    
     setState((prevState) => ({
       ...prevState,
       messages: [...prevState.messages, message],
     }));
+    
+    
+
   };
 
   const scrollWidthOffset2 = (el) => {

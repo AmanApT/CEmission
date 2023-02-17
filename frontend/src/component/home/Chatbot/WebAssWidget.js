@@ -38,12 +38,7 @@ const WebAssWidget = (props) => {
       <button className="option-button" onClick={() => handleClick2()}>
         Industry
       </button>
-      {/* <br />
-      <p>Would you like to learn more about our Chatbot's history?</p>
-      <button onClick={() => handleClick("history")}>Yes</button>
-      <br />
-      <p>Would you like to rate your experience with our Chatbot?</p>
-      <button onClick={() => handleClick("rateExperience")}>Yes</button> */}
+      
     </div>
   );
 };

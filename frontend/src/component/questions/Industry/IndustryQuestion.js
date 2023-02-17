@@ -73,6 +73,8 @@ const Question = ({ setHomeQuestion, loggedUser }) => {
           setToggleQuestion={setToggleQuestion}
           toggleResult={toggleResult}
           opArrIndustry={opArrIndustry}
+          finalInArr={finalInArr}
+          inArr={inArr}
         />
       )}
     </>
