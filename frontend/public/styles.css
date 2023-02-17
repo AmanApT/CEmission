@@ -566,6 +566,22 @@ nav {
   .mainFirst {
     background-size: cover;
   }
+ .mainFirstDivHeading1{
+  font-size: 48px;
+  width: 100%;
+ }
+ .mainFirstDivHeading2{
+  font-size: 48px;
+  width: 100%;
+ }
+ .mainFirstDivHeading3{
+  font-size: 48px;
+  width: 100%;
+ }
+ .mainFirstDivHeading4{
+  font-size: 48px;
+  width: 100%;
+ }
 }
 
 .mainFirstDiv {
@@ -576,31 +592,29 @@ nav {
   margin-left: 12%;
 }
 @media screen and (max-width: 720px) {
-  /* .mainFirstDiv{
-    width: 100%;
-  } */
+
 
   /* Thoda sa left me khiskana hai First wale ko */
   .mainFirstDivHeading1{
-    margin-left: 0;
+    /* margin-left: -10%; */
     font-weight: 400;
-    font-size: 96px;
+    /* font-size: 96px; */
   }
   .mainFirstDivHeading2{
     font-weight: 400;
     margin-left: 0;
-    font-size: 96px;
+    /* font-size: 96px; */
   }
   .mainFirstDivHeading3{
     /* width: 200%; */
     font-weight: 400;
-    font-size: 96px;
+    /* font-size: 96px; */
   }
   
   .mainFirstDivHeading4{
     margin-left: 0;
     font-weight: 400;
-    font-size: 96px;
+    /* font-size: 96px; */
   }
   
 }
@@ -610,7 +624,7 @@ nav {
 }
 
 .mainFirstDivHeading1{
-  margin-left: 10%;
+  margin-left: 6.2%;
   width: 140%;
 }
 .mainFirstDivHeading2{
@@ -625,7 +639,6 @@ nav {
   width: 140%;
 
 }
-
 .miniSection {
   font-family: Poppins,sans-serif;
   background-color: #eaf1f0;
@@ -893,7 +906,7 @@ nav {
 /* <---------------------------------------Graph----------------------------------------> */
 
 .staticGraph{
-  background: url(./images/graph.png);
+  background: url(./images/Capture.PNG);
   height: 80vh;
   width: 90vw;
   background-size: 100% 100%;
