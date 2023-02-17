@@ -150,7 +150,7 @@ const IndustryQuestionPage4 = ({
         </div>
 
         <div className="questionElectricity">
-          <h1>What is the Electricity(kBtu)?</h1>
+          <h1>What is the Electricity Usage(kBtu)?</h1>
 
           <TextField
             style={{ width: "30%", margin: "3%" }}

@@ -53,25 +53,23 @@ const IndustryResult = ({
             style={{ marginLeft: "10%", color: "white" }}
           >
             <p className="resultInputEachInfo">
-              Your monthly Electricity Bill :{" "}
+             Number of floors in the industry :{" "}
             </p>
 
-            <p className="resultInputEachInfo">Your monthly Gas Bill : 2.0</p>
-            <p className="resultInputEachInfo">Your monthly Oil Bill :</p>
-            <p className="resultInputEachInfo">Your yearly Car Mileage :</p>
+            <p className="resultInputEachInfo">Property GFA Parking :</p>
+            <p className="resultInputEachInfo">Property GFABuilding(s) :</p>
+            <p className="resultInputEachInfo">The SiteEUI(kBtu/sf) :</p>
             <p className="resultInputEachInfo">
-              Your Your Past year number of flights travels for 4hrs or less
-              duration :
+            The SourceEUI(kBtu/sf) :
             </p>
             <p className="resultInputEachInfo">
-              Your Your Past year number of flights travels for 4hrs or more
-              duration :
+            The SteamUse(kBtu) :
             </p>
             <p className="resultInputEachInfo">
-              Recycled newspapers past year :
+              The Electricity Usage (kBtu) :
             </p>
             <p className="resultInputEachInfo">
-              Recycled Aluminium & Tin past year :
+            Natural Gas Usage(kBtu) :
             </p>
           </div>
         </div>

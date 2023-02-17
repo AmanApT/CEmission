@@ -175,7 +175,7 @@ background: "linear-gradient(128deg, rgba(108,184,166,1) 0%, rgba(108,184,166,1)
                   );
                 })
               ) : (
-                <div> Kuch nahi hai lavde</div>
+                <div> Sorry, there's no data to display</div>
               )}
             </table>
           </div>

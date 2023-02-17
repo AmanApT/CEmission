@@ -87,10 +87,10 @@ const Result = ({
               duration : {inArr[5]}
             </p>
             <p className="resultInputEachInfo">
-              Recycled newspapers past year : {inArr[6]}
+              Recycled newspapers past year : {inArr[6]==='0' ?"❌": "✅"}
             </p>
             <p className="resultInputEachInfo">
-              Recycled Aluminium & Tin past year : {inArr[7]}
+              Recycled Aluminium & Tin past year : {inArr[7]==='0' ? "❌": "✅"}
             </p>
           </div>
         </div>
