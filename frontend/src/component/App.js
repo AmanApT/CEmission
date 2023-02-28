@@ -19,7 +19,11 @@ function App() {
       {checkUser === 0 ? (
         <Home setCheckUser={setCheckUser} loggedUser={loggedUser} />
       ) : (
-        <Auth setCheckUser={setCheckUser} setLoggedUser={setLoggedUser} />
+        <Auth
+          setCheckUser={setCheckUser}
+          setLoggedUser={setLoggedUser}
+          loggedUser={loggedUser}
+        />
       )}
       {/* <Home /> */}
     </div>
