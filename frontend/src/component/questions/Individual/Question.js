@@ -4,6 +4,7 @@ import QuestionPage3 from "./QuestionPage3";
 import QuestionPage2 from "./QuestionPage2";
 import QuestionPage4 from "./QuestionPage4";
 import Result from "./Result";
+import Recommend from "./Recommend";
 
 const Question = ({ setHomeQuestion, loggedUser }) => {
   const [toggleQuestion, setToggleQuestion] = useState(1);
@@ -69,13 +70,18 @@ const Question = ({ setHomeQuestion, loggedUser }) => {
           inArr={inArr}
           finalInArr={finalInArr}
         />
-      ) : (
+      ) : toggleQuestion === 5 ? (
         <Result
           setToggleQuestion={setToggleQuestion}
           toggleResult={toggleResult}
           opArr={opArr}
           inArr={inArr}
           loggedUser={loggedUser}
+        />
+      ) : (
+        <Recommend 
+        setToggleQuestion={setToggleQuestion} 
+        opArr={opArr}
         />
       )}
     </>

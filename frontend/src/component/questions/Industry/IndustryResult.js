@@ -68,7 +68,10 @@ const IndustryResult = ({
             <p>Your Average Carbon Emission is :</p>
             <h1> {opArrIndustry[0]}K.Tonnes</h1>
             </div>
+
+            <button onClick={()=>{setToggleQuestion(6)} }> Mere dabao na</button>
           </div>
+
         </div>
       </div>
     </div>

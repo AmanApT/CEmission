@@ -4,6 +4,7 @@ import IndustryQuestionPage2 from "./IndustryQuestionPage2";
 import IndustryQuestionPage3 from "./IndustryQuestionPage3";
 import IndustryQuestionPage4 from "./IndustryQuestionPage4";
 import IndustryResult from "./IndustryResult";
+import RecommendIndustry from "./RecommendIndustry";
 
 const Question = ({ setHomeQuestion, loggedUser }) => {
   const [toggleQuestion, setToggleQuestion] = useState(1);
@@ -68,7 +69,8 @@ const Question = ({ setHomeQuestion, loggedUser }) => {
           inArr={inArr}
           finalInArr={finalInArr}
         />
-      ) : (
+      ) : toggleQuestion === 5 ?
+      (
         <IndustryResult
           setToggleQuestion={setToggleQuestion}
           toggleResult={toggleResult}
@@ -76,7 +78,12 @@ const Question = ({ setHomeQuestion, loggedUser }) => {
           finalInArr={finalInArr}
           inArr={inArr}
         />
-      )}
+      ) :
+      <RecommendIndustry 
+      setToggleQuestion={setToggleQuestion}
+      opArrIndustry={opArrIndustry}
+      />
+    }
     </>
   );
 };
