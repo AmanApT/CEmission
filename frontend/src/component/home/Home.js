@@ -22,7 +22,7 @@ import {
   serverTimestamp,
 } from "firebase/firestore";
 import { db } from "../firebase";
-
+import Recommend from "../questions/Individual/Recommend";
 
 const Home = ({ loggedUser, setCheckUser }) => {
   useEffect(() => {
@@ -31,7 +31,6 @@ const Home = ({ loggedUser, setCheckUser }) => {
   //   const [pageToggle, setPageToggle] = useState(0);
   const [homeQuestion, setHomeQuestion] = useState(0);
   const [open, setOpen] = useState(false);
-
 
   // const description = [1000, 1000, 1200, 10000, 4, 4, 0, 0];
 
@@ -78,6 +77,7 @@ const Home = ({ loggedUser, setCheckUser }) => {
   return (
     <div>
       {/* <button onClick={handleClick}>Send Api Request</button> */}
+
       {homeQuestion === 1 ? (
         <Question setHomeQuestion={setHomeQuestion} loggedUser={loggedUser} />
       ) : homeQuestion === 2 ? (
@@ -93,7 +93,8 @@ const Home = ({ loggedUser, setCheckUser }) => {
           setCheckUser={setCheckUser}
         />
       )}
-      
+
+      {/* <Recommend /> */}
     </div>
   );
 };
