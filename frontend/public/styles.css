@@ -1289,10 +1289,21 @@ nav {
 }
 
 .recProgressBar{
-  width: 5px;
+  width: 3.3px;
   height: 80%;
   background-color: #ccc;
 }
 .recRight{
    color: white;
+}
+
+.progressDiv{
+
+  border-radius: 5px;
+  height: 40px;
+  width: 10px;
+  position: relative;
+  top:10%;
+  left: -90%;
+  background-color: white;
 }

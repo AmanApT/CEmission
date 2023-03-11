@@ -12,7 +12,11 @@ const Recommend = ({ setToggleQuestion, opArr }) => {
           <h3 onClick={() => setRecommendToggle(3)}>Newspapers</h3>
           <h3 onClick={() => setRecommendToggle(4)}>Aluminium & Tin</h3>
         </div>
-        <div className="recProgressBar"></div>
+        <div className="recProgressBar">
+            <div className="progressDiv">
+              
+            </div>
+        </div>
         <div className="recRight">
         {recommendToggle === 1 ? (
           <div>
