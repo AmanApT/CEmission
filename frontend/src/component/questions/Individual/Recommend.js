@@ -3,6 +3,8 @@ import TipsAndUpdatesIcon from "@mui/icons-material/TipsAndUpdates";
 import DirectionsCarIcon from "@mui/icons-material/DirectionsCar";
 import NewspaperIcon from "@mui/icons-material/Newspaper";
 import { FaRecycle } from "react-icons/fa";
+import CloseIcon from '@mui/icons-material/Close';
+import logo from '../images/logo.png';
 
 const Recommend = ({ setToggleQuestion, opArr }) => {
   const [recommendToggle, setRecommendToggle] = useState(1);
@@ -81,29 +83,31 @@ const Recommend = ({ setToggleQuestion, opArr }) => {
           {recommendToggle === 1 ? (
             <div>
               <h1>Electricity Bill</h1>
-              <div>{opArr[1]}</div>
+              {/* <div>{opArr[1]}</div> */}
              
             </div>
           ) : recommendToggle === 2 ? (
             <div>
               <h1>Car Mileage</h1>
              
-              <div>{opArr[2]}</div>
+              {/* <div>{opArr[2]}</div> */}
             </div>
           ) : recommendToggle === 3 ? (
             <div>
               <h1>Recycling Newspapers</h1>
-              <div>{opArr[3]}</div>
+              {/* <div>{opArr[3]}</div> */}
             </div>
           ) : (
             <div>
               <h1>Recycling Aluminium & Tin</h1>
-              <div>{opArr[4]}</div>
+              {/* <div>{opArr[4]}</div> */}
             </div>
           )}{" "}
         </div>
+        <CloseIcon className="closeIcon" onClick={() => setToggleQuestion(5)} />
       </div>
       {/* <button onClick={() => setToggleQuestion(5)}> wapas aa ja </button> */}
+      <img className="recLogo" src={logo} onClick={() => setToggleQuestion(1)} /> 
     </div>
   );
 };

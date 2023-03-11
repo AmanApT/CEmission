@@ -78,7 +78,7 @@ const Home = ({ loggedUser, setCheckUser }) => {
     <div>
       {/* <button onClick={handleClick}>Send Api Request</button> */}
 
-      {homeQuestion === 1 ? (
+      {/* {homeQuestion === 1 ? (
         <Question setHomeQuestion={setHomeQuestion} loggedUser={loggedUser} />
       ) : homeQuestion === 2 ? (
         <IndustryQuestion
@@ -92,9 +92,9 @@ const Home = ({ loggedUser, setCheckUser }) => {
           loggedUser={loggedUser}
           setCheckUser={setCheckUser}
         />
-      )}
+      )} */}
 
-      {/* <Recommend /> */}
+      <Recommend />
     </div>
   );
 };

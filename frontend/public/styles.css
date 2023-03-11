@@ -1331,3 +1331,19 @@ nav {
   left: -90%;
   background-color: white;
 }
+.closeIcon{
+  color: white;
+  z-index: 10;
+  position: absolute;
+  top: 33%;
+  right: 16%;
+  cursor: pointer;
+}
+
+.recLogo{
+  position: absolute;
+  z-index: 20;
+  top: 5%;
+  left: 5%;
+  width: 15%;
+}
