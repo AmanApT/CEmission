@@ -76,12 +76,14 @@ const Question = ({ setHomeQuestion, loggedUser }) => {
           toggleResult={toggleResult}
           opArrIndustry={opArrIndustry}
           finalInArr={finalInArr}
+          setHomeQuestion={setHomeQuestion}
           inArr={inArr}
         />
       ) :
       <RecommendIndustry 
       setToggleQuestion={setToggleQuestion}
       opArrIndustry={opArrIndustry}
+      setHomeQuestion={setHomeQuestion}
       />
     }
     </>

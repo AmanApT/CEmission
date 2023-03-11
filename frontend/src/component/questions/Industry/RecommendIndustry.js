@@ -6,7 +6,7 @@ import { FaRecycle } from "react-icons/fa";
 import CloseIcon from '@mui/icons-material/Close';
 import logo from '../images/logo.png';
 
-const RecommendIndustry = ({setToggleQuestion,opArrIndustry}) => {
+const RecommendIndustry = ({setToggleQuestion,opArrIndustry,setHomeQuestion}) => {
 
   const [recommendToggle, setRecommendToggle] = useState(1);
 
@@ -73,7 +73,7 @@ const RecommendIndustry = ({setToggleQuestion,opArrIndustry}) => {
       <CloseIcon className="closeIcon" onClick={() => setToggleQuestion(5)} />
     </div>
     
-    <img className="recLogo" src={logo} onClick={() => setToggleQuestion(1)} /> 
+    <img className="recLogo" src={logo} onClick={() => setHomeQuestion(3)} /> 
   </div>
   )
 }

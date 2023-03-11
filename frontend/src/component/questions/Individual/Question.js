@@ -77,11 +77,13 @@ const Question = ({ setHomeQuestion, loggedUser }) => {
           opArr={opArr}
           inArr={inArr}
           loggedUser={loggedUser}
+          setHomeQuestion={setHomeQuestion}
         />
       ) : (
-        <Recommend 
-        setToggleQuestion={setToggleQuestion} 
-        opArr={opArr}
+        <Recommend
+          setToggleQuestion={setToggleQuestion}
+          opArr={opArr}
+          setHomeQuestion={setHomeQuestion}
         />
       )}
     </>

@@ -3,19 +3,11 @@ import React, { useEffect, useState } from "react";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "../../firebase";
+import logo from '../images/logo.png';
 
 const IndustryResult = ({
   setToggleQuestion,
-  eBill,
-  gBill,
-  oBill,
-  carMileage,
-  flight,
-  flight2,
-  newspaper,
-  tin,
-  toggleResult,
-  finalInArr,
+  setHomeQuestion,
   inArr,
   opArrIndustry,
 }) => {
@@ -69,11 +61,12 @@ const IndustryResult = ({
             <h1> {opArrIndustry[0]}K.Tonnes</h1>
             </div>
 
-            <button onClick={()=>{setToggleQuestion(6)} }> Mere dabao na</button>
+            <button className="recommendButton" onClick={()=>{setToggleQuestion(6)} }> VIEW RECOMMENDATIONS</button>
           </div>
 
         </div>
       </div>
+      <img className="recLogo" src={logo} onClick={() => setHomeQuestion(3)} /> 
     </div>
   );
 };

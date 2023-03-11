@@ -13,9 +13,11 @@ import {
   serverTimestamp,
 } from "firebase/firestore";
 import { db } from "../../firebase";
+import logo from '../images/logo.png';
 
 const Result = ({
   setToggleQuestion,
+  setHomeQuestion,
   loggedUser,
   finalInArr,
   opArr,
@@ -101,10 +103,11 @@ const Result = ({
               <p>Your Average Carbon Emission is :</p>
               <h1> {opArr[0]} tonnes</h1>
             </div>
-            <button onClick={()=>setToggleQuestion(6)} >Click me na!</button>
+            <button className="recommendButton" onClick={()=>setToggleQuestion(6)} >VIEW RECOMMENDATIONS</button>
           </div>
         </div>
       </div>
+      <img className="recLogo" src={logo} onClick={() => setHomeQuestion(3)} /> 
     </div>
   );
 };

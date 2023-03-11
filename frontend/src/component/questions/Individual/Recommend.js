@@ -6,7 +6,7 @@ import { FaRecycle } from "react-icons/fa";
 import CloseIcon from "@mui/icons-material/Close";
 import logo from "../images/logo.png";
 
-const Recommend = ({ setToggleQuestion, opArr }) => {
+const Recommend = ({ setToggleQuestion, opArr, setHomeQuestion }) => {
   const [recommendToggle, setRecommendToggle] = useState(1);
 
   const progressBar = document.getElementsByClassName("progressDiv")[0];
@@ -20,7 +20,7 @@ const Recommend = ({ setToggleQuestion, opArr }) => {
 
   const handleClick = () => {
     setRecommendToggle(1);
-    progressBar.style.top = "10%";
+    progressBar.style.top = "3%";
     left11.style.color = "white";
     left12.style.color = "white";
     left21.style.color = "#ccc";
@@ -118,11 +118,7 @@ const Recommend = ({ setToggleQuestion, opArr }) => {
         <CloseIcon className="closeIcon" onClick={() => setToggleQuestion(5)} />
       </div>
       {/* <button onClick={() => setToggleQuestion(5)}> wapas aa ja </button> */}
-      <img
-        className="recLogo"
-        src={logo}
-        onClick={() => setToggleQuestion(1)}
-      />
+      <img className="recLogo" src={logo} onClick={() => setHomeQuestion(3)} />
     </div>
   );
 };
