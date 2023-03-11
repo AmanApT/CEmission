@@ -1,4 +1,8 @@
 import React, { useState } from "react";
+import TipsAndUpdatesIcon from "@mui/icons-material/TipsAndUpdates";
+import DirectionsCarIcon from "@mui/icons-material/DirectionsCar";
+import NewspaperIcon from "@mui/icons-material/Newspaper";
+import { FaRecycle } from "react-icons/fa";
 
 const Recommend = ({ setToggleQuestion, opArr }) => {
   const [recommendToggle, setRecommendToggle] = useState(1);
@@ -12,7 +16,7 @@ const Recommend = ({ setToggleQuestion, opArr }) => {
 
   const handleClick = () => {
     setRecommendToggle(1);
-    progressBar.style.top = "7%";
+    progressBar.style.top = "10%";
     left1.style.color = "white";
     left2.style.color = "#ccc";
     left3.style.color = "#ccc";
@@ -21,7 +25,7 @@ const Recommend = ({ setToggleQuestion, opArr }) => {
 
   const handleClick2 = () => {
     setRecommendToggle(2);
-    progressBar.style.top = "25%";
+    progressBar.style.top = "28%";
     left1.style.color = "#ccc";
     left2.style.color = "white";
     left3.style.color = "#ccc";
@@ -30,7 +34,7 @@ const Recommend = ({ setToggleQuestion, opArr }) => {
 
   const handleClick3 = () => {
     setRecommendToggle(3);
-    progressBar.style.top = "45%";
+    progressBar.style.top = "48%";
     left1.style.color = "#ccc";
     left2.style.color = "#ccc";
     left3.style.color = "white";
@@ -39,7 +43,7 @@ const Recommend = ({ setToggleQuestion, opArr }) => {
 
   const handleClick4 = () => {
     setRecommendToggle(3);
-    progressBar.style.top = "65%";
+    progressBar.style.top = "68%";
     left1.style.color = "#ccc";
     left2.style.color = "#ccc";
     left3.style.color = "#ccc";
@@ -50,18 +54,25 @@ const Recommend = ({ setToggleQuestion, opArr }) => {
     <div className="recMain">
       <div className="recChild">
         <div className="recLeft">
-          <h3 className="left1" onClick={handleClick}>
-            Electricity
-          </h3>
-          <h3 className="left2" onClick={handleClick2}>
-            Car Mileage
-          </h3>
-          <h3 className="left3" onClick={handleClick3}>
-            Newspapers
-          </h3>
-          <h3 className="left4" onClick={handleClick4}>
-            Aluminium & Tin
-          </h3>
+          <div className="left1">
+            {" "}
+            <TipsAndUpdatesIcon />
+            <h3 onClick={handleClick}>Electricity</h3>
+          </div>
+          <div className="left2">
+            <DirectionsCarIcon />
+            <h3 onClick={handleClick2}>Car Mileage</h3>
+          </div>
+
+          <div className="left3">
+            <NewspaperIcon />
+            <h3 onClick={handleClick3}>Newspapers</h3>
+          </div>
+
+          <div className="left4">
+            <FaRecycle style={{ fontSize: "1.7rem" }} />
+            <h3 onClick={handleClick4}>Aluminium & Tin</h3>
+          </div>
         </div>
         <div className="recProgressBar">
           <div className="progressDiv"></div>
@@ -70,22 +81,24 @@ const Recommend = ({ setToggleQuestion, opArr }) => {
           {recommendToggle === 1 ? (
             <div>
               <h1>Electricity Bill</h1>
-              {/* <div>{opArr[1]}</div> */}
+              <div>{opArr[1]}</div>
+             
             </div>
           ) : recommendToggle === 2 ? (
             <div>
               <h1>Car Mileage</h1>
-              {/* <div>{opArr[2]}</div> */}
+             
+              <div>{opArr[2]}</div>
             </div>
           ) : recommendToggle === 3 ? (
             <div>
               <h1>Recycling Newspapers</h1>
-              {/* <div>{opArr[3]}</div> */}
+              <div>{opArr[3]}</div>
             </div>
           ) : (
             <div>
               <h1>Recycling Aluminium & Tin</h1>
-              {/* <div>{opArr[4]}</div> */}
+              <div>{opArr[4]}</div>
             </div>
           )}{" "}
         </div>

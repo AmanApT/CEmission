@@ -319,12 +319,12 @@ border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .resultLeft {
-  background-image: url("https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/26e71882-6d8e-4d4b-8136-ae80a3f8fc7a/980acbc2-8a97-49f4-8e5c-27c5a932a980?org_if_sml=17399");
+  background-image: url("https://aheioqhobo.cloudimg.io/v7/playground-bucket-v2.teleporthq.io/26e71882-6d8e-4d4b-8136-ae80a3f8fc7a/980acbc2-8a97-49f4-8e5c-27c5a932a980?org_if_sml=17399");
   border-radius: 0 0 0 10px;
   flex: 0.6;
 }
 .resultRight {
-  background-image: url("https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/26e71882-6d8e-4d4b-8136-ae80a3f8fc7a/e04b013f-dedb-491b-8452-c30bbf9033ce?org_if_sml=14435");
+  background-image: url("https://aheioqhobo.cloudimg.io/v7/playground-bucket-v2.teleporthq.io/26e71882-6d8e-4d4b-8136-ae80a3f8fc7a/e04b013f-dedb-491b-8452-c30bbf9033ce?org_if_sml=14435");
   border-radius: 0 10px 10px 0;
   flex: 0.4;
   opacity: 1;
@@ -1266,9 +1266,9 @@ nav {
 
 .recChild{
   width: 70vw;
-  height: 40vh;
+  height: 38vh;
   background-color: rgba(87,148,132,0.9);
-  /* background-image: url("https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/26e71882-6d8e-4d4b-8136-ae80a3f8fc7a/980acbc2-8a97-49f4-8e5c-27c5a932a980?org_if_sml=17399"); */
+  /* background-image: url("https://aheioqhobo.cloudimg.io/v7/playground-bucket-v2.teleporthq.io/26e71882-6d8e-4d4b-8136-ae80a3f8fc7a/980acbc2-8a97-49f4-8e5c-27c5a932a980?org_if_sml=17399"); */
   /* opacity: 0.6; */
   border-radius: 8px;
   /* display: flex; */
@@ -1276,15 +1276,16 @@ nav {
   /* flex-direction: column; */
   align-items: center;
   justify-content: center;
-  grid-template-columns: 1fr 1fr 4fr ;
-  column-gap: 5%;
+  grid-template-columns: 2fr 0.3fr 7fr ;
+  column-gap: 4%;
   padding-left: 5%;
+  padding-right: 5%;
 }
 
 .recLeft{
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 17px;
 }
 
 .left1{
@@ -1312,13 +1313,21 @@ nav {
 .recRight{
    color: white;
 }
-
+.recRight h1{
+  text-align: center;
+  margin-bottom: 2%;
+}
+.recLeft div{
+  display: flex;
+  gap: 15px;
+  color:#ccc;
+}
 .progressDiv{
   border-radius: 5px;
   height: 32px;
   width: 10px;
   position: relative;
-  top:7%;
+  top:10%;
   left: -90%;
   background-color: white;
 }
