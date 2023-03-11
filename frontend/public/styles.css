@@ -1255,6 +1255,9 @@ nav {
 /* -----------------------------------Recommend------------------------------------------ */
 
 .recMain{
+  font-family: Poppins, sans-serif;
+  background: url("./images/resultBg1.png");
+  background-size: 100% 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1263,20 +1266,33 @@ nav {
 
 .recChild{
   width: 70vw;
-  height: 30vh;
-  background-color: rgba(42, 108, 42, 0.5);
+  height: 40vh;
+  background-color: rgba(87,148,132,0.9);
+  /* background-image: url("https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/26e71882-6d8e-4d4b-8136-ae80a3f8fc7a/980acbc2-8a97-49f4-8e5c-27c5a932a980?org_if_sml=17399"); */
+
   /* opacity: 0.6; */
   border-radius: 8px;
-  display: flex;
+  /* display: flex; */
+  display: grid;
   /* flex-direction: column; */
   align-items: center;
   justify-content: center;
-  /* grid-template-columns: 100px 500px;
-  column-gap: 20%; */
+  grid-template-columns: 1fr 1fr 4fr ;
+  column-gap: 5%;
+  padding-left: 5%;
+}
+
+.recLeft{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .recProgressBar{
   width: 5px;
   height: 80%;
   background-color: #ccc;
+}
+.recRight{
+   color: white;
 }
