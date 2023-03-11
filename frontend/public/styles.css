@@ -1269,7 +1269,6 @@ nav {
   height: 40vh;
   background-color: rgba(87,148,132,0.9);
   /* background-image: url("https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/26e71882-6d8e-4d4b-8136-ae80a3f8fc7a/980acbc2-8a97-49f4-8e5c-27c5a932a980?org_if_sml=17399"); */
-
   /* opacity: 0.6; */
   border-radius: 8px;
   /* display: flex; */
@@ -1288,6 +1287,23 @@ nav {
   gap: 10px;
 }
 
+.left1{
+  color: white;
+  cursor: pointer;
+}
+.left2{
+  color: #ccc;
+  cursor: pointer;
+}
+.left3{
+  color: #ccc;
+  cursor: pointer;
+}
+.left4{
+  color: #ccc;
+  cursor: pointer;
+}
+
 .recProgressBar{
   width: 3.3px;
   height: 80%;
@@ -1298,12 +1314,11 @@ nav {
 }
 
 .progressDiv{
-
   border-radius: 5px;
-  height: 40px;
+  height: 32px;
   width: 10px;
   position: relative;
-  top:10%;
+  top:7%;
   left: -90%;
   background-color: white;
 }
