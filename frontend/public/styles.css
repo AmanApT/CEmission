@@ -1346,4 +1346,5 @@ nav {
   top: 5%;
   left: 5%;
   width: 15%;
+  cursor: pointer;
 }

@@ -23,6 +23,7 @@ import {
 } from "firebase/firestore";
 import { db } from "../firebase";
 import Recommend from "../questions/Individual/Recommend";
+import RecommendIndustry from "../questions/Industry/RecommendIndustry";
 
 const Home = ({ loggedUser, setCheckUser }) => {
   useEffect(() => {
@@ -78,7 +79,7 @@ const Home = ({ loggedUser, setCheckUser }) => {
     <div>
       {/* <button onClick={handleClick}>Send Api Request</button> */}
 
-      {/* {homeQuestion === 1 ? (
+      {homeQuestion === 1 ? (
         <Question setHomeQuestion={setHomeQuestion} loggedUser={loggedUser} />
       ) : homeQuestion === 2 ? (
         <IndustryQuestion
@@ -92,9 +93,9 @@ const Home = ({ loggedUser, setCheckUser }) => {
           loggedUser={loggedUser}
           setCheckUser={setCheckUser}
         />
-      )} */}
+      )}
 
-      <Recommend />
+      {/* <RecommendIndustry /> */}
     </div>
   );
 };
