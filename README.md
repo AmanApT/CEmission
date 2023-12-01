@@ -2,6 +2,10 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Flow Chart of the project: 
+
+<img width="669" alt="Capture" src="https://github.com/AmanApT/CEmission/assets/90468306/652d568f-d552-4f8c-97df-09a464fd3498">
+
 ## Run Locally
 
 Clone the project
