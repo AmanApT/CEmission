@@ -49,30 +49,12 @@ const Main = ({
   const navRef = useRef();
 
 
-  const scrollWidthOffset = (el) => {
-    const yCoordinate = el.getBoundingClientRect().top + window.pageYOffset;
-    const yOffset = -200;
-    window.scrollTo({ top: yCoordinate + yOffset, behavior: "smooth" });
-  };
-
+// For better animation on scroll when a nav element is clicked
   const scrollWidthOffset2 = (el) => {
     const yCoordinate = el.getBoundingClientRect().top + window.pageYOffset;
     const yOffset = -20;
     window.scrollTo({ top: yCoordinate + yOffset, behavior: "smooth" });
   };
-
-  window.onscroll = function () {
-    const mainDiv = document.getElementById("mainDiv");
-    if (
-      document.body.scrollTop >= 30 ||
-      document.documentElement.scrollTop >= 30
-    ) {
-      mainDiv.classList.add("scroll");
-    } else {
-      mainDiv.classList.remove("scroll");
-    }
-  };
-
 
 
   const handleClick3 = async () => {
@@ -114,35 +96,7 @@ const Main = ({
   
   const handleClick6 = () => {
     alert("Succesfully Signed Up For Our Newsletter");
-  };
-
-
-  // setting up preview for toaster :
-
-  const notify = () =>
-    toast.error("Please fill in all details", {
-      position: "top-center",
-      autoClose: 2000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-    });
-
-  const notify2 = () =>
-    toast.error("Please fill in all details", {
-      position: "top-center",
-      autoClose: 2000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-    });
-
+  }; 
     // toggle the class responsive_nav in the navbar:
   const showNavbar = () => {
     navRef.current.classList.toggle("responsive_nav");
