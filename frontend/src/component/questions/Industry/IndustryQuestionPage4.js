@@ -15,7 +15,7 @@ import {
   serverTimestamp,
 } from "firebase/firestore";
 import { db } from "../../firebase";
-// import Home from "../home/Home";
+
 
 const IndustryQuestionPage4 = ({
   setToggleQuestion,
@@ -38,8 +38,8 @@ const IndustryQuestionPage4 = ({
   let userinfo = {};
   let userId = "";
 
-  const api = "http://127.0.0.1:5000/query2";
-
+  
+  // Popup a toaster if the fields are empty else go to the next page
   const handleClick = async () => {
     if (!electricity || !ngas) {
       notify();
@@ -47,6 +47,10 @@ const IndustryQuestionPage4 = ({
       setToggleQuestion(5);
     }
 
+    // Base URL where the post request is sent
+    const api = "http://127.0.0.1:5000/query2";
+
+    // Pushing all the input values in input array inArr.
     inArr.push(floor);
     inArr.push(parking);
     inArr.push(building);
@@ -58,23 +62,26 @@ const IndustryQuestionPage4 = ({
     inArr = inArr.slice(inArr.length - 8, inArr.length + 1);
     finalInArr = inArr;
 
+    // Creating a query to fetch user info based on the logged-in user's email
     const q = query(
       collection(db, "userinfo"),
       where("email", "==", loggedUser.email)
     );
 
+    // Retrieving the query snapshot asynchronously
     const querySnapshot = await getDocs(q);
     console.log(querySnapshot);
+
+     // Looping through the query snapshot to extract userinfo and userId
     querySnapshot.forEach((doc) => {
-      // doc.data() is never undefined for query doc snapshots
-      // console.log(doc.id, " => ", doc.data());
-      // userinfo = doc.data();
       userId = doc.id;
     });
 
+    // Creating a reference to the specific document in the 'userinfo' collection using the userId
     const washingtonRef = doc(db, "userinfo", userId);
     console.log(`final array -> ${finalInArr}`);
 
+    // Sending a POST request to an API endpoint with the 'finalInArr' as a query parameter
     const response = await fetch(`${api}?description=${finalInArr}`, {
       method: "POST",
       headers: {
@@ -82,7 +89,7 @@ const IndustryQuestionPage4 = ({
       },
     });
 
-    // 3) parse response
+    // parse response
     await response.json().then(async (value) => {
       setOpArrIndustry(value);
       await updateDoc(washingtonRef, {
@@ -90,6 +97,7 @@ const IndustryQuestionPage4 = ({
       });
     });
 
+    // Styling the toaster
     const notify = () =>
       toast.error("Please fill in all details", {
         position: "top-center",

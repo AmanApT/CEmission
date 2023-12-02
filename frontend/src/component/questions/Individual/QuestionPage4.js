@@ -37,28 +37,22 @@ const QuestionPage4 = ({
   setOpArr,
   inArr,
 }) => {
-  // const [userinfo, setUserinfo] = useState("");
 
   let userinfo = {};
   let userId = "";
-
-  // const [callApi, setCallApi] = useState("");
-
-  // const description = [1000, 1000, 1200, 10000, 4, 4, 0, 0];
-
+   // Popup a toaster if the fields are empty else go to the next page
   const handleClick = async () => {
     if (!newspaper || !tin) {
       notify();
     } else {
       setToggleQuestion(5);
       setToggleResult(1);
-      // setCallApi("1");
     }
 
-    // useEffect(async () => {
+     // Base URL where the post request is sent
     const api = "http://127.0.0.1:5000/query1";
-    // console.log(loggedUser);
-
+ 
+    // Pushing all the input values in input array inArr.
     inArr.push(eBill);
     inArr.push(gBill);
     inArr.push(oBill);
@@ -70,23 +64,29 @@ const QuestionPage4 = ({
     inArr = inArr.slice(inArr.length - 8, inArr.length + 1);
     finalInArr = inArr;
 
+    // Creating a query to fetch user info based on the logged-in user's email
     const q = query(
       collection(db, "userinfo"),
       where("email", "==", loggedUser.email)
     );
 
+    // Retrieving the query snapshot asynchronously
     const querySnapshot = await getDocs(q);
     console.log(querySnapshot);
-    querySnapshot.forEach((doc) => {
-      // doc.data() is never undefined for query doc snapshots
-      // console.log(doc.id, " => ", doc.data());
-      userinfo = doc.data();
-      userId = doc.id;
-    });
 
+     // Looping through the query snapshot to extract userinfo and userId
+    querySnapshot.forEach((doc) => {
+      userinfo = doc.data(); // Extracting user information from the document
+      userId = doc.id; // Extracting the document ID (userId)
+    });
+   
+    // Creating a reference to the specific document in the 'userinfo' collection using the userId
     const washingtonRef = doc(db, "userinfo", userId);
+
+    // Logging the content of 'finalInArr'
     console.log(`final array -> ${finalInArr}`);
 
+    // Sending a POST request to an API endpoint with the 'finalInArr' as a query parameter
     const response = await fetch(`${api}?description=${finalInArr}`, {
       method: "POST",
       headers: {
@@ -96,22 +96,20 @@ const QuestionPage4 = ({
 
     let sno = 1;
 
-    // 3) parse response
+    //  parse response
     await response.json().then(async (value) => {
       setOpArr(value);
       await updateDoc(washingtonRef, {
         info: arrayUnion({
           in: finalInArr,
-          // timestamp: new Date().getUTCMonth() + 1,
           op: value,
         }),
-        //
       });
     });
-
-    // Set the "capital" field of the city 'DC'
   };
 
+
+  // Styling the toaster
   const notify = () =>
     toast.error("Please fill in all details", {
       position: "top-center",
@@ -176,8 +174,6 @@ const QuestionPage4 = ({
         <div className="questionElectricity">
           <div>
             <h1>Did you recycle newspapers past year?</h1>
-
-            {/* <div class="container"> */}
             <div
               style={{
                 display: "flex",
@@ -185,29 +181,6 @@ const QuestionPage4 = ({
                 justifyContent: "center",
               }}
             >
-              {/* <div>
-                <input
-                  type="radio"
-                  name="radio"
-                  value={newspaper}
-                  onChange={() => setNewspaper("1")}
-                />
-                <label for="opt1" class="label1">
-                  <span style={{ fontSize: "20px" }}>Yes</span>
-                </label>
-              </div>
-              <div>
-                <input
-                  type="radio"
-                  name="radio"
-                  value={newspaper}
-                  onChange={() => setNewspaper("0")}
-                />
-                <label for="opt2" class="label2">
-                  <span style={{ fontSize: "20px" }}>No</span>
-                </label>
-              </div> */}
-
               <div>
                 <label>
                   <input
@@ -235,7 +208,7 @@ const QuestionPage4 = ({
                 </label>
               </div>
             </div>
-            {/* </div> */}
+           
           </div>
         </div>
 
@@ -245,29 +218,6 @@ const QuestionPage4 = ({
             <div
               style={{ display: "flex", gap: "10%", justifyContent: "center" }}
             >
-              {/* <div>
-                <input
-                  name="question-2"
-                  type="radio"
-                  onChange={() => setTin("1")}
-                  value={tin}
-                />
-                <label>
-                  <span style={{ fontSize: "20px" }}>Yes</span>
-                </label>
-              </div>
-              <div>
-                <input
-                  name="question-2"
-                  type="radio"
-                  onChange={() => setTin("0")}
-                  value={tin}
-                />
-                <label>
-                  <span style={{ fontSize: "20px" }}>No</span>
-                </label>
-              </div> */}
-
               <div>
                 <label>
                   <input

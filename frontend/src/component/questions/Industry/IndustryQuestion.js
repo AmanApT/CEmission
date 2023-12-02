@@ -7,6 +7,8 @@ import IndustryResult from "./IndustryResult";
 import RecommendIndustry from "./RecommendIndustry";
 
 const Question = ({ setHomeQuestion, loggedUser }) => {
+
+   // States maintaining all the input values :
   const [toggleQuestion, setToggleQuestion] = useState(1);
   const [floor, setFloor] = useState("");
   const [parking, setParking] = useState("");
@@ -25,6 +27,7 @@ const Question = ({ setHomeQuestion, loggedUser }) => {
 
   return (
     <>
+    {/* Logic for changing Question Page on click of Next */}
       {toggleQuestion === 1 ? (
         <IndustryQuestionPage1
           setToggleQuestion={setToggleQuestion}
