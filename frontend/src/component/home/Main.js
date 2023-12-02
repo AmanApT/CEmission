@@ -12,7 +12,6 @@ import { BrowserRouter } from "react-router-dom";
 import CalculateSection from "./CalculateSection";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-// import Chatbot from "./Chatbot/Chatbot";
 import config from "./Chatbot/config";
 import { Chatbot } from "react-chatbot-kit";
 import ActionProvider from "./Chatbot/ActionProvider";
@@ -46,6 +45,9 @@ const Main = ({
   const [contact, setContact] = useState("");
   const [chatBotToggle, setChatBotToggle] = useState(0);
   const [botIcon, setBotIcon] = useState(0);
+  const [open, setOpen] = useState(false);
+  const navRef = useRef();
+
 
   const scrollWidthOffset = (el) => {
     const yCoordinate = el.getBoundingClientRect().top + window.pageYOffset;
@@ -71,7 +73,11 @@ const Main = ({
     }
   };
 
+
+
   const handleClick3 = async () => {
+
+    // Check whether the logged in user is in the DB or not 
     const q = query(
       collection(db, "userinfo"),
       where("email", "==", loggedUser.email)
@@ -79,25 +85,17 @@ const Main = ({
 
     setOpen(true);
 
+    // get the saved object document
     const querySnapshot = await getDocs(q);
-    // console.log(querySnapshot);
+
     querySnapshot.forEach((doc) => {
-      // doc.data() is never undefined for query doc snapshots
-      // console.log(doc.id, " => ", doc.data());
       setUserInfo(doc.data().info.reverse());
       setUserInfoIndustry(doc.data().info2.reverse());
-      // if (doc.data().info.timestamp === 2) {
-      //   console.log('febArr');
-      //   setFebArr(doc.data().info.reverse());
-      // }
       console.log(doc.data().info);
-      // setUserInfo(userInfo.reverse());
-      // userId = doc.id;
     });
-    // console.log("====================================");
-    // console.log(febArr);
-    // console.log("====================================");
   };
+
+  // handle contact info provided by user :  
 
   const handleClick4 = () => {
     if (contact === "") {
@@ -107,14 +105,19 @@ const Main = ({
     }
   };
 
+  // toggle opening of chatbot and icon
   const handleClick5 = () => {
     setChatBotToggle((prev) => (prev === 0 ? 1 : 0));
     setBotIcon((prev) => (prev === 0 ? 1 : 0));
   };
 
+  
   const handleClick6 = () => {
     alert("Succesfully Signed Up For Our Newsletter");
   };
+
+
+  // setting up preview for toaster :
 
   const notify = () =>
     toast.error("Please fill in all details", {
@@ -140,32 +143,19 @@ const Main = ({
       theme: "light",
     });
 
-  const [open, setOpen] = useState(false);
-
-  const navRef = useRef();
-
+    // toggle the class responsive_nav in the navbar:
   const showNavbar = () => {
     navRef.current.classList.toggle("responsive_nav");
   };
 
   return (
-    <div id="mainDiv">
-      {/* <nav className="navBar">
-        <div className="navbarImage">
-          <img className="logo_v2_1" src={logo_v2_1} alt="React Logo" />
-        </div>
 
-        <div className="navbarRightFields">
-          <p>HOME</p>
-          <p>CALCULATE</p>
-          <p>MY FOOTPRINT</p>
-        </div>
-      </nav> */}
+    <div id="mainDiv">
+
+      {/* Navigation Section :  */}
 
       <BrowserRouter>
         <header>
-          {/* <h3>LOGO</h3> */}
-          {/* <img className="logo_v2_1" src={logo_v2_1} alt="React Logo" /> */}
           <div className="navbarImage">
             <img
               className="logo_v2_1"
@@ -202,8 +192,6 @@ const Main = ({
                 LOGIN/SIGNUP
               </div>
             )}
-
-            {/* <a href="/#">About me</a> */}
             <button className="nav-btn nav-close-btn" onClick={showNavbar}>
               <FaTimes />
             </button>
@@ -402,7 +390,6 @@ const Main = ({
               userInfoIndustry={userInfoIndustry}
             />
             <button
-              // style={{ marginLeft: "90%", marginTop: "2%" }}
               className="butt-10"
               onClick={handleClick3}
             >
@@ -412,24 +399,11 @@ const Main = ({
         ) : (
           <></>
         )}
-        {/* <Drawer setOpen={setOpen} open={open} /> */}
       </section>
 
       {/* .............................................Contact Us............................................. */}
 
       <section data-aos="fade" id="contactUs">
-        {/* <ToastContainer
-          position="top-center"
-          autoClose={2000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-          theme="light"
-        /> */}
         <div className="contactUsLeft">
           <p className="contactUsLeftJoin">Join Us</p>
           <p className="contactUsLeftJoin2">Sign Up for our Newsletter!</p>
@@ -453,7 +427,6 @@ const Main = ({
           >
             SUBMIT
           </div>
-          {/* <span className="emailInfo">mahirakhan35@gmail.com</span> */}
         </div>
 
         <div className="contactUsRight">
@@ -504,10 +477,6 @@ const Main = ({
           </div>
         </div>
       </section>
-
-      {/* <button onClick={() => setHomeQuestion(1)}>
-        Question dekhne ke liye mujhe dabaye
-      </button> */}
     </div>
   );
 };

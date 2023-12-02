@@ -7,6 +7,8 @@ import Result from "./Result";
 import Recommend from "./Recommend";
 
 const Question = ({ setHomeQuestion, loggedUser }) => {
+
+  // States maintaining all the input values :
   const [toggleQuestion, setToggleQuestion] = useState(1);
   const [eBill, setEBill] = useState("");
   const [gBill, setGBill] = useState("");
@@ -25,6 +27,7 @@ const Question = ({ setHomeQuestion, loggedUser }) => {
 
   return (
     <>
+    {/* Logic for changing Question Page on click of Next */}
       {toggleQuestion === 1 ? (
         <QuestionPage1
           setToggleQuestion={setToggleQuestion}

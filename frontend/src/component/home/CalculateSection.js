@@ -17,7 +17,6 @@ const CalculateSection = ({ loggedUser, setCheckUser, setHomeQuestion }) => {
     }
   };
 
-  // id="calculateCarbonEmission
   return (
     <section className="calculateCarbonEmission" data-aos="fade" id="calculate">
       <div className="calculateMainDiv">

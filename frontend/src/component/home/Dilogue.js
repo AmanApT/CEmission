@@ -28,61 +28,11 @@ const Dilogue = ({
   userInfo,
   userInfoIndustry,
 }) => {
-  // useEffect(() => {
-  //   // if (loggedUser) {
-  //   document
-  //     .getElementById("open-popup-btn")
-  //     .addEventListener("click", function () {
-  //       // if (loggedUser) {
-  //       document.getElementsByClassName("popup")[0].classList.add("active");
-  //       console.log("Log ho rha hun mai ");
-  //       // } else {
-  //       //   setCheckUser(1);
-  //       // }
-  //     });
-
-  //   document
-  //     .getElementById("dismiss-popup-btn")
-  //     .addEventListener("click", function () {
-  //       document.getElementsByClassName("popup")[0].classList.remove("active");
-  //     });
-  //   // } else {
-  //   //   setCheckUser(1);
-  //   // }
-  // }, []);
-
   let sno = 1;
   let sno2 = 1;
-  // const [userInfo, setUserInfo] = useState([]);
-  // const [userInfoIndustry, setUserInfoIndustry] = useState([]);
   const [febArr, setFebArr] = useState([]);
 
-  // const handleClick3 = async () => {
-  //   const q = query(
-  //     collection(db, "userinfo"),
-  //     where("email", "==", loggedUser.email)
-  //   );
-
-  //   const querySnapshot = await getDocs(q);
-  //   // console.log(querySnapshot);
-  //   querySnapshot.forEach((doc) => {
-  //     // doc.data() is never undefined for query doc snapshots
-  //     // console.log(doc.id, " => ", doc.data());
-  //     setUserInfo(doc.data().info.reverse());
-  //     setUserInfoIndustry(doc.data().info2.reverse());
-  //     // if (doc.data().info.timestamp === 2) {
-  //     //   console.log('febArr');
-  //     //   setFebArr(doc.data().info.reverse());
-  //     // }
-  //     console.log(doc.data().info);
-  //     // setUserInfo(userInfo.reverse());
-  //     // userId = doc.id;
-  //   });
-  //   // console.log("====================================");
-  //   // console.log(febArr);
-  //   // console.log("====================================");
-  // };
-
+  // Styling the dialogue box that opens on click of show history
   const drawerStyle = {
     left: 140,
     top: 80,
@@ -92,12 +42,12 @@ const Dilogue = ({
     borderBottomLeftRadius: 20,
     borderTopRightRadius: 20,
     borderBottomRightRadius: 20,
-    display:'flex',
-    paddingTop:"2.5rem",
-    alignItems: 'center',
-    // backgroundColor: "#ffffff",
+    display: "flex",
+    paddingTop: "2.5rem",
+    alignItems: "center",
     backgroundColor: "rgb(108,184,166)",
-background: "linear-gradient(128deg, rgba(108,184,166,1) 0%, rgba(108,184,166,1) 35%, rgba(96,223,147,1) 100%)",
+    background:
+      "linear-gradient(128deg, rgba(108,184,166,1) 0%, rgba(108,184,166,1) 35%, rgba(96,223,147,1) 100%)",
 
     boxShadow: "none",
     "@media(max-width: 1080px)": {
@@ -120,16 +70,23 @@ background: "linear-gradient(128deg, rgba(108,184,166,1) 0%, rgba(108,184,166,1)
       onClose={() => setOpen(false)}
       PaperProps={{ sx: drawerStyle }}
     >
-       {/* style={{paddingTop:"5%",paddingLeft:"auto",paddingRight:"auto"}} */}
-      {/* <div className="drawerTop">
-        <ArrowBackIcon className="arrowBackIcon" onClick={handleClick2} />
-      </div> */}
       <div>
-          <h1 style={{marginBottom:"2rem",fontFamily:"Poppins, sans-serif",fontWeight:"600",fontSize:"36px"}}> Your Carbon Emission History</h1>
-          </div>
-      {/* {userInfo ? ( */}
-      {/* userInfo.map((eachInfo) => { */}
-      <Accordion style={{width:"78vw",marginBottom:"1rem"}}>
+        <h1
+          style={{
+            marginBottom: "2rem",
+            fontFamily: "Poppins, sans-serif",
+            fontWeight: "600",
+            fontSize: "36px",
+          }}
+        >
+          {" "}
+          Your Carbon Emission History
+        </h1>
+      </div>
+
+      {/* MUI Accordian to display tabular data  */}
+
+      <Accordion style={{ width: "78vw", marginBottom: "1rem" }}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1a-content"
@@ -182,7 +139,7 @@ background: "linear-gradient(128deg, rgba(108,184,166,1) 0%, rgba(108,184,166,1)
         </AccordionDetails>
       </Accordion>
 
-      <Accordion style={{width:"78vw"}}>
+      <Accordion style={{ width: "78vw" }}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1a-content"
