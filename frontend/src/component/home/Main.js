@@ -134,12 +134,12 @@ const Main = ({
               <div
                 style={{
                   backgroundColor: "#165a4a",
-                  padding: "1rem 1.5rem",
+                  padding: "1rem 1.3rem",
                   cursor: "pointer",
                   borderRadius: "5px",
                   color: "white",
                   fontFamily: "Poppins, sans-serif",
-                  fontSize: "18px",
+                  fontSize: "16px",
                 }}
                 onClick={() => setCheckUser(1)}
               >

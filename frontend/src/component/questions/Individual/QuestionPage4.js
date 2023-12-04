@@ -40,8 +40,13 @@ const QuestionPage4 = ({
 
   let userinfo = {};
   let userId = "";
-   // Popup a toaster if the fields are empty else go to the next page
+
   const handleClick = async () => {
+
+    try{
+
+   
+       // Popup a toaster if the fields are empty else go to the next page
     if (!newspaper || !tin) {
       notify();
     } else {
@@ -75,10 +80,20 @@ const QuestionPage4 = ({
     console.log(querySnapshot);
 
      // Looping through the query snapshot to extract userinfo and userId
-    querySnapshot.forEach((doc) => {
-      userinfo = doc.data(); // Extracting user information from the document
-      userId = doc.id; // Extracting the document ID (userId)
-    });
+
+     if(querySnapshot.empty){
+       // If the userinfo document doesn't exist, create it
+       const newDocRef = await addDoc(collection(db, "userinfo"), {
+        email: loggedUser.email,
+      });
+     }
+     else {
+      querySnapshot.forEach((doc) => {
+        userinfo = doc.data(); // Extracting user information from the document
+        userId = doc.id; // Extracting the document ID (userId)
+     });
+     }
+   
    
     // Creating a reference to the specific document in the 'userinfo' collection using the userId
     const washingtonRef = doc(db, "userinfo", userId);
@@ -96,6 +111,8 @@ const QuestionPage4 = ({
 
     let sno = 1;
 
+ // For testing purposes, using a static value instead of getting from ML model (for deploying frontend only)
+// setOpArr("20")
     //  parse response
     await response.json().then(async (value) => {
       setOpArr(value);
@@ -104,9 +121,16 @@ const QuestionPage4 = ({
           in: finalInArr,
           op: value,
         }),
-      });
-    });
+      }) });
+   
+  } catch (error){
+    console.error("Error in handleClick:", error);
   };
+  
+  };
+  
+
+ 
 
 
   // Styling the toaster

@@ -366,8 +366,9 @@ header {
   align-items: center;
   justify-content: space-between;
   height: 80px;
-  padding: 3rem 2rem;
-  background-color: var(--mainColor);
+  padding: 2rem 2rem;
+  background: transparent;
+  /* background-color: var(--mainColor); */
   color: var(--textColor);
 }
 
