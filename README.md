@@ -44,6 +44,11 @@ Install dependencies
   pip install -r requirements.txt
 ```
 
+```bash
+  pip install scikit-learn==1.2.0
+```
+
+
 Start the backend-server 
 
 ```bash
