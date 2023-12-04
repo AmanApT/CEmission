@@ -111,8 +111,7 @@ const QuestionPage4 = ({
 
     let sno = 1;
 
- // For testing purposes, using a static value instead of getting from ML model (for deploying frontend only)
-// setOpArr("20")
+ 
     //  parse response
     await response.json().then(async (value) => {
       setOpArr(value);

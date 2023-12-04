@@ -1,65 +1,42 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import leafImage from "../questions/images/leaf.png";
 import logo_v2_1 from "../questions/logo_v2_1.png";
 import linkedIn from "../questions/images/linkedin.png";
 import twitter from "../questions/images/twitter.png";
 import facebook from "../questions/images/facebook.png";
 import instagram from "../questions/images/instagram.png";
-import Dilogue from "./Dilogue";
+import Dialog from "./Dialog";
 import { FaBars, FaTimes } from "react-icons/fa";
-import { HashLink as Link } from "react-router-hash-link";
-import { BrowserRouter } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import CalculateSection from "./CalculateSection";
-import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import config from "./Chatbot/config";
 import { Chatbot } from "react-chatbot-kit";
 import ActionProvider from "./Chatbot/ActionProvider";
 import MessageParser from "./Chatbot/MessageParser";
 import "react-chatbot-kit/build/main.css";
-
 import ChartHere from "./chart/ChartHere";
+import { collection, getDocs, query, where } from "firebase/firestore";
+import auth, { db } from "../firebase";
 
-import {
-  collection,
-  addDoc,
-  getDocs,
-  query,
-  where,
-  arrayUnion,
-  updateDoc,
-  doc,
-  serverTimestamp,
-} from "firebase/firestore";
-import { db } from "../firebase";
-
-const Main = ({
-  setHomeQuestion,
-  homeQuestion,
-  userinfo,
-  loggedUser,
-  setCheckUser,
-}) => {
+const Main = ({ setHomeQuestion, loggedUser, setCheckUser, setLoggedUser }) => {
   const [userInfo, setUserInfo] = useState([]);
   const [userInfoIndustry, setUserInfoIndustry] = useState([]);
   const [contact, setContact] = useState("");
   const [chatBotToggle, setChatBotToggle] = useState(0);
-  const [botIcon, setBotIcon] = useState(0);
-  const [open, setOpen] = useState(false);
-  const navRef = useRef();
+  const [scrolling, setScrolling] = useState(false);
 
+  const navigate = useNavigate();
 
-// For better animation on scroll when a nav element is clicked
+  // For better animation on scroll when a navbar element is used(clicked)
   const scrollWidthOffset2 = (el) => {
     const yCoordinate = el.getBoundingClientRect().top + window.pageYOffset;
     const yOffset = -20;
     window.scrollTo({ top: yCoordinate + yOffset, behavior: "smooth" });
   };
 
-
+  // Get history of users from firestore database
   const handleClick3 = async () => {
-
-    // Check whether the logged in user is in the DB or not 
     const q = query(
       collection(db, "userinfo"),
       where("email", "==", loggedUser.email)
@@ -67,17 +44,12 @@ const Main = ({
 
     setOpen(true);
 
-    // get the saved object document
     const querySnapshot = await getDocs(q);
-
     querySnapshot.forEach((doc) => {
       setUserInfo(doc.data().info.reverse());
       setUserInfoIndustry(doc.data().info2.reverse());
-      console.log(doc.data().info);
     });
   };
-
-  // handle contact info provided by user :  
 
   const handleClick4 = () => {
     if (contact === "") {
@@ -87,76 +59,143 @@ const Main = ({
     }
   };
 
-  // toggle opening of chatbot and icon
   const handleClick5 = () => {
     setChatBotToggle((prev) => (prev === 0 ? 1 : 0));
-    setBotIcon((prev) => (prev === 0 ? 1 : 0));
+    // setBotIcon((prev) => (prev === 0 ? 1 : 0));
   };
 
-  
   const handleClick6 = () => {
     alert("Succesfully Signed Up For Our Newsletter");
-  }; 
-    // toggle the class responsive_nav in the navbar:
+  };
+
+  const scrollToSection = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const handleLogout = () => {
+    auth
+      .signOut()
+      .then(() => {
+        setCheckUser(0);
+        setLoggedUser("");
+        console.log("Logout successful");
+      })
+      .catch((error) => {
+        console.error("Logout error:", error);
+      });
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setScrolling(true);
+      } else {
+        setScrolling(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const [open, setOpen] = useState(false);
+
+  const navRef = useRef();
+
   const showNavbar = () => {
     navRef.current.classList.toggle("responsive_nav");
   };
 
   return (
-
     <div id="mainDiv">
+     
 
-      {/* Navigation Section :  */}
+      <header className={scrolling ? "navBarScrolled" : ""}>
+        <div className="navbarImage">
+          <img
+            className="logo_v2_1"
+            src={logo_v2_1}
+            style={{ width: "80%" }}
+            alt="React Logo"
+          />
+        </div>
+        <nav ref={navRef}>
 
-      <BrowserRouter>
-        <header>
-          <div className="navbarImage">
-            <img
-              className="logo_v2_1"
-              src={logo_v2_1}
-              style={{ width: "80%" }}
-              alt="React Logo"
-            />
-          </div>
-          <nav ref={navRef}>
-            <Link to="#home">
-              <a className="navLinks">HOME</a>
-            </Link>
-            <Link to="#calculate" scroll={(el) => scrollWidthOffset2(el)}>
-              <a className="navLinks">CALCULATE</a>
-            </Link>
-            <Link to="#history" scroll={(el) => scrollWidthOffset2(el)}>
-              <a className="navLinks">MY FOOTPRINT</a>
-            </Link>
-            {loggedUser ? (
-              <></>
-            ) : (
-              <div
-                style={{
-                  backgroundColor: "#165a4a",
-                  padding: "1rem 1.3rem",
-                  cursor: "pointer",
-                  borderRadius: "5px",
-                  color: "white",
-                  fontFamily: "Poppins, sans-serif",
-                  fontSize: "16px",
-                }}
-                onClick={() => setCheckUser(1)}
-              >
-                LOGIN/SIGNUP
-              </div>
-            )}
-            <button className="nav-btn nav-close-btn" onClick={showNavbar}>
-              <FaTimes />
-            </button>
-          </nav>
-          <button className="nav-btn" onClick={showNavbar}>
-            <FaBars />
+          <span
+            className={scrolling ? "navLinksScroll" : "navLinks"}
+            onClick={() => scrollToSection("home")}
+          >
+            HOME
+          </span>
+
+          <span
+            className={scrolling ? "navLinksScroll" : "navLinks"}
+            onClick={() => scrollToSection("calculate")}
+          >
+            CALCULATE
+          </span>
+
+
+          <span
+            className={scrolling ? "navLinksScroll" : "navLinks"}
+            onClick={() => scrollToSection("history")}
+          >
+            MY FOOTPRINT
+          </span>
+
+          {loggedUser ? (
+            <div
+              style={{
+                backgroundColor: "#165a4a",
+                padding: "1rem 1.5rem",
+                cursor: "pointer",
+                borderRadius: "5px",
+                color: "white",
+                fontFamily: "Poppins, sans-serif",
+                fontSize: "18px",
+                transition: "background-color 0.3s",
+                ":hover": {
+                  backgroundColor: "#134336",
+                },
+              }}
+              onClick={handleLogout}
+            >
+              LOGOUT
+            </div>
+          ) : (
+            <div
+              style={{
+                backgroundColor: "#165a4a",
+                padding: "1rem 1.5rem",
+                cursor: "pointer",
+                borderRadius: "5px",
+                color: "white",
+                fontFamily: "Poppins, sans-serif",
+                fontSize: "18px",
+              }}
+              onClick={() => navigate("/auth")}
+            >
+              LOGIN/SIGNUP
+            </div>
+          )}
+
+          {/* <a href="/#">About me</a> */}
+          <button className="nav-btn nav-close-btn" onClick={showNavbar}>
+            <FaTimes />
           </button>
-        </header>
-      </BrowserRouter>
+        </nav>
+        <button className="nav-btn" onClick={showNavbar}>
+          <FaBars />
+        </button>
+      </header>
 
-      <div className="mainFirst">
+      <div className="mainFirst" id="home">
         <div className="mainFirstDiv">
           <h1 className="mainFirstDivHeading1">ITS TIME TO</h1>
           <h1 className="mainFirstDivHeading2">OFFSET YOUR</h1>
@@ -216,7 +255,7 @@ const Main = ({
               marginLeft: "auto",
               marginRight: "auto",
               width: "80%",
-              fontSize: "20px",
+              // fontSize: "20px",
               // fontWeight:"550"
               lineHeight: "1.2",
             }}
@@ -335,7 +374,7 @@ const Main = ({
         )}
         {loggedUser ? (
           <>
-            <Dilogue
+            <Dialog
               setOpen={setOpen}
               open={open}
               loggedUser={loggedUser}
@@ -343,21 +382,31 @@ const Main = ({
               userInfo={userInfo}
               userInfoIndustry={userInfoIndustry}
             />
-            <button
-              className="butt-10"
-              onClick={handleClick3}
-            >
+            <button className="butt-10" onClick={handleClick3}>
               Show History
             </button>
           </>
         ) : (
           <></>
         )}
+        {/* <Drawer setOpen={setOpen} open={open} /> */}
       </section>
 
       {/* .............................................Contact Us............................................. */}
 
       <section data-aos="fade" id="contactUs">
+        {/* <ToastContainer
+          position="top-center"
+          autoClose={2000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+        /> */}
         <div className="contactUsLeft">
           <p className="contactUsLeftJoin">Join Us</p>
           <p className="contactUsLeftJoin2">Sign Up for our Newsletter!</p>
@@ -381,6 +430,7 @@ const Main = ({
           >
             SUBMIT
           </div>
+          {/* <span className="emailInfo">mahirakhan35@gmail.com</span> */}
         </div>
 
         <div className="contactUsRight">
@@ -431,6 +481,7 @@ const Main = ({
           </div>
         </div>
       </section>
+
     </div>
   );
 };

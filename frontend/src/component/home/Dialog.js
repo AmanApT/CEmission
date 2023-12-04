@@ -20,7 +20,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { Drawer } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
-const Dilogue = ({
+const Dialog = ({
   loggedUser,
   setCheckUser,
   open,
@@ -181,7 +181,7 @@ const Dilogue = ({
                   );
                 })
               ) : (
-                <div> Kuch nahi hai lavde</div>
+                <div>Sorry, there's no data to display</div>
               )}
             </table>
           </div>
@@ -191,4 +191,4 @@ const Dilogue = ({
   );
 };
 
-export default Dilogue;
+export default Dialog;

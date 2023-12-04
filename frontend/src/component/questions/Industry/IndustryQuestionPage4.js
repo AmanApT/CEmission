@@ -41,6 +41,9 @@ const IndustryQuestionPage4 = ({
   
   // Popup a toaster if the fields are empty else go to the next page
   const handleClick = async () => {
+
+
+    try{
     if (!electricity || !ngas) {
       notify();
     } else {
@@ -72,11 +75,18 @@ const IndustryQuestionPage4 = ({
     const querySnapshot = await getDocs(q);
     console.log(querySnapshot);
 
-     // Looping through the query snapshot to extract userinfo and userId
-    querySnapshot.forEach((doc) => {
-      userId = doc.id;
-    });
-
+     if(querySnapshot.empty){
+       // If the userinfo document doesn't exist, create it
+       const newDocRef = await addDoc(collection(db, "userinfo"), {
+        email: loggedUser.email,
+      });
+     }
+     else {
+      querySnapshot.forEach((doc) => {
+        userinfo = doc.data(); // Extracting user information from the document
+        userId = doc.id; // Extracting the document ID (userId)
+     });
+     }
     // Creating a reference to the specific document in the 'userinfo' collection using the userId
     const washingtonRef = doc(db, "userinfo", userId);
     console.log(`final array -> ${finalInArr}`);
@@ -95,7 +105,10 @@ const IndustryQuestionPage4 = ({
       await updateDoc(washingtonRef, {
         info2: arrayUnion({ in: finalInArr, timestamp: new Date(), op: value }),
       });
-    });
+    });}
+     catch(error) {
+      console.log("Error in Handleclick: ", error);
+     }
 
     // Styling the toaster
     const notify = () =>

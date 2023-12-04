@@ -3,6 +3,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter&display=swap%27");
 
+
+:root {
+  --mainColor: white;
+  --mainColorLight: #5767aa;
+  --secondaryColor: #db2b39;
+  --textColor: black;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -226,6 +234,7 @@
   width: 12%;
   color: white;
   border-style: none;
+  cursor: pointer;
 }
 
 .progressBar {
@@ -350,37 +359,51 @@ input[type="radio"][value="no"]:checked + .radio-button::after {
 
 /* <-----------------------------Home Page ------------------------------> */
 
-@media screen and (max-width: 720px) {
-}
 
 /* <------------------------------------------Navbar----------------------------------------> */
-:root {
-  --mainColor: white;
-  --mainColorLight: #5767aa;
-  --secondaryColor: #db2b39;
-  --textColor: black;
-}
 
 header {
+  position: fixed;
+  width: 100vw;
+  z-index: 99;
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 80px;
-  padding: 2rem 2rem;
-  background: transparent;
-  /* background-color: var(--mainColor); */
-  color: var(--textColor);
+  padding: 3rem 2rem;
+
 }
 
-nav a {
-  margin: 0 1rem;
-  color: var(--textColor);
-  text-decoration: none;
+.navBarScrolled {
+  backdrop-filter: blur(25px) saturate(200%);
+  -webkit-backdrop-filter: blur(25px) saturate(200%);
+  background-color: rgba(167, 167, 167, 0.35);
+  /* border-radius: 12px; */
+  border: 1px solid rgba(255, 255, 255, 0.125);
 }
 
-nav a:hover {
-  color: var(--secondaryColor);
+.navLinks:hover {
+  color: #ff3c78;
+  /* color: #165a4a; */
+  cursor: pointer;
 }
+
+.navLinks::after {
+  content: "";
+  /* position: absolute; */
+  background-color: #ff3c78;
+  height: 3px;
+  width: 0;
+  /* left: 0; */
+  /* bottom: -10px; */
+  display: block;
+  /* margin; */
+  transition: 0.3s;
+}
+.navLinks:hover::after {
+  width: 100%;
+}
+
 
 header .nav-btn {
   padding: 5px;
@@ -397,6 +420,52 @@ header .nav-btn {
 nav {
   display: flex;
   align-items: center;
+}
+
+.navLinks {
+  font-family: Poppins, sans-serif;
+  font-size: 18px;
+  /* font-size: 1.5rem; */
+  font-weight: 400;
+  /* color: #162320; */
+  letter-spacing: -0.011em;
+  margin: 0 1rem;
+  /* color: var(--textColor); */
+  color: white;
+}
+
+.navLinksScroll {
+  font-family: Poppins, sans-serif;
+  font-size: 18px;
+  /* font-size: 1.5rem; */
+  font-weight: 400;
+  /* color: #162320; */
+  letter-spacing: -0.011em;
+  margin: 0 1rem;
+  /* color: var(--textColor); */
+  color: black;
+}
+
+.navLinksScroll::after {
+  content: "";
+  /* position: absolute; */
+  background-color: #ff3c78;
+  height: 3px;
+  width: 0;
+  /* left: 0; */
+  /* bottom: -10px; */
+  display: block;
+  /* margin; */
+  transition: 0.3s;
+}
+.navLinksScroll:hover::after {
+  width: 100%;
+}
+
+.navLinksScroll:hover {
+  color: #ff3c78;
+  /* color: #165a4a; */
+  cursor: pointer;
 }
 
 @media only screen and (max-width: 1024px) {
@@ -424,6 +493,7 @@ nav {
 
   header .responsive_nav {
     transform: none;
+    height: 100vh;
   }
 
   nav .nav-close-btn {
@@ -432,8 +502,8 @@ nav {
     right: 2rem;
   }
 
-  nav a {
-    font-size: 1.5rem;
+  .navLinks {
+    color: black;
   }
 }
 
@@ -699,6 +769,18 @@ nav {
 @media screen and (max-width: 720px) {
   .calculateCarbonEmission {
     background-size: cover;
+  }
+  .calculationBoxes {
+    /* flex-wrap: wrap; */
+    flex-direction: column;
+    align-items: center;
+    /* height: 180vh; */
+  }
+  .box1{
+    font-size: 30px;
+    width: 80vw;
+    height: 30vh;
+    margin-bottom: 0.5rem;
   }
 }
 
