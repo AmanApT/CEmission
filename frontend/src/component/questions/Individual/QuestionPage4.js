@@ -86,7 +86,8 @@ const QuestionPage4 = ({
        const newDocRef = await addDoc(collection(db, "userinfo"), {
         email: loggedUser.email,
       });
-     }
+      userId = newDocRef.id;
+     } 
      else {
       querySnapshot.forEach((doc) => {
         userinfo = doc.data(); // Extracting user information from the document
@@ -101,26 +102,28 @@ const QuestionPage4 = ({
     // Logging the content of 'finalInArr'
     console.log(`final array -> ${finalInArr}`);
 
+    //This portion is when we use a ML model 🔽
+
     // Sending a POST request to an API endpoint with the 'finalInArr' as a query parameter
-    const response = await fetch(`${api}?description=${finalInArr}`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    // const response = await fetch(`${api}?description=${finalInArr}`, {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    // });
 
     let sno = 1;
 
- 
-    //  parse response
-    await response.json().then(async (value) => {
-      setOpArr(value);
+    
+    // For testing purposes, using a static value instead of getting from ML model
+      setOpArr((0.2 + Math.random() * (5 - 0.2)).toFixed(2));
+
       await updateDoc(washingtonRef, {
         info: arrayUnion({
           in: finalInArr,
-          op: value,
+          op: opArr,
         }),
-      }) });
+      }) 
    
   } catch (error){
     console.error("Error in handleClick:", error);

@@ -16,7 +16,6 @@ import {
 } from "firebase/firestore";
 import { db } from "../../firebase";
 
-
 const IndustryQuestionPage4 = ({
   setToggleQuestion,
   setHomeQuestion,
@@ -33,82 +32,82 @@ const IndustryQuestionPage4 = ({
   inArr,
   finalInArr,
   loggedUser,
+  opArrIndustry,
   setOpArrIndustry,
 }) => {
   let userinfo = {};
   let userId = "";
 
-  
   // Popup a toaster if the fields are empty else go to the next page
   const handleClick = async () => {
+    try {
+      if (!electricity || !ngas) {
+        notify();
+      } else {
+        setToggleQuestion(5);
+      }
 
+      // Base URL where the post request is sent
+      const api = "http://127.0.0.1:5000/query2";
 
-    try{
-    if (!electricity || !ngas) {
-      notify();
-    } else {
-      setToggleQuestion(5);
-    }
+      // Pushing all the input values in input array inArr.
+      inArr.push(floor);
+      inArr.push(parking);
+      inArr.push(building);
+      inArr.push(siteEUI);
+      inArr.push(sourceEUI);
+      inArr.push(steam);
+      inArr.push(electricity);
+      inArr.push(ngas);
+      inArr = inArr.slice(inArr.length - 8, inArr.length + 1);
+      finalInArr = inArr;
 
-    // Base URL where the post request is sent
-    const api = "http://127.0.0.1:5000/query2";
+      // Creating a query to fetch user info based on the logged-in user's email
+      const q = query(
+        collection(db, "userinfo"),
+        where("email", "==", loggedUser.email)
+      );
 
-    // Pushing all the input values in input array inArr.
-    inArr.push(floor);
-    inArr.push(parking);
-    inArr.push(building);
-    inArr.push(siteEUI);
-    inArr.push(sourceEUI);
-    inArr.push(steam);
-    inArr.push(electricity);
-    inArr.push(ngas);
-    inArr = inArr.slice(inArr.length - 8, inArr.length + 1);
-    finalInArr = inArr;
+      // Retrieving the query snapshot asynchronously
+      const querySnapshot = await getDocs(q);
+      console.log(querySnapshot);
 
-    // Creating a query to fetch user info based on the logged-in user's email
-    const q = query(
-      collection(db, "userinfo"),
-      where("email", "==", loggedUser.email)
-    );
+      if (querySnapshot.empty) {
+        // If the userinfo document doesn't exist, create it
+        const newDocRef = await addDoc(collection(db, "userinfo"), {
+          email: loggedUser.email,
+        });
+        userId = newDocRef.id;
+      } else {
+        querySnapshot.forEach((doc) => {
+          userinfo = doc.data(); // Extracting user information from the document
+          userId = doc.id; // Extracting the document ID (userId)
+        });
+      }
+      // Creating a reference to the specific document in the 'userinfo' collection using the userId
+      const washingtonRef = doc(db, "userinfo", userId);
+      console.log(`final array -> ${finalInArr}`);
 
-    // Retrieving the query snapshot asynchronously
-    const querySnapshot = await getDocs(q);
-    console.log(querySnapshot);
+      // Sending a POST request to an API endpoint with the 'finalInArr' as a query parameter
+      // const response = await fetch(`${api}?description=${finalInArr}`, {
+      //   method: "POST",
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //   },
+      // });
 
-     if(querySnapshot.empty){
-       // If the userinfo document doesn't exist, create it
-       const newDocRef = await addDoc(collection(db, "userinfo"), {
-        email: loggedUser.email,
-      });
-     }
-     else {
-      querySnapshot.forEach((doc) => {
-        userinfo = doc.data(); // Extracting user information from the document
-        userId = doc.id; // Extracting the document ID (userId)
-     });
-     }
-    // Creating a reference to the specific document in the 'userinfo' collection using the userId
-    const washingtonRef = doc(db, "userinfo", userId);
-    console.log(`final array -> ${finalInArr}`);
-
-    // Sending a POST request to an API endpoint with the 'finalInArr' as a query parameter
-    const response = await fetch(`${api}?description=${finalInArr}`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-
-    // parse response
-    await response.json().then(async (value) => {
-      setOpArrIndustry(value);
-      await updateDoc(washingtonRef, {
-        info2: arrayUnion({ in: finalInArr, timestamp: new Date(), op: value }),
-      });
-    });}
-     catch(error) {
+      setOpArrIndustry((0.2 + Math.random() * (5 - 0.2)).toFixed(2));
+        await updateDoc(washingtonRef, {
+          info2: arrayUnion({
+            in: finalInArr,
+            timestamp: new Date(),
+            op: opArrIndustry[0],
+          }),
+        });
+   
+    } catch (error) {
       console.log("Error in Handleclick: ", error);
-     }
+    }
 
     // Styling the toaster
     const notify = () =>

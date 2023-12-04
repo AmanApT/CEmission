@@ -70,6 +70,7 @@ const Question = ({ setHomeQuestion, loggedUser }) => {
           loggedUser={loggedUser}
           setOpArrIndustry={setOpArrIndustry}
           inArr={inArr}
+          opArrIndustry={opArrIndustry}
           finalInArr={finalInArr}
         />
       ) : toggleQuestion === 5 ?
