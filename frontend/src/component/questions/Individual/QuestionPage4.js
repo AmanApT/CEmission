@@ -55,7 +55,7 @@ const QuestionPage4 = ({
     }
 
      // Base URL where the post request is sent
-    const api = "http://127.0.0.1:5000/query1";
+    // const api = "http://127.0.0.1:5000/query1";
  
     // Pushing all the input values in input array inArr.
     inArr.push(eBill);
