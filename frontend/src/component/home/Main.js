@@ -10,7 +10,8 @@ import { FaBars, FaTimes } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import CalculateSection from "./CalculateSection";
 import "react-toastify/dist/ReactToastify.css";
-import config from "./Chatbot/config";
+// import config from "./Chatbot/config";
+import config from '../home/Chatbot/config'
 import { Chatbot } from "react-chatbot-kit";
 import ActionProvider from "./Chatbot/ActionProvider";
 import MessageParser from "./Chatbot/MessageParser";
