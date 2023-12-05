@@ -10,7 +10,7 @@ import { FaBars, FaTimes } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import CalculateSection from "./CalculateSection";
 import "react-toastify/dist/ReactToastify.css";
-import Config from "./Chatbot/config";
+import Config from "./Chatbot/Config";
 // import config from '../home/Chatbot/config'
 import { Chatbot } from "react-chatbot-kit";
 import ActionProvider from "./Chatbot/ActionProvider";
@@ -217,8 +217,6 @@ const Main = ({ setHomeQuestion, loggedUser, setCheckUser, setLoggedUser }) => {
             setHomeQuestion={setHomeQuestion}
             setCheckUser={setCheckUser}
             headerText="ChatBot"
-            // disableUserInput={true}
-            // height={200}
           />
         </div>
       ) : (
