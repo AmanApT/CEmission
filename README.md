@@ -2,6 +2,8 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Note : The default branch is one with the deployed link (only frontend), main branch is the complete project that has Machine Learning Model.
+
 ## Flow Chart of the project: 
 
 <img width="669" alt="Capture" src="https://github.com/AmanApT/CEmission/assets/90468306/652d568f-d552-4f8c-97df-09a464fd3498">
