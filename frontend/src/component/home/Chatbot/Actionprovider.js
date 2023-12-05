@@ -1,6 +1,6 @@
 import { createChatBotMessage } from "react-chatbot-kit";
 
-class ActionProvider {
+class Actionprovider {
   constructor(createChatBotMessage, setStateFunc) {
     this.createChatBotMessage = createChatBotMessage;
     this.setState = setStateFunc;
@@ -37,4 +37,4 @@ class ActionProvider {
   }
 }
 
-export default ActionProvider;
+export default Actionprovider;

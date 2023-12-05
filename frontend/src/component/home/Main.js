@@ -13,7 +13,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Config from "./Chatbot/Config";
 // import config from '../home/Chatbot/config'
 import { Chatbot } from "react-chatbot-kit";
-import ActionProvider from "./Chatbot/ActionProvider";
+import Actionprovider from "./Chatbot/Actionprovider";
 import MessageParser from "./Chatbot/MessageParser";
 import "react-chatbot-kit/build/main.css";
 import ChartHere from "./chart/ChartHere";
@@ -211,7 +211,7 @@ const Main = ({ setHomeQuestion, loggedUser, setCheckUser, setLoggedUser }) => {
         <div className="chatBot">
           <Chatbot
             config={Config}
-            actionProvider={ActionProvider}
+            actionProvider={Actionprovider}
             messageParser={MessageParser}
             loggedUser={loggedUser}
             setHomeQuestion={setHomeQuestion}
