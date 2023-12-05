@@ -7,7 +7,7 @@ import IndividualWidget from "./IndividualWidget";
 import IndustryWidget from "./IndustryWidget";
 import RateExperienceWidget from "./RateExperienceWidget";
 
-const config = {
+const Config = {
   botName: "My Chatbot",
   initialMessages: [
     createChatBotMessage("Welcome to Reclaim Green! How may I help you ?", {
@@ -42,4 +42,4 @@ const config = {
   ],
 };
 
-export default config;
+export default Config;
